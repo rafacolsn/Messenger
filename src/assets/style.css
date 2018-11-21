@@ -1,0 +1,17 @@
+#container {
+    background-color: aqua;
+}
+
+#left-column {
+    background-color: brown;
+}
+main {
+    background-color: blue;
+}
+
+#right-column {
+    background-color: grey;
+}
+#message {
+    justify-content: center;
+}
