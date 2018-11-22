@@ -787,7 +787,17 @@ Website: http://emilcarlsson.se/
             </ul>
          </div>
          <div id="bottom-bar">
-            <button id="addcontact"><i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> <span>Add contact</span></button>
+               <div class="dropup">
+                     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                     Add Contact
+                     <span class="caret"></span>
+                     </button>
+                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                     <li><a href="#" title="Lien 1">Entrez son adresse email</a></li>
+                     </ul>
+                     </div>
+
+
             <button id="settings"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> <span>Settings</span></button>
          </div>
       </div>

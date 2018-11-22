@@ -37,7 +37,7 @@ function newMessage() {
 	if($.trim(message) == '') {
 		return false;
 	}
-	$('<li class="sent"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>' + message + '</p></li>').appendTo($('.messages ul'));
+	$('<li class="sent"><img src="https://avatars1.githubusercontent.com/u/42454363?s=400&u=1acfd527896d6fcd3a6f3aa2ab2a1e0be01a162f&v=4" alt="" /><p>' + message + '</p></li>').appendTo($('.messages ul'));
 	$('.message-input input').val(null);
 	$('.contact.active .preview').html('<span>You: </span>' + message);
 	$(".messages").animate({ scrollTop: $(document).height() }, "fast");
@@ -46,6 +46,12 @@ function newMessage() {
 $('.submit').click(function() {
   newMessage();
 });
+
+$('#addcontact').click(function(){
+	$("#addcontact").toggleClass("expanded");
+})
+
+
 
 $(window).on('keydown', function(e) {
   if (e.which == 13) {
