@@ -129,10 +129,9 @@ Website: http://emilcarlsson.se/
                   <span class="caret"></span>
                </button>
                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                  <li><a href="#" title="Lien 1">Entrez son adresse email</a></li>
+                  <li><input type="text" placeholder="Enter Contact Email..." /></li>
                </ul>
             </div>
-
 
             <button id="settings"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> <span>Settings</span></button>
          </div>
