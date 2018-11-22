@@ -793,7 +793,7 @@ Website: http://emilcarlsson.se/
       </div>
       <div class="content">
          <div class="contact-profile">
-            <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+            <img src="https://contattafiles.s3.us-west-1.amazonaws.com/tnt14094/avatars/users/9wCPVsPmq1RCYdU/1587398-140x140.png?v=20180825071221" alt="" />
             <p>Leny Delnatte</p>
             <div class="social-media">
                <i class="fa fa-facebook" aria-hidden="true"></i>
