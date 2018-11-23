@@ -1,3 +1,4 @@
+//ANIMATION LOGIN/REGISTER
 $(function() {
 
     $('#login-form-link').click(function(e) {

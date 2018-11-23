@@ -1,3 +1,4 @@
+<?php include("assets/php/server.php") ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,15 +60,22 @@
 										</div>
 									</div>
 								</form>
-								<form id="register-form" action="" method="post" role="form" style="display: none;">
+								<form id="register-form" action="index.php" method="post" role="form" style="display: none;">
+									<?php include('assets/php/errors.php');?>
 									<div class="form-group">
-										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="<?php echo $username; ?>">
 									</div>
 									<div class="form-group">
-										<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+										<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="<?php echo $email; ?>">
 									</div>
 									<div class="form-group">
-										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+										<input type="text" name="firstname" id="firstname" tabindex="1" class="form-control" placeholder="Firstname" value="<?php echo $firstname; ?>">
+									</div>
+									<div class="form-group">
+										<input type="text" name="lastname" id="lastname" tabindex="1" class="form-control" placeholder="Lastname" value="<?php echo $lastname; ?>">
+									</div>
+									<div class="form-group">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" value="<?php echo $password1; ?>">
 									</div>
 									<div class="form-group">
 										<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
