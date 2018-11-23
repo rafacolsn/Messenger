@@ -3,6 +3,8 @@ body {
    grid-template-columns: 15% 1fr 15%;
    grid-template-rows: 15% 1fr 15%;
    background-color: rgba(35, 207, 216, 0.115);
+   font-family: 'Roboto', sans-serif;
+
 }
 
 #messaging {
@@ -13,7 +15,9 @@ body {
    margin: 0 auto;
    grid-column: 2/3;
    border-radius: 10px 10px 0% 0%;
-
+   color: white;
+   padding-left: 10px;
+   font-size: 12px;
 }
 
 
@@ -31,6 +35,11 @@ body {
    width: 350px;
    height: 80px;
    border-radius: 0% 0% 10px 10px;
+}
+
+textarea {
+   font-size: 8px;
+
 }
 
 #send {

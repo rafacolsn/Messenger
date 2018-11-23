@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
     <title>MEssenger</title>
 
 <body>
@@ -39,10 +41,14 @@
     <div id="conversations">
         <form method="post" action="">
             <div id="messaging">
-
-
+                <div id="conv">
+                    <p> <strong>You : </strong> Hello !</p>
+                    <p> <strong>Andy : </strong> J'ai faim</p>
+                    <p> <strong>Raphaël : </strong>Base de donnée, base de donnée,..</p>
+                    <p> <strong>Steve : </strong> Boushaba ?</p>
+                </div>
             </div>
-            <textarea class="area" type="text" name="message"> </textarea> <br>
+            <textarea class="area" type="text" name="message" placeholder="test"> </textarea> <br>
 
             <div id="send">
                 <input type="submit" value="Send" />
