@@ -66,6 +66,7 @@ require "./assets/php/connect2db.php";
 
                 </form>
                 <div id="contact">
+                    <li class='online'>Online</li>
                     <?php include 'invite.php';
             ?>
                 </div>

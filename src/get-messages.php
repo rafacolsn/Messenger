@@ -6,9 +6,9 @@
     $get_messages->execute();
     while ($donnees = $get_messages->fetch()) {
        
-         echo '<li class="sender"><strong>'.$donnees['pseudo'].'</strong>
+         echo utf8_encode('<li class="sender"><strong>'.$donnees['pseudo'].'</strong>
          <span class="date-msg"> '.$donnees['date_modif'].'</span><br />'
-         .nl2br(utf8_encode($donnees['content'])).'<br /></li>';
+         .nl2br($donnees['content']).'<br /></li>');
     }
     $get_messages->closeCursor();
 ?>

@@ -20,9 +20,11 @@ while($result = $invitation_sql->fetch())
 {
    
    echo "<br>";
-   echo $result['username']. " - " . "\n";
-   echo $result['firstname'] . "\n";
-   echo $result['lastname'] . "\n";
+   echo utf8_encode( "<li class='contact-list'>".$result['username']. "\n" . "</li>");
+
   
 }
+
+
+
 ?>
