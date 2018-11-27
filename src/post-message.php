@@ -1,4 +1,6 @@
 <?php
+
+
 require "messages.php";
 require "connexion.php";
 if(isset($_POST['send-message'])) {

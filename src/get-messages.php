@@ -8,7 +8,7 @@
        
          echo '<li class="sender"><strong>'.$donnees['pseudo'].'</strong>
          <span class="date-msg"> '.$donnees['date_modif'].'</span><br />'
-         .nl2br(htmlspecialchars($donnees['content'])).'<br /></li>';
-    };
+         .nl2br(utf8_encode($donnees['content'])).'<br /></li>';
+    }
     $get_messages->closeCursor();
 ?>
