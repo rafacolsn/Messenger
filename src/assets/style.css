@@ -244,3 +244,8 @@ span {
     background-color: #0187ee1a;
     color: #0b8f94;
 }
+.date-msg {
+    
+    color: red;
+    font-size: smaller;
+}
