@@ -1,4 +1,8 @@
-<?php include("assets/php/server.php") ?>
+<?php 
+require("assets/php/connect2db.php");
+require("assets/php/registerlogin.php");
+	
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,12 +35,12 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-								<form id="login-form" action="" method="post" role="form" style="display: block;">
+								<form id="login-form"  method="post" role="form" style="display: block;">
 									<div class="form-group">
-										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+										<input type="text" name="username" id="username1" tabindex="1" class="form-control" placeholder="Username" value="">
 									</div>
 									<div class="form-group">
-										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+										<input type="password" name="password" id="password1" tabindex="2" class="form-control" placeholder="Password">
 									</div>
 									<div class="form-group text-center">
 										<input type="checkbox" tabindex="3" class="" name="remember" id="remember">
@@ -60,7 +64,7 @@
 										</div>
 									</div>
 								</form>
-								<form id="register-form" action="index.php" method="post" role="form" style="display: none;">
+								<form id="register-form"  method="post" role="form" style="display: none;">
 									<?php include('assets/php/errors.php');?>
 									<div class="form-group">
 										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="<?php echo $username; ?>">
