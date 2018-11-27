@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php 
+require "./assets/php/connect2db.php";
 
+?>
+
+<!DOCTYPE html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/js/autoScrollToBottom.js"></script>
     <link rel="stylesheet" href="./assets/css/messenger.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
@@ -21,7 +26,7 @@
         </div>
 
         <div id="leftsettings">
-            <?php include 'leftmessage.php'; ?>
+            <?php require 'leftmessage.php'; ?>
         </div>
 
 
@@ -29,8 +34,8 @@
 
 <ul>
             <?php 
-               include 'chat.php';
-               include "get-messages.php";
+          
+               require "get-messages.php";
 
             ?>
 
@@ -69,10 +74,10 @@
 
                 <form action="post-message.php" method="post">
     
-                    <textarea name="sendmessage" placeholder="Write your message..." class="form-control" id="chat"></textarea>
+                    <textarea name="message" placeholder="Write your message..." class="form-control" id="chat"></textarea>
                     <div id="send">
     
-                        <input name="buttonsend" class="button-chat" type="submit" value="Send" />
+                        <input name="send-message" class="button-chat" type="submit" value="Send" />
     
                     </div>
                 </form>

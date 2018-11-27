@@ -12,8 +12,9 @@ if(isset($_POST['create-conv'])) {
       $result->execute([$conversation_sql]);
       
    } else {
-      echo "Topic name is empty";
+      var_dump ("Topic name is empty");
    }
 }
 include 'messenger.php';
+
 ?>

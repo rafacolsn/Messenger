@@ -1,4 +1,8 @@
 <?php
+
+date_default_timezone_set("Europe/Brussels");
+
+
     //CONNEXION A LA BASE DE DONNEES
     try {
         $connexion = new PDO("mysql:host=mysql;dbname=messenger", "messenger", "messenger");

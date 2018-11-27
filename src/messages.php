@@ -9,6 +9,4 @@
             $this->content = $content;
         }
     }
-    
-    
 ?>
