@@ -1,17 +1,246 @@
-#container {
-    background-color: aqua;
+#allchat {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 17% 1fr 15%;
+    grid-template-rows: 15% 1fr 20%;
 }
 
-#left-column {
-    background-color: brown;
-}
-main {
-    background-color: blue;
+
+#profil-topleft {
+    padding-top: 3vh;
+    grid-column: 1;
+    background-color: #00345c;
+    border-right: 3px solid #5d99c6;
+    display: grid;
+    justify-items: center;
+    border-bottom: 3px solid #0676cc;
 }
 
-#right-column {
-    background-color: grey;
+
+
+#profil-topleft p {
+    margin-bottom: 5vh;
 }
-#message {
+
+.connectedornot {
+    color: #0086ec;
+}
+
+
+#leftsettings {
+    grid-column: 1;
+    grid-row: 2/4;
+    background-color: #0187ee1a;
+    border-right: 0.3vh solid #0676cc;
+    height: auto;
+    overflow: auto;
+}
+
+#leftsettings::-webkit-scrollbar {
+    width: 0.8vh;
+}
+
+#leftsettings::-webkit-scrollbar-thumb {
+    background-color: #00345c;
+}
+
+
+.messageleft {
+    color: rgba(255, 255, 255, 0.767);
+    background-color: #02345a;
+    border: 0.1vh solid #fffffff5;
+    width: auto;
+    height: 10vh;
+    margin-top: 0.1vh;
+    font-size: 1.5vh;
+    overflow: auto;
+    justify-items: auto;
+    float: left;
+}
+
+.messageleft::-webkit-scrollbar {
+    width: 0.65vh;
+}
+
+.messageleft::-webkit-scrollbar-thumb {
+    background-color: #e06500;
+}
+
+.messageboxleft {
+    padding-left: 1vh;
+    padding-top: 1vh;
+} 
+
+.messageleft strong {
+    color: #e06500;
+    font-size: 1.3vh;
+    font-weight: bold;
+}
+
+
+#connected-right {
+    grid-column: 3;
+    grid-row: 1/4;
+    background-color: #0187ee1a;
+    height: auto;
+    border-left: 3px solid #0676cc;
+}
+
+#chat-middle-output {
+    border-top: 0.5vh solid #02345a;
+    grid-column: 2/3;
+    grid-row: 2/4;
+    background-color: #0187ee1a;
+    height: auto;
+    width: auto;
+    overflow: auto;
+    font-size: 1.35vh;
+}
+
+#chat-middle-output::-webkit-scrollbar {
+    width: 0.8vh;
+}
+
+#chat-middle-output::-webkit-scrollbar-thumb {
+    background-color: #00345c;
+}
+
+.sender {
+    border: 1px solid #c9cac9;
+    font-size: 1.35vh;
+    background-color: #00345c;
+    width: 50vh;
+    color: white;
+    border-radius: 1.5vh;
+    margin-bottom: 2vh;
+    padding-top: 0.8vh;
+    padding-bottom: 0.7vh;
+    padding-left: 1vh;
+    margin-left: 75vh;
+}
+
+.sender strong {
+    color: rgb(255, 115, 0);
+    font-size: 1.2vh;
+    font-weight: bold;
+}
+
+
+.you {
+    background-color: #0b8f94;
+    width: 55vh;
+    color: white;
+    border-radius: 1.5vh;
+    margin-bottom: 2vh;
+    padding-top: 0.8vh;
+    padding-bottom: 0.7vh;
+    padding-left: 1vh;
+    margin-left: 8vh;
+}
+
+img {
+    cursor: pointer;
+}
+
+.you:active {
+    color: rgba(255, 196, 0, 0.849);
+}
+
+.you strong {
+    color: #00345c;
+    font-size: 1.5vh;
+}
+
+.profilchat-you {
+    border-radius: 50%;
+    border: 0.1vh solid #00345c;
+    width: 5vh;
+    margin-right: 1vh;
+}
+
+.profilchat {
+    border-radius: 50%;
+    border: 0.1vh solid rgb(250, 108, 13);
+    width: 5vh;
+    margin-right: 1vh;
+}
+
+ul {
+    list-style: none;
+}
+
+span {
+    margin-bottom: 50px;
     justify-content: center;
+    position: relative;
+    text-align: right;
+
+}
+
+.Sender {
+
+    margin-bottom: 5vh;
+    justify-content: center;
+    text-align: center;
+    border-radius: .4em;
+}
+
+
+#chat {
+    color: red;
+    font-size: 1.5vh;
+    height: 10vh;
+    width: 100%;
+}
+
+#chat::-webkit-scrollbar {
+    width: 0.8vh;
+}
+
+#chat::-webkit-scrollbar-thumb {
+    background-color: #00345c;
+}
+
+#send {
+    display: grid;
+    height: 5vh;
+    width: auto;
+    grid-column: 3;
+}
+
+
+.buttonsend:active {
+    color: #03b7bd;
+    font-style: inherit;
+    background-color: #033966;
+}
+
+.messagesent {
+    background-color: #00345c;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+.button-conv {
+    background-color: #0086ec;
+    color: white;
+    cursor: pointer;
+}
+.form-control {
+    resize: none;
+
+}
+
+#messagebottom {
+    height: auto;
+    grid-column: 1 / 4;
+    grid-row: 4;
+    border-top: 3px solid #0676cc;
+}
+
+#messagebottom textarea {
+    background-color: #0187ee1a;
+    color: #0b8f94;
 }
