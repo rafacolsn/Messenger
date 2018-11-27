@@ -106,7 +106,7 @@
    width: 60vh;
    color: white;
    border-radius: 8px;
-   text-align: right;
+   text-align: center;
    padding-top: 2px;
    padding-bottom: 2px;
    padding-right: 30px;
@@ -168,6 +168,13 @@ img {
 
 ul {
    list-style: none;
+   justify-self: center;
+
+
+}
+
+ul li {
+   text-align: center;
 }
 
 
