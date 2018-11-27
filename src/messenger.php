@@ -5,6 +5,7 @@ require "./assets/php/connect2db.php";
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,60 +33,63 @@ require "./assets/php/connect2db.php";
 
         <div id="chat-middle-output">
 
-<ul>
-            <?php 
+            <ul>
+                <?php 
           
                require "get-messages.php";
 
             ?>
 
-</ul>
+            </ul>
         </div>
 
         <div id="topic-message-right">
-                <div id="topic-creating">
+            <div id="topic-creating">
 
-                        <form action="topic.php" method="post">
-        
-                            <textarea name="topic" placeholder="Topic name..." class="form-control" id="chat"></textarea>
-                            <div id="send">
-            
-            
-                            </div>
-                            <input name="create-conv" class="button-topic" type="submit" value="Create Topic" />
+                <form action="topic.php" method="post">
 
-                        </form>
-            
-                        <div id="send">
-            
-                            <form action="invite.php">
-                                <input type="submit" name="invite-conv" class="button-invite" value="Invite Members" />
-                        </div>
-            
-            <?php include 'invite.php';
-            ?>
-                        </form>
+                    <textarea name="topic" placeholder="Topic name..." class="form-control" id="chat"></textarea>
+                    <div id="send">
+
+
                     </div>
-            
-            
+                    <input name="create-conv" class="button-topic" type="submit" value="Create Topic" />
+
+                </form>
+
+                <div id="send">
+
+                    <form action="invite.php">
+                        <input type="submit" name="invite-conv" class="button-invite" value="Invite Members" />
+                </div>
+
+
+                </form>
+                <div id="contact">
+                    <?php include 'invite.php';
+            ?>
+                </div>
+            </div>
+
+
         </div>
 
         <div id="messagebottom">
 
-                <form action="post-message.php" method="post">
-    
-                    <textarea name="message" placeholder="Write your message..." class="form-control" id="chat"></textarea>
-                    <div id="send">
-    
-                        <input name="send-message" class="button-chat" type="submit" value="Send" />
-    
-                    </div>
-                </form>
-               
-    
-                </form>
-            </div>
-</div>
+            <form action="post-message.php" method="post">
+
+                <textarea name="message" placeholder="Write your message..." class="form-control" id="chat"></textarea>
+                <div id="send">
+
+                    <input name="send-message" class="button-chat" type="submit" value="Send" />
+
+                </div>
+            </form>
+
+
+            </form>
+        </div>
+    </div>
 
 </body>
 
