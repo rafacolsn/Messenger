@@ -1,6 +1,9 @@
 <?php
 session_start();
 $username = $_SESSION['username'];
+$id_user1 = $_SESSION['id_user'];
+var_dump($id_user1);
+var_dump($username);
 require "assets/php/connect2db.php";
 $id_sql = $connexion->prepare("SELECT id_user FROM T_USERS WHERE username = :username");
 $id_sql->bindValue(':username',$username);
@@ -15,7 +18,7 @@ if(isset($_POST['send-message'])) {
     $convers = 21;
     $message = new Message($author, $convers, $text_message);
     
-    if ($text_message != "")
+    if ($text_message != "" && strlen($text_message) < 2500)
     {
         $stmt = $connexion->prepare("INSERT INTO T_MESSAGES (author_id,conversation_id,content) VALUES (:author,:convers,:content)");
         $stmt->bindValue(':author', $author);
@@ -25,7 +28,7 @@ if(isset($_POST['send-message'])) {
     }
 
     else {
-        echo "Message is empty !";
+        echo "Message is not valid (empty or too long) !";
     }
     
 }
