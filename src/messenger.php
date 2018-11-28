@@ -3,6 +3,7 @@ session_start();
 $username = $_SESSION['username'];
 require "./assets/php/connect2db.php";
 require "./assets/php/registerlogin.php";
+require "messages.php";
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +14,7 @@ require "./assets/php/registerlogin.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="../assets/js/autoScrollToBottom.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/messenger.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
@@ -25,7 +27,7 @@ require "./assets/php/registerlogin.php";
     <div id="allchat">
         <div id="profil-topleft"><img src="https://avatars1.githubusercontent.com/u/42454363?s=400&u=1acfd527896d6fcd3a6f3aa2ab2a1e0be01a162f&v=4"
                 alt="" class="profilchat-you">
-            <p class="connectedornot"><br>Connected !</p>
+            <p class="connectedornot"><br><?= $username ?></p>
         </div>
 
         <div id="leftsettings">
@@ -36,12 +38,7 @@ require "./assets/php/registerlogin.php";
         <div id="chat-middle-output">
 
             <ul>
-                <?php 
-          
-               require "get-messages.php";
-
-            ?>
-
+                <?php require "display-messages.php"; ?>
             </ul>
         </div>
 
