@@ -1,9 +1,6 @@
 <?php
- 
-    require_once("assets/php/user.php");
-
+    require_once "assets/php/user.php";
     $errors = array();
-    
     //REGISTER
 
     // IF REGISTER IS CLICKEDz
@@ -69,6 +66,7 @@
                 session_start();
                 $_SESSION['user_id'] = $user['id_user'];
                 $_SESSION['logged_in'] = time();
+                $_SESSION['username'] = $username;
                 header('Location: ../messenger.php');
                 exit;
             } else {

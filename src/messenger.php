@@ -1,6 +1,8 @@
 <?php 
+session_start();
+$username = $_SESSION['username'];
 require "./assets/php/connect2db.php";
-
+require "./assets/php/registerlogin.php";
 ?>
 
 <!DOCTYPE html>
@@ -83,7 +85,11 @@ require "./assets/php/connect2db.php";
                 <div id="send">
 
                     <input name="send-message" class="button-chat" type="submit" value="Send" />
-
+                    <?php 
+                    
+                    
+                    echo $username;
+                    ?>
                 </div>
             </form>
 

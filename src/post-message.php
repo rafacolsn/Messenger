@@ -1,11 +1,21 @@
 <?php
+<<<<<<< HEAD
 
+=======
+session_start();
+$username = $_SESSION['username'];
+require "assets/php/connect2db.php";
+$id_sql = $connexion->prepare("SELECT id_user FROM T_USERS WHERE username = :username");
+$id_sql->bindValue(':username',$username);
+$id_sql->execute();
+$id_user = $id_sql->fetch(PDO::FETCH_OBJ);
+>>>>>>> 6c92b482cd2bdbe41b8ebd7977b3f3d41316a30d
 
 require "messages.php";
-require "connexion.php";
+
 if(isset($_POST['send-message'])) {
     $text_message = $_POST['message'];
-    $author = 3;
+    $author = intval($id_user->id_user);
     $convers = 21;
     $message = new Message($author, $convers, $text_message);
     
