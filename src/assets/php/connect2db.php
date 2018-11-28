@@ -9,4 +9,7 @@ try {
 } catch (PDOException $e) {
     echo("Connection failed".$e->getMessage());
 }
+
+$username = $_SESSION['username'];
+
 ?>

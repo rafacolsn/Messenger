@@ -28,6 +28,7 @@
    background-color: #02345a;
    height: auto;
    overflow: auto;
+
 }
 
 #leftsettings::-webkit-scrollbar {
@@ -39,17 +40,16 @@
 }
 
 
-.messageleft {
+.messageleft .topicleft{
    color: rgba(255, 255, 255, 0.767);
    background-color: #02345a;
-   border: 1px solid #3888c2;
-   width: auto;
-   height: 10vh;
-   margin-top: 5px;
-   font-size: 1.5vh;
+   border: 1px solid #1b5a88;
+   height: auto;
+   font-size: 0.9em;
    overflow: hidden;
    justify-items: auto;
-   float: left;
+   cursor: pointer;
+
 }
 
 .messageleft::-webkit-scrollbar {
@@ -282,4 +282,10 @@ ul li {
    list-style: none;
    background-color: green;
    color: white;
+}
+
+.topic-name-chat {
+	color: green;
+	font-size: 20px;
+
 }
