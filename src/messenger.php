@@ -1,9 +1,8 @@
 <?php 
-    session_start();
-    $username = $_SESSION['username'];
-    require "./assets/php/connect2db.php";
-    require "./assets/php/registerlogin.php";
-    require_once "messages.php";
+session_start();
+$username = $_SESSION['username'];
+require "./assets/php/connect2db.php";
+require "./assets/php/registerlogin.php";
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +41,10 @@
         <div id="chat-middle-output">
 
             <ul>
-                <?php require "display-messages.php"; ?>
+                <?php 
+                require "display-messages.php"; 
+                ?>
+
             </ul>
         </div>
 
