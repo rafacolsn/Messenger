@@ -2,7 +2,7 @@
 
 
 require "messages.php";
-require "connexion.php";
+require "./assets/php/connect2db.php";
 if(isset($_POST['send-message'])) {
     $text_message = $_POST['message'];
     $author = 3;
