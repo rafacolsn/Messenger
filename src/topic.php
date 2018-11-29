@@ -14,9 +14,17 @@ $author = intval($id_user->id_user);
 if (isset($_POST['create-conv']))
 	{
 	$topic_creat = $_POST['topic'];
-	if ($topic_creat == "")
+	
+	if ($topic_creat !== "")
 		{
-		var_dump("Topic name is empty");
+			$subject = $topic_creat;
+			$result = $connexion->prepare("INSERT INTO T_CONVERSATION (author_id, subject) VALUES (:author,:topic)");
+			$result->bindValue(':author', $author);
+			$result->bindValue(':topic', $topic_creat);
+			$result->execute();
+		}  else
+		{
+			var_dump("Topic name is empty");
 		}
 	}
 
@@ -24,14 +32,7 @@ if (strlen($topic_creat) > 50)
 	{
 	var_dump($topic_creat . " " . " is too long, maximum 20 characters");
 	}
-  else
-	{
-	$subject = $topic_creat;
-	$result = $connexion->prepare("INSERT INTO T_CONVERSATION (author_id, subject) VALUES (:author,:topic)");
-	$result->bindValue(':author', $author);
-	$result->bindValue(':topic', $topic_creat);
-	$result->execute();
-	}
+ 
 
 include 'messenger.php';
 
