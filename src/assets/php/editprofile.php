@@ -4,6 +4,8 @@
     require "assets/php/connect2db.php";
 
     if(isset($_POST['confirm-password'])){
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
         $password1 = $_POST['password'];
         $confirmPassword = $_POST['confirm-password'];
         if ($password1 === $confirmPassword) {
@@ -12,7 +14,8 @@
             $stmt = $connexion->prepare($sql);
             $stmt->bindValue(':password',$cryptPassword);
             $stmt->execute();
-        } 
+        }
+        if(isset($_POST['firstname']))
 
     }
 ?>
