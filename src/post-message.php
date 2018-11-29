@@ -13,10 +13,11 @@ if(isset($_POST['send-message'])) {
     
     if ($text_message != "")
     {
-        $message = new Message(['author_id'=>$author, 'conversation_id'=>$convers, 'content'=>$text_message]); //instancie un message avec un tableau
-        $msg_db = new MessagesManager($connexion);
-        $msg_db->add($message);
-
+        $stmt = $connexion->prepare("INSERT INTO T_MESSAGES (author_id,conversation_id,content) VALUES (:author,:convers,:content)");
+        $stmt->bindValue(':author', $author);
+        $stmt->bindValue(':convers', $convers);
+        $stmt->bindValue(':content', $text_message);    
+        $stmt->execute();
        
     }
 
