@@ -18,6 +18,8 @@ require "messages.php";
     <link rel="stylesheet" href="./assets/css/messenger.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/emoji.css" rel="stylesheet">
 
     <title>Maquette - Messenger</title>
 </head>
@@ -48,7 +50,7 @@ require "messages.php";
                 <form action="topic.php" method="post">
 
                     <textarea name="topic" placeholder="Topic name..." class="form-control" id="chat"></textarea>
-                    <div id="send">
+                    <div class="send">
 
 
                     </div>
@@ -56,7 +58,7 @@ require "messages.php";
 
                 </form>
 
-                <div id="send">
+                <div class="send">
 
                     <form action="invite.php">
                         <input type="submit" name="invite-conv" class="button-invite" value="Invite Members" />
@@ -78,7 +80,8 @@ require "messages.php";
             <form action="post-message.php" method="post">
 
                 <textarea name="message" placeholder="Write your message..." class="form-control" id="chat"></textarea>
-                <div id="send">
+                <div c="send">
+                <input name ="test" type="text" data-emojiable="true">
 
                     <input name="send-message" class="button-chat" type="submit" value="Send" />
                     <?php 
@@ -94,6 +97,24 @@ require "messages.php";
         </div>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/jquery.emojiarea.js"></script>
+    <script src="assets/js/emoji-picker.js"></script>
+    <script>
+        window.emojiPicker = new EmojiPicker( {
+        emojiable_selector: '[data-emojiable=true]',
+        assetsPath: 'assets/img',
+        popupButtonClasses: 'fa fa-smile-o'
+        } );
+
+        // Finds all elements with emojiable_selector and converts them to rich emoji input fields
+        // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
+        // It can be called as many times as necessary; previously converted input fields will not be converted again
+
+        window.emojiPicker.discover();
+    </script>
 </body>
 
 </html>

@@ -1,6 +1,7 @@
 <?php
 require "assets/php/connect2db.php";
 require "messages-manager.php";
+
 $msg_db = new MessagesManager($connexion);
 $msg_db->getList();
 var_dump($msg_list[0]);
