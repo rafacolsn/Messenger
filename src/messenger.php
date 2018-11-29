@@ -3,7 +3,7 @@
     $username = $_SESSION['username'];
     require "./assets/php/connect2db.php";
     require "./assets/php/registerlogin.php";
-    require "messages.php";
+    require_once "messages.php";
 ?>
 
 <!DOCTYPE html>
@@ -19,12 +19,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-<<<<<<< HEAD
     <link href="assets/css/emoji.css" rel="stylesheet">
-
-=======
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
->>>>>>> Steve
     <title>Maquette - Messenger</title>
 </head>
 
@@ -33,12 +29,9 @@
     <div id="allchat">
         <div id="profil-topleft"><img src="https://avatars1.githubusercontent.com/u/42454363?s=400&u=1acfd527896d6fcd3a6f3aa2ab2a1e0be01a162f&v=4"
                 alt="" class="profilchat-you">
-<<<<<<< HEAD
-            <p class="connectedornot"><br><?= $username ?></p>
-=======
+            
                 <a href="myprofile.php">Mon Profil</a>
             <p class="connectedornot"><br>Connected !</p>
->>>>>>> Steve
         </div>
 
         <div id="leftsettings">
