@@ -15,43 +15,57 @@
     <title>My Profile</title>
 </head>
 <body>
-    <div class="container">
-        <div class="pseudo-profil">
-            <?php echo("Profil de ".$username) ?>
-        </div>
-        <div class="modify-password">
-        <form action="" method="post">
-        <div class="row">
-		<div class="col-md-6 offset-md-3">
-                    <span class="anchor" id="formChangePassword"></span>
-                    <hr class="mb-5">
-
-                    <div class="card card-outline-secondary">
-                        <div class="card-header">
-                            <h3 class="mb-0">Change Password</h3>
-                        </div>
-                        <div class="card-body">
-                            <form class="form" role="form" autocomplete="off">
-                                <div class="form-group">
-                                    <label for="inputPasswordOld">New Password</label>
-                                    <input type="password" name="password" class="form-control" id="inputPasswordOld" required="">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputPasswordNew"> Confirm New Password</label>
-                                    <input type="password" name="confirm-password" class="form-control" id="inputPasswordNew" required="">
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-success btn-lg float-right">Save</button>
-                                </div>
-                            </form>
-                        </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <span class="anchor" id="formChangePassword"></span>
+            <hr class="mb-5">
+                <div class="card card-outline-secondary">
+                    <div class="card-header">
+                        <h3 class="mb-0">Change Password</h3>
                     </div>
-
+                    <div class="card-body">
+                        <form class="form" role="form" method="post" autocomplete="off">
+                            <div class="form-group">
+                                <label for="inputPassword">New Password</label>
+                                <input type="password" name="password" class="form-control" id="inputPassword" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputConfirmPassword"> Confirm New Password</label>
+                                <input type="password" name="confirm-password" class="form-control" id="inputConfirmPassword" required="">
+                            </div>
+                            <div class="form-group">
+                            <button type="submit" name="save-password" class="btn btn-success btn-lg float-right">Save</button>
+                            </div>
+                        </form>
+                 </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <span class="anchor" id="formChangePassword"></span>
+            <hr class="mb-5">
+                <div class="card card-outline-secondary">
+                    <div class="card-header">
+                        <h3 class="mb-0">Change Firstname & Lastname</h3>
+                    </div>
+                    <div class="card-body">
+                        <form class="form" role="form" method="post" autocomplete="off">
+                            <div class="form-group">
+                                <label for="inputFirstname">New Firstname</label>
+                                <input type="text" name="firstname" class="form-control" id="inputFirstname" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputLastname">New Lastname</label>
+                                <input type="text" name="lastname" class="form-control" id="inputLastname" required="">
+                            </div>
+                            <div class="form-group">
+                            <button type="submit" name="change-names" class="btn btn-success btn-lg float-right">Save</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-	</div>
-        </form>
-        </div>    
         </div>
     </div>
+</div>
 </body>
 </html>
