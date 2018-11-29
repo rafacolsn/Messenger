@@ -1,27 +1,25 @@
 <?php
-
-
-require "messages.php";
-require "connexion.php";
-
-
-
+session_start();
+require "assets/php/connect2db.php";
+require "messages-manager.php";
 
 if(isset($_POST['send-message'])) {
-    
-    $author = 3;
-    $convers = 21;
     $text_message = $_POST['message'];
+    $author = $_SESSION['user_id'];
+    $convers = 21; //à remplacer par un $_SESSION['topic'] ?
+    
+    
+    if ($text_message != "" && strlen($text_message) < 2500)
+    {
+        $message = new Message($author, $convers, $text_message);
+        $msg_db = new MessagesManager($connexion);
+        $msg_db->add($message);
 
-    $message = new Message($author, $convers, $text_message);
-    
-    
+        // inscrit le message dans la db
+    }
+    else {
+        echo "Message is not valid (empty or too long) !";
+    }
 }
-
-$stmt = $connexion->prepare("INSERT INTO T_MESSAGES (author_id,conversation_id,content) VALUES (:author,:convers,:content)");
-    $stmt->bindValue(':author', $author);
-    $stmt->bindValue(':convers', $convers);
-    $stmt->bindValue(':content', $text_message);    
-$stmt->execute();
-require "index.php";
+require "messenger.php"; // renvoie à la page du chat
 ?>

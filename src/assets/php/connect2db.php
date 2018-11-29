@@ -1,8 +1,5 @@
 <?php
-
 date_default_timezone_set("Europe/Brussels");
-
-
 try {
     $timezone = date_default_timezone_get();
     $connexion = new PDO("mysql:host=mysql;dbname=messenger", "messenger", "messenger");

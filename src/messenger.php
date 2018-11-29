@@ -1,66 +1,99 @@
+<?php 
+session_start();
+$username = $_SESSION['username'];
+require "./assets/php/connect2db.php";
+require "./assets/php/registerlogin.php";
+require "messages.php";
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="../assets/js/autoScrollToBottom.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/messenger.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
 
-    <link rel="stylesheet" href="../assets/style.css">
-    <title>Messenger</title>
+    <title>Maquette - Messenger</title>
 </head>
+
+
 <body>
-    <header>
-        <h1>CHAT</h1>
-    </header>
-    <div id="container" class="row">
-        
-        <aside id="left-column" class="col">
-            
-            <div id="profil">
-                <h2>Mon profil</h2>
-                <p>blabla</p>
-            </div>
-            
-            <div id="salons">
-                <h2>Salons</h2>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est placeat magnam itaque sapiente soluta repellendus deleniti expedita deserunt odit eum voluptates animi qui, vero rerum atque aliquid, amet neque provident.</p>
-            </div>
+    <div id="allchat">
+        <div id="profil-topleft"><img src="https://avatars1.githubusercontent.com/u/42454363?s=400&u=1acfd527896d6fcd3a6f3aa2ab2a1e0be01a162f&v=4"
+                alt="" class="profilchat-you">
+            <p class="connectedornot"><br><?= $username ?></p>
+        </div>
 
-        </aside>
-        
-        <main class="col-8">
-            
-            <article id="conversations">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque quae eos dignissimos voluptate dolorem ipsam fugit beatae, quas accusantium rem voluptas vel, similique delectus at tempora, quo doloribus sed ducimus?</p>
-            </article>
-            <div id="message">
-                <form>
-                    <input type="text" placeholder="Type your message...">
-                    <input type="submit">
+        <div id="leftsettings">
+            <?php require 'leftmessage.php'; ?>
+        </div>
+
+
+        <div id="chat-middle-output">
+
+            <ul>
+                <?php require "display-messages.php"; ?>
+            </ul>
+        </div>
+
+        <div id="topic-message-right">
+            <div id="topic-creating">
+
+                <form action="topic.php" method="post">
+
+                    <textarea name="topic" placeholder="Topic name..." class="form-control" id="chat"></textarea>
+                    <div id="send">
+
+
+                    </div>
+                    <input name="create-conv" class="button-topic" type="submit" value="Create Topic" />
+
                 </form>
+
+                <div id="send">
+
+                    <form action="invite.php">
+                        <input type="submit" name="invite-conv" class="button-invite" value="Invite Members" />
+                </div>
+
+
+                </form>
+                <div id="contact">
+                    <?php include 'invite.php';
+            ?>
+                </div>
             </div>
-            
-            
-        
-        </main>
-        
-        <aside id="right-column" class="col">
 
-            <div id="users">
-                <h2>Connectés</h2>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque sequi quisquam maxime eos ullam. Placeat tempora veritatis in! Sint temporibus at commodi deserunt accusantium ea optio corrupti natus non nesciunt?</p>
-            </div>   
 
-        </aside>
+        </div>
+
+        <div id="messagebottom">
+
+            <form action="post-message.php" method="post">
+
+                <textarea name="message" placeholder="Write your message..." class="form-control" id="chat"></textarea>
+                <div id="send">
+
+                    <input name="send-message" class="button-chat" type="submit" value="Send" />
+                    <?php 
+                    
+                    
+                    echo $username;
+                    ?>
+                </div>
+            </form>
+
+
+            </form>
+        </div>
     </div>
-    <footer>
-        <p>Un chat réalisé par Andy, Raph, Stev & Youssef</p>
-    </footer>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
+
 </html>
