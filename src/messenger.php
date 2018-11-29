@@ -3,7 +3,6 @@ session_start();
 $username = $_SESSION['username'];
 require "./assets/php/connect2db.php";
 require "./assets/php/registerlogin.php";
-require "messages.php";
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +37,10 @@ require "messages.php";
         <div id="chat-middle-output">
 
             <ul>
-                <?php require "display-messages.php"; ?>
+                <?php 
+                require "display-messages.php"; 
+                ?>
+
             </ul>
         </div>
 
