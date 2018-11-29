@@ -2,6 +2,20 @@
 
 > Simple messenger in PHP
 
+## Départ
+
+Maquette a faire
+Page d'accueuil / Page d'inscription
+
+Page de connexion (option pop-up)
+
+Salon "Welcome"
+
+Création de salon (option)
+
+Page Profil (modification user ou mdp)
+
+
 * * *
 
 Le but de cet exercice est de réaliser une petite messagerie web (un mélange entre un webmail et un slack/ryver), en PHP/MySQL.
