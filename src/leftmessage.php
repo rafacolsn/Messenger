@@ -9,7 +9,7 @@
     $get_topics->execute();
 
     while($datatopic = $get_topics->fetch() ) {
-        echo '<li class="topicleft" name="topicname">'.$datatopic['topicname'].'</li><br>';
+        echo '<a href="topic.php"><li class="topicleft" name="topicname">'.$datatopic['topicname'].'</li></a><br>';
 
     };
 

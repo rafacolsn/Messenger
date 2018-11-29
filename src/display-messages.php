@@ -22,10 +22,10 @@ $req = $connexion->prepare(
         while ($donnees = $req->fetch()) {  
             if ($donnees['conv_id'] == $conv_id) {
                     echo '<li class="sender">
-                            <strong>'.$donnees['pseudo'].'</strong>
-                            <span class="date-msg"> '.$donnees['date_crea'].'</span>
-                            <i class="fas fa-pencil-alt"></i><br />'
-                            .nl2br(htmlspecialchars($donnees['contenu'])).'<br />
+                                  <strong>'.$donnees['pseudo'].'</strong><p>'
+                                  .nl2br(htmlspecialchars($donnees['contenu'])).'</p>
+                                  <span class="date-msg"> '.$donnees['date_crea']. '
+                                  <i class="fas fa-pencil-alt"></i>  </span>
                         </li>';
                 
             }; 

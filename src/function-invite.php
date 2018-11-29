@@ -1,31 +1,44 @@
 <?php
 
+invitation();
+
+
  function allmembers(){
-	 require './assets/php/connect2db.php';
+	require './assets/php/connect2db.php';
 		$invitation_sql = $connexion->prepare("SELECT username, id_user,firstname, lastname FROM `T_USERS` ORDER BY `T_USERS`.`username` ASC");
 		
 		$invitation_sql->execute();
 		while ($result = $invitation_sql->fetch())
 			{
             echo "<br />";
-				echo ("<button class='contact-list'>" . $result['username'] );
+				echo ("<a href='function-invite.php'><li class='contact-list'>" . $result['username'] . "</li> </a>" );
 
 			}
 		};
 
 	function invitation()
 		{
-		if (!isset($_SESSION['conversation_id']))
-			{
-			$_SESSION['conversation_id'] = array();
-			$_SESSION['conversation_id']['author_id'] = array();
-			$_SESSION['conversation_id']['subject'] = array();
-			$_SESSION['conversation_id']['countmembers'] = array();
-			$invite_members = $connexion->query("SELECT username FROM `T_USERS`");
-			$created_topic = $connexion->query("SELECT content FROM `T_CONVERSATION`");
-			}
+			require "assets/php/connect2db.php";
 
-		return true;
+			if (!isset($_SESSION['id_conversation']))
+						{
+						$_SESSION['id_conversation'] = array();
+						$_SESSION['id_conversation']['author_id'] = array();
+						$_SESSION['id_conversation']['subject'] = array();
+						$invite_members = $connexion->prepare("SELECT username FROM `T_USERS`");
+						$invite_members->execute();
+			
+						$created_topic = $connexion->prepare("SELECT subject FROM `T_CONVERSATION`");
+						$created_topic->execute();
+
+						while($topicinvitation222 = $invite_members->fetch() ) {
+							echo '<li class="topicleft" name="topicname">'.$topicinvitation222['topicname'].'</li><br>';
+				 
+					  };
+
+						}
+						// print_r($created_topic);
+						// print_r($invite_members);
 		}
 
 	function addMembers($author_id, $subject)

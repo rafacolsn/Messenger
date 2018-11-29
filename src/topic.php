@@ -1,7 +1,9 @@
 <?php
 session_start();
-$username = $_SESSION['username'];
 require "assets/php/connect2db.php";
+
+$username = $_SESSION['username'];
+
 
 $id_sql = $connexion->prepare("SELECT id_user FROM T_USERS WHERE username = :username");
 $id_sql->bindValue(':username', $username);
@@ -22,17 +24,24 @@ if (isset($_POST['create-conv']))
 			$result->bindValue(':author', $author);
 			$result->bindValue(':topic', $topic_creat);
 			$result->execute();
-		}  else
+
+if($topic_creat == $result) {
+	var_dump("Dejà crée");
+}
+ 
+		} 
+		
+		else
 		{
 			var_dump("Topic name is empty");
-		}
+		} 
 	}
 
 if (strlen($topic_creat) > 50)
 	{
 	var_dump($topic_creat . " " . " is too long, maximum 20 characters");
 	}
- 
+
 
 include 'messenger.php';
 
