@@ -1,9 +1,9 @@
 <?php 
-session_start();
-$username = $_SESSION['username'];
-require "./assets/php/connect2db.php";
-require "./assets/php/registerlogin.php";
-require "messages.php";
+    session_start();
+    $username = $_SESSION['username'];
+    require "./assets/php/connect2db.php";
+    require "./assets/php/registerlogin.php";
+    require "messages.php";
 ?>
 
 <!DOCTYPE html>
@@ -68,33 +68,22 @@ require "messages.php";
                 </form>
                 <div id="contact">
                     <?php include 'invite.php';
-            ?>
+                    ?>
                 </div>
             </div>
 
-
         </div>
-
-        <div id="messagebottom">
-
-            <form action="post-message.php" method="post">
-
-                <textarea name="message" placeholder="Write your message..." class="form-control" id="chat"></textarea>
-                <div c="send">
-                <input name ="test" type="text" data-emojiable="true">
-
-                    <input name="send-message" class="button-chat" type="submit" value="Send" />
-                    <?php 
-                    
-                    
-                    echo $username;
-                    ?>
+        <form action="post-message.php" method="post">
+        <div id="messagebottom"> 
+                <div class="send">
+                    <div class= emo>
+                        <textarea data-emojiable="true" name="message"  placeholder="Write your message..." class="form-control" id="chat"></textarea>
+                        <input  name="send-message" class="button-chat" type="submit" value="Send" />
+                    </div>
+                     
                 </div>
-            </form>
-
-
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

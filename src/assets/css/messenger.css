@@ -252,3 +252,7 @@ ul li {
    background-color: #0187ee1a;
    color: #032944b4;
 }
+.emo{
+   display:flex;
+   flex-direction: row;
+}
