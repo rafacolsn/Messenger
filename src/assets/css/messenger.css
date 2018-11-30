@@ -87,7 +87,7 @@ list-style: none;
    background-color: #0187ee1a;
    height: auto;
    width: auto;
-   overflow:hidden;
+   overflow:auto;
    display: grid;
 }
 
