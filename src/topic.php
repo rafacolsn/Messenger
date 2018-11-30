@@ -26,7 +26,7 @@ if (isset($_POST['create-conv']))
 			$result->execute();
 
 if($topic_creat == $result) {
-	var_dump("Dejà crée");
+	var_dump("Dejà créé");
 }
  
 		} 
@@ -39,7 +39,7 @@ if($topic_creat == $result) {
 
 if (strlen($topic_creat) > 50)
 	{
-	var_dump($topic_creat . " " . " is too long, maximum 20 characters");
+	var_dump($topic_creat . " " . " is too long, maximum 50 characters");
 	}
 
 

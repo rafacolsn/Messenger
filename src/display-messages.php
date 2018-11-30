@@ -6,8 +6,8 @@ require_once "messages.php";
 // requête pour afficher les messages avec leurs auteurs et l'id de la conversation
 $req = $connexion->prepare(
         "SELECT m.content AS contenu, 
-        DATE_FORMAT(m.date_creation, '%d/%m/%Y %Hh%i') AS date_crea, 
-        DATE_FORMAT(m.date_modif, '%d/%m/%Y %Hh%i') AS date_modif, 
+        DATE_FORMAT(m.date_creation, '%d/%m/%Y %Hh%i %s') AS date_crea, 
+        DATE_FORMAT(m.date_modif, '%d/%m/%Y %Hh%i %s') AS date_modif, 
         m.conversation_id AS conv_id, 
         m.author_id AS author, 
         m.unread AS unread, 
@@ -17,7 +17,7 @@ $req = $connexion->prepare(
         ORDER BY date_crea ASC");
         
         $req->execute(); 
-        $conv_id = 21; //à remplacer par un $_SESSION['topic'] ?
+        $conv_id = $_GET['cv_id']; //à remplacer par un $_SESSION['topic'] ?
     
         // on fait une boucle qui génère des balises li
         while ($donnees = $req->fetch()) {  
