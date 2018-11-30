@@ -1,7 +1,6 @@
 <?php
 session_start();
 require "assets/php/connect2db.php";
-require_once "messages.php";
 
 // requête pour afficher les messages avec leurs auteurs et l'id de la conversation
 $req = $connexion->prepare(
@@ -17,11 +16,11 @@ $req = $connexion->prepare(
         ORDER BY date_crea ASC");
         
         $req->execute(); 
-        $conv_id = $_GET['cv_id']; //à remplacer par un $_SESSION['topic'] ?
-    
+        $_SESSION['cv_id'] = $_GET['cv_id']; //paramètre de l'url dans la boucle leftmessage.php
+        
         // on fait une boucle qui génère des balises li
         while ($donnees = $req->fetch()) {  
-            if ($donnees['conv_id'] == $conv_id) {
+            if ($donnees['conv_id'] == $_SESSION['cv_id']) {
                     if ($donnees['author'] === $_SESSION['user_id']) {
                     echo '<li class="you">
                                 <strong>'.$donnees['pseudo'].'</strong>
