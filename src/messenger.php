@@ -1,8 +1,13 @@
 <?php 
 session_start();
 $username = $_SESSION['username'];
+$id = intval($_SESSION['user_id']);
 require "./assets/php/connect2db.php";
 require "./assets/php/registerlogin.php";
+require "./assets/php/editprofile.php";
+$reqUser = $connexion->prepare("SELECT * FROM T_USERS WHERE id_user = $id");
+$reqUser->execute();
+$userInfo = $reqUser->fetch();
 ?>
 
 <!DOCTYPE html>
@@ -24,9 +29,13 @@ require "./assets/php/registerlogin.php";
 
 <body>
     <div id="allchat">
-        <div id="profil-topleft"><img src="https://avatars1.githubusercontent.com/u/42454363?s=400&u=1acfd527896d6fcd3a6f3aa2ab2a1e0be01a162f&v=4"
-                alt="" class="profilchat-you">
-                <a href="myprofile.php">Mon Profil</a>
+        <div id="profil-topleft">
+        <?php if(!empty($userInfo['avatar'])){?>
+        <img src="./assets/upload/<?php echo $userInfo['avatar'];?>" alt="" class="profilchat-you">
+        <?php
+        }
+        ?>
+            <a href="myprofile.php">Mon Profil</a>
             <p class="connectedornot"><br>Connected !</p>
         </div>
 
