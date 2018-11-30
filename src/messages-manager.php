@@ -2,7 +2,6 @@
 session_start();
 require "assets/php/connect2db.php";
 
-
 class MessagesManager {
 
     public $connect;

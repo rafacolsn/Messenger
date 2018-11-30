@@ -17,7 +17,9 @@ require "./assets/php/registerlogin.php";
     <link rel="stylesheet" href="./assets/css/messenger.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/emoji.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <title>Maquette - Messenger</title>
 </head>
 
@@ -26,11 +28,19 @@ require "./assets/php/registerlogin.php";
     <div id="allchat">
         <div id="profil-topleft"><img src="https://avatars1.githubusercontent.com/u/42454363?s=400&u=1acfd527896d6fcd3a6f3aa2ab2a1e0be01a162f&v=4"
                 alt="" class="profilchat-you">
-            <p class="connectedornot"><br><?= $username ?></p>
+                <a href="myprofile.php">Mon Profil</a>
         </div>
 
         <div id="leftsettings">
-            <?php require 'leftmessage.php'; ?>
+            
+            <?php 
+             echo "<h3 class='topic-title-left'>Topic</h3>";
+                require 'leftmessage.php';
+                 
+            ?>
+        
+        
+        
         </div>
 
 
@@ -50,7 +60,7 @@ require "./assets/php/registerlogin.php";
                 <form action="topic.php" method="post">
 
                     <textarea name="topic" placeholder="Topic name..." class="form-control" id="chat"></textarea>
-                    <div id="send">
+                    <div class="send">
 
 
                     </div>
@@ -58,44 +68,55 @@ require "./assets/php/registerlogin.php";
 
                 </form>
 
-                <div id="send">
+                <div class="send">
 
-                    <form action="invite.php">
+                    <form action="function-invite.php">
                         <input type="submit" name="invite-conv" class="button-invite" value="Invite Members" />
                 </div>
 
+                    <?php 
+                            require_once 'function-invite.php';
+                            allmembers();
 
+                    ?>
                 </form>
                 <div id="contact">
-                    <?php include 'invite.php';
-            ?>
+
                 </div>
             </div>
 
-
         </div>
+        <form action="post-message.php" method="post">
+        <div id="messagebottom"> 
+                <div class="send">
+                    <div class= emo>
+                        <textarea data-emojiable="true" name="message"  placeholder="Write your message..." class="form-control" id="chat"></textarea>
+                        <input  name="send-message" class="button-chat" type="submit" value="Send" />
+                    </div>
 
-        <div id="messagebottom">
-
-            <form action="post-message.php" method="post">
-
-                <textarea name="message" placeholder="Write your message..." class="form-control" id="chat"></textarea>
-                <div id="send">
-
-                    <input name="send-message" class="button-chat" type="submit" value="Send" />
-                    <?php 
-                    
-                    
-                    echo $username;
-                    ?>
                 </div>
-            </form>
-
-
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/jquery.emojiarea.js"></script>
+    <script src="assets/js/emoji-picker.js"></script>
+    <script>
+        window.emojiPicker = new EmojiPicker( {
+        emojiable_selector: '[data-emojiable=true]',
+        assetsPath: 'assets/img',
+        popupButtonClasses: 'fa fa-smile-o'
+        } );
+
+        // Finds all elements with emojiable_selector and converts them to rich emoji input fields
+        // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
+        // It can be called as many times as necessary; previously converted input fields will not be converted again
+
+        window.emojiPicker.discover();
+    </script>
 </body>
 
 </html>
