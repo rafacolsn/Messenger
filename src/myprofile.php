@@ -17,7 +17,7 @@
 <body>
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <span class="anchor" id="formChangePassword"></span>
             <hr class="mb-5">
                 <div class="card card-outline-secondary">
@@ -41,8 +41,8 @@
                  </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <span class="anchor" id="formChangePassword"></span>
+        <div class="col-md-4">
+            <span class="anchor" id="formChangeDetails"></span>
             <hr class="mb-5">
                 <div class="card card-outline-secondary">
                     <div class="card-header">
@@ -57,6 +57,26 @@
                             <div class="form-group">
                                 <label for="inputLastname">New Lastname</label>
                                 <input type="text" name="lastname" class="form-control" id="inputLastname" required="">
+                            </div>
+                            <div class="form-group">
+                            <button type="submit" name="change-names" class="btn btn-success btn-lg float-right">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        </div>
+        <div class="col-md-4">
+            <span class="anchor" id="formChangeAvatar"></span>
+            <hr class="mb-5">
+                <div class="card card-outline-secondary">
+                    <div class="card-header">
+                        <h3 class="mb-0">Change Profile Picture</h3>
+                    </div>
+                    <div class="card-body">
+                        <form class="form" role="form" method="post" enctype="multipart/form-data" autocomplete="off">
+                            <div class="form-group">
+                                <label for="inputAvatar">New Avatar</label>
+                                <input type="file" name="avatar" id="Avatar" required="">
                             </div>
                             <div class="form-group">
                             <button type="submit" name="change-names" class="btn btn-success btn-lg float-right">Save</button>
