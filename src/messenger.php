@@ -1,4 +1,6 @@
 <?php 
+
+
 session_start();
 $username = $_SESSION['username'];
 $id = intval($_SESSION['user_id']);
@@ -32,8 +34,8 @@ $userInfo = $reqUser->fetch();
 <body>
     <div id="allchat">
         <div id="profil-topleft">
+        <img src="./assets/upload/6.jpg<?php echo $userInfo['avatar'];?>" alt="" class="profilchat-you">
         <?php if(!empty($userInfo['avatar'])){?>
-        <img src="./assets/upload/<?php echo $userInfo['avatar'];?>" alt="" class="profilchat-you">
         <?php
         }
         ?>
@@ -58,7 +60,11 @@ $userInfo = $reqUser->fetch();
 
             <ul>
                 <?php 
+
                 require "display-messages.php"; 
+       
+       
+
                 ?>
 
             </ul>
