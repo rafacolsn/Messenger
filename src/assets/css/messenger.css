@@ -83,7 +83,7 @@ list-style: none;
 }
 
 #chat-middle-output {
-   border: 0.5px solid #032944b4;
+   border: none;
    grid-column: 2/3;
    grid-row: 2/4;
    background-color: #0187ee1a;
@@ -91,6 +91,7 @@ list-style: none;
    width: auto;
    overflow:auto;
    display: grid;
+   padding-top: 10px;
 }
 
 #chat-middle-output::-webkit-scrollbar {
@@ -299,11 +300,21 @@ a:hover {
    position: static;
 }
 .emo{
-
    flex-direction: row;
    display: flex;
 }
 
 .send{
    grid-row: 4;
+}
+
+#topic-output-chat {
+   background-color: #ff7504;
+   color: white;
+   font-weight: 900;
+   border: none;
+}
+
+.user-invited-list {
+padding-left: 2.5em;
 }

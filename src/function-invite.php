@@ -18,7 +18,7 @@
 				
 				echo "<h3 class='topic-title-left'>Vous avez invité </h3>";
 				foreach($invitebox as $key => $value) {
-					echo ("$value<br>");
+					echo ("<span class='user-invited-list'>$value<br></span>");
 				}
 			}
 			
