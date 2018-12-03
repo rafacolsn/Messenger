@@ -11,7 +11,7 @@ invitation();
 		while ($result = $invitation_sql->fetch())
 			{
             echo "<br />";
-				echo ("<a href='function-invite.php'><li class='contact-list'>" . $result['username'] . "</li> </a>" );
+				echo utf8_encode("<a href='function-invite.php'><li class='contact-list'>" . $result['username'] . "</li> </a>");
 
 			}
 		};

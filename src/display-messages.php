@@ -22,26 +22,43 @@ $_SESSION['cv_id'] = $_GET['cv_id']; //paramètre de l'url dans la boucle leftme
 
 // on fait une boucle qui génère des balises li
 while ($donnees = $req->fetch()) {  
+    
     if ($donnees['conv_id'] == $_SESSION['cv_id']) {
+    
         if ($donnees['author'] == $_SESSION['user_id']) {
-            echo '<li class="you">
-                    <strong>'.$donnees['pseudo'].'</strong>
-                    <span class="date-msg"> '.$donnees['date_crea'].'</span>
-                    <a href="edit-message.php?action=edit&id='.$donnees['msg_id'].'">
+            echo '
+                <li class="you">
+                    <strong>'.$donnees['pseudo'].'</strong><br />'
+                    .nl2br(htmlspecialchars($donnees['contenu']));
+
+                    if($donnees['date_modif'] != $donnees['date_crea']) {
+                        echo '<br /><span class="date-msg"> modifié le </span>';
+                    }
+                    else {echo '<br />';}
+            echo '
+                    <span class="date-msg"> '.$donnees['date_modif'].'</span>
+                        
+                    <a href="messenger.php?action=edit&id='.$donnees['msg_id'].'">
                         <i class="fas fa-pencil-alt"></i>
                     </a>
                     <a href="delete-message.php?action=delete&id='.$donnees['msg_id'].'">
                         <i class="fas fa-trash-alt"></i>
-                    </a><br />'
-                    .nl2br(htmlspecialchars($donnees['contenu'])).'<br />
+                    </a>
+                    
                 </li>';
         }
         else {
-            echo '<li class="sender">
-                    <strong>'.$donnees['pseudo'].'</strong>
-                    <span class="date-msg"> '.$donnees['date_crea'].'</span>
-                    <br />'
-                    .nl2br(htmlspecialchars($donnees['contenu'])).'<br />
+            echo '
+                <li class="sender">
+                    <strong>'.$donnees['pseudo'].'</strong><br />'
+                    .nl2br(htmlspecialchars($donnees['contenu']));
+
+                    if($donnees['date_modif'] != $donnees['date_crea']) {
+                        echo '<br /><span class="date-msg"> modifié le </span>';
+                    }
+                    else {echo '<br />';}
+            echo '
+                    <span class="date-msg"> '.$donnees['date_modif'].'</span>
                 </li>';
         }
     }; 

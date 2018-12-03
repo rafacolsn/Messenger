@@ -9,7 +9,7 @@
     $get_topics->execute();
 
     while($datatopic = $get_topics->fetch() ) {
-        echo '<a href="messenger.php?cv_id='.$datatopic['id_conversation'].'"><li class="topicleft" name="topicname">'.$datatopic['topicname'].'</li></a><br>';
+        echo utf8_encode('<a href="messenger.php?cv_id='.$datatopic['id_conversation'].'"><li class="topicleft" name="topicname">'.$datatopic['topicname'].'</li></a><br>');
     };
     $get_topics->closeCursor();
     ?>

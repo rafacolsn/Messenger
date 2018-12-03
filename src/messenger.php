@@ -1,6 +1,4 @@
 <?php 
-
-
 session_start();
 $username = $_SESSION['username'];
 $id = intval($_SESSION['user_id']);
@@ -60,13 +58,12 @@ $userInfo = $reqUser->fetch();
 
             <ul>
                 <?php 
+                if ($_GET['action'] == 'edit') {
+                    require "edit-message.php";
+                }
 
-                require "display-messages.php"; 
-       
-       
-
+                require "display-messages.php";
                 ?>
-
             </ul>
         </div>
 
