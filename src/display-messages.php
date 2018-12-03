@@ -27,8 +27,12 @@ while ($donnees = $req->fetch()) {
             echo '<li class="you">
                     <strong>'.$donnees['pseudo'].'</strong>
                     <span class="date-msg"> '.$donnees['date_crea'].'</span>
-                    <i class="fas fa-pencil-alt"></i>
-                    <a href="delete-message.php?action=delete&id='.$donnees['id_message'].'"><i class="fas fa-trash-alt"></i></a><br />'
+                    <a href="edit-message.php?action=edit&id='.$donnees['msg_id'].'">
+                        <i class="fas fa-pencil-alt"></i>
+                    </a>
+                    <a href="delete-message.php?action=delete&id='.$donnees['msg_id'].'">
+                        <i class="fas fa-trash-alt"></i>
+                    </a><br />'
                     .nl2br(htmlspecialchars($donnees['contenu'])).'<br />
                 </li>';
         }

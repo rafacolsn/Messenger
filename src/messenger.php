@@ -105,7 +105,7 @@ $userInfo = $reqUser->fetch();
         <form action="post-message.php" method="post">
         <div id="messagebottom"> 
                 <div class="send">
-                    <div class= emo>
+                    <div class="emo">
                         <textarea data-emojiable="true" name="message"  placeholder="Write your message..." class="form-control" id="chat"></textarea>
                         <input  name="send-message" class="button-chat" type="submit" value="Send" />
                     </div>
