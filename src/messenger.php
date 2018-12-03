@@ -32,11 +32,11 @@ $userInfo = $reqUser->fetch();
 <body>
     <div id="allchat">
         <div id="profil-topleft">
-        <?php if(!empty($userInfo['avatar'])){?>
-        <img src="./assets/upload/<?php echo $userInfo['avatar'];?>" alt="" class="profilchat-you">
-        <?php
-        }
-        ?>
+        <?php if(!empty($userInfo['avatar'])):?>
+                <img src="./assets/upload/<?php echo $userInfo['avatar'];?>" alt="" class="profilchat-you">
+        <?php else:?>
+                <img src="./assets/img/avatar.png" alt="avatar" class="profilchat-you">
+        <?php endif;?>
             <a href="myprofile.php">Mon Profil</a>
             <p class="connectedornot"><br>Connected !</p>
         </div>
