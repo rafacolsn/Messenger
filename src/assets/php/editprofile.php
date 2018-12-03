@@ -43,14 +43,14 @@
             $stmt->execute();
         }
     }
-    // //EDIT FIRSTNAME AND LASTNAME
-    // if(isset($_POST['change-names'])){
-    //     $firstname = $_POST['firstname'];
-    //     $lastname = $_POST['lastname'];
-    //     $sql = "UPDATE T_USERS SET firstname = :firstname, lastname = :lastname WHERE username = '$username'";
-    //     $stmt = $connexion->prepare($sql);
-    //     $stmt->bindValue(':firstname',$firstname);
-    //     $stmt->bindValue(':lastname',$lastname);
-    //     $stmt->execute();
-    // }
+    //EDIT FIRSTNAME AND LASTNAME
+    if(isset($_POST['change-names'])){
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $sql = "UPDATE T_USERS SET firstname = :firstname, lastname = :lastname WHERE username = '$username'";
+        $stmt = $connexion->prepare($sql);
+        $stmt->bindValue(':firstname',$firstname);
+        $stmt->bindValue(':lastname',$lastname);
+        $stmt->execute();
+    }
 ?>
