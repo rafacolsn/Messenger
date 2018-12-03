@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 $username = $_SESSION['username'];
 $id = intval($_SESSION['user_id']);

@@ -1,4 +1,5 @@
 <?php
+
     require_once "assets/php/user.php";
     $errors = array();
     //REGISTER
@@ -36,12 +37,12 @@
             $stmt->bindValue(':lastname', $user->lastname);
             $stmt->bindValue(':username', $user->username);
             $stmt->bindValue(':password', $password);
-            $stmt->bindValue(':avatar',"");
+            $stmt->bindValue(':avatar',""); 
     
             $result = $stmt->execute();
     
             if ($result) {
-                echo("GG for registration");
+                header('Location: ../index.php');
             }
         }
 

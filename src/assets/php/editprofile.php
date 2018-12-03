@@ -53,4 +53,10 @@
         $stmt->bindValue(':lastname',$lastname);
         $stmt->execute();
     }
+
+    //BACK TO MESSENGER AFTER MODIFICATION
+    if (isset($_POST['back'])) {
+        header('Location: ../messenger.php');
+        exit;
+    }
 ?>
