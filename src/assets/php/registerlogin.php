@@ -29,13 +29,14 @@
 
         if (count($errors) == 0) {
             $password = password_hash($user->password, PASSWORD_BCRYPT); //ENCRYPT PASSWORD
-            $sql = "INSERT INTO T_USERS (EMAIL,FIRSTNAME,LASTNAME,USERNAME,PASSWORD) VALUES (:email,:firstname,:lastname,:username,:password)";
+            $sql = "INSERT INTO T_USERS (EMAIL,FIRSTNAME,LASTNAME,USERNAME,PASSWORD,AVATAR) VALUES (:email,:firstname,:lastname,:username,:password,:avatar)";
             $stmt = $connexion->prepare($sql);
             $stmt->bindValue(':email', $user->email);
             $stmt->bindValue(':firstname', $user->firstname);
             $stmt->bindValue(':lastname', $user->lastname);
             $stmt->bindValue(':username', $user->username);
             $stmt->bindValue(':password', $password);
+            $stmt->bindValue(':avatar',"");
     
             $result = $stmt->execute();
     
@@ -55,9 +56,9 @@
         $stmt->bindValue(':username',$username);
         $stmt->execute();
 
-        $id_user = $stmt->fetch(PDO::FETCH_ASSOC);
-        if ($id_user === false || count($id_user)==0) {
-            die('Incorrect username / password combination 2 !');
+        $user = $stmt->fetch();
+        if ($user === false || count($user)==0) {
+            die('Incorrect username / password combination!');
         } else {
             
             $validPassword = password_verify($passwordAttempt,$id_user['password']);
@@ -70,7 +71,7 @@
                 header('Location: ../messenger.php');
                 exit;
             } else {
-                die('Incorrect username / password combination!');
+                die('Incorrect username / password combination!2');
             }
         }
     }
