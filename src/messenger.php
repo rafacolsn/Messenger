@@ -1,8 +1,15 @@
 <?php 
+
+
 session_start();
 $username = $_SESSION['username'];
+$id = intval($_SESSION['user_id']);
 require "./assets/php/connect2db.php";
 require "./assets/php/registerlogin.php";
+require "./assets/php/editprofile.php";
+$reqUser = $connexion->prepare("SELECT * FROM T_USERS WHERE id_user = $id");
+$reqUser->execute();
+$userInfo = $reqUser->fetch();
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +60,11 @@ require "./assets/php/registerlogin.php";
 
             <ul>
                 <?php 
+
                 require "display-messages.php"; 
+       
+       
+
                 ?>
 
             </ul>
