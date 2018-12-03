@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 $username = $_SESSION['username'];
 $id = intval($_SESSION['user_id']);
@@ -32,11 +32,19 @@ $userInfo = $reqUser->fetch();
 <body>
     <div id="allchat">
         <div id="profil-topleft">
+<<<<<<< HEAD
         <img src="./assets/upload/<?php echo $userInfo['avatar'];?>" alt="" class="profilchat-you">
         <?php if(!empty($userInfo['avatar'])){?>
         <?php
         }
         ?>
+=======
+        <?php if(!empty($userInfo['avatar'])):?>
+                <img src="./assets/upload/<?php echo $userInfo['avatar'];?>" alt="" class="profilchat-you">
+        <?php else:?>
+                <img src="./assets/img/avatar.png" alt="avatar" class="profilchat-you">
+        <?php endif;?>
+>>>>>>> cc75ac575f1d6d14d1fa6edc9dd040df79b3b08a
             <a href="myprofile.php">Mon Profil</a>
             <p class="connectedornot"><br>Connected !</p>
         </div>

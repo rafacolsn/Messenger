@@ -79,11 +79,18 @@
                                 <input type="file" name="avatar" id="Avatar" required="">
                             </div>
                             <div class="form-group">
-                            <button type="submit" name="change-names" class="btn btn-success btn-lg float-right">Save</button>
+                            <button type="submit" name="change-avatar" class="btn btn-success btn-lg float-right">Save</button>
                             </div>
                         </form>
                     </div>
                 </div>
+        </div>
+    </div>
+    <div class="backToConv">
+        <div class="text-center mt-5">
+            <form action="" method="post">
+                <button type="submit" name="back" formmethod="post" class="btn btn-danger btn-lg">Retour</button>
+            </form>
         </div>
     </div>
 </div>
