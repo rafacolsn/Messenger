@@ -26,7 +26,5 @@ if(isset($_POST['send-message'])) {
     }
     
 }
-
-require "messenger.php";
-
+require "messenger.php"; // renvoie à la page du chat
 ?>

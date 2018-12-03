@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "assets/php/connect2db.php";
 require_once "messages.php";
 
@@ -21,13 +22,22 @@ $req = $connexion->prepare(
         // on fait une boucle qui génère des balises li
         while ($donnees = $req->fetch()) {  
             if ($donnees['conv_id'] == $conv_id) {
-                    echo '<li class="sender">
-                                  <strong>'.$donnees['pseudo'].'</strong><p>'
-                                  .nl2br(htmlspecialchars($donnees['contenu'])).'</p>
-                                  <span class="date-msg"> '.$donnees['date_crea']. '
-                                  <i class="fas fa-pencil-alt"></i>  </span>
+                    if ($donnees['author'] === $_SESSION['user_id']) {
+                    echo '<li class="you">
+                                <strong>'.$donnees['pseudo'].'</strong>
+                                <span class="date-msg"> '.$donnees['date_crea'].'</span>
+                                <i class="fas fa-pencil-alt"></i><br />'
+                                .nl2br(htmlspecialchars($donnees['contenu'])).'<br />
                         </li>';
-                
+                    }
+                    else {
+                        echo '<li class="sender">
+                            <strong>'.$donnees['pseudo'].'</strong>
+                            <span class="date-msg"> '.$donnees['date_crea'].'</span>
+                            <i class="fas fa-pencil-alt"></i><br />'
+                            .nl2br(htmlspecialchars($donnees['contenu'])).'<br />
+                        </li>';
+                    }
             }; 
         };
 ?>
