@@ -39,7 +39,7 @@ if($topic_creat == $result) {
 
 if (strlen($topic_creat) > 50)
 	{
-	var_dump($topic_creat . " " . " is too long, maximum 50 characters");
+	var_dump($topic_creat . " " . " Nom de topic trop long, maximum 50 caractères");
 	}
 
 
