@@ -56,9 +56,9 @@
         $stmt->bindValue(':username',$username);
         $stmt->execute();
 
-        $user = $stmt->fetch();
-        if ($user === false || count($user)==0) {
-            die('Incorrect username / password combination!');
+        $id_user = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($id_user === false || count($id_user)==0) {
+            die('Incorrect username / password combination 2 !');
         } else {
             
             $validPassword = password_verify($passwordAttempt,$id_user['password']);
@@ -71,7 +71,7 @@
                 header('Location: ../messenger.php');
                 exit;
             } else {
-                die('Incorrect username / password combination!2');
+                die('Incorrect username / password combination!');
             }
         }
     }

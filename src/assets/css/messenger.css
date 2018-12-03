@@ -87,7 +87,7 @@ list-style: none;
    background-color: #0187ee1a;
    height: auto;
    width: auto;
-   overflow:hidden;
+   overflow:auto;
    display: grid;
 }
 
@@ -144,7 +144,9 @@ list-style: none;
    padding-left: 1vh;
    margin-left: 8vh;
 }
-
+.you i {
+   font-size: 0.6rem;
+}
 
 img {
    cursor: pointer;
