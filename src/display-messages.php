@@ -4,17 +4,17 @@ require "assets/php/connect2db.php";
 
 // requête pour afficher les messages avec leurs auteurs et l'id de la conversation
 $req = $connexion->prepare(
-        "SELECT m.id_message,
+        "SELECT m.id_message AS msg_id,
         m.content AS contenu, 
-        DATE_FORMAT(m.date_creation, '%d/%m/%Y %Hh%i %s') AS date_crea, 
-        DATE_FORMAT(m.date_modif, '%d/%m/%Y %Hh%i %s') AS date_modif, 
+        DATE_FORMAT(m.date_creation, '%d/%m/%Y %Hh%i') AS date_crea, 
+        DATE_FORMAT(m.date_modif, '%d/%m/%Y %Hh%i') AS date_modif, 
         m.conversation_id AS conv_id, 
         m.author_id AS author, 
         m.unread AS unread, 
         u.username AS pseudo
         FROM T_MESSAGES m 
         INNER JOIN T_USERS u ON m.author_id = u.id_user 
-        ORDER BY date_crea ASC");
+        ORDER BY msg_id ASC");
         
 $req->execute(); 
 
