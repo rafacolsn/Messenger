@@ -18,7 +18,7 @@
                     $sql = "UPDATE T_USERS SET avatar = :avatar WHERE id_user = :id_user";
                     $updateAvatar = $connexion->prepare($sql);
                     $updateAvatar->execute(array(
-                        'avatar' => $id_user.".".$extensionUpload,
+                        'avatar' => $username.".".$extensionUpload,
                         'id_user' => $id_user
                     ));
                 } else {
