@@ -750,4 +750,8 @@
     this.visible = true;
   };
 
+<<<<<<< HEAD
 })(jQuery, window, document);
+=======
+})(jQuery, window, document);
+>>>>>>> origin/Youssef

@@ -4,6 +4,7 @@
    grid-template-columns: 17% 1fr 15%;
    grid-template-rows: 15% 1fr 20%;
    border: 3px solid #011320;
+   overflow: hidden;
 }
 
 
@@ -27,55 +28,56 @@
    grid-row: 2/5;
    background-color: #02345a;
    height: auto;
-   overflow: auto;
+   overflow: hidden;
 }
 
 #leftsettings::-webkit-scrollbar {
    width: 5px;
 }
 
-#leftsettings::-webkit-scrollbar-thumb {
-   background-color: #00345c;
-}
 
 
 .messageleft {
    color: rgba(255, 255, 255, 0.767);
    background-color: #02345a;
-   border: 1px solid #3888c2;
    width: auto;
-   height: 10vh;
-   margin-top: 5px;
-   font-size: 1.5vh;
-   overflow: hidden;
+   height: 100%;
+   font-size: 12px;
+   overflow: auto;
    justify-items: auto;
-   float: left;
+   padding-top: 1em;
 }
 
 .messageleft::-webkit-scrollbar {
-   width: 3px;
+   width: 0.65em;
+
 }
 
 .messageleft::-webkit-scrollbar-thumb {
    background-color: #e06500;
+   cursor: pointer;
 }
 
-.messageboxleft {
-   padding-left: 5px;
-   padding-top: 5px;
-}
 
 .messageleft strong {
    color: #e06500;
    font-size: 1.3vh;
    font-weight: bold;
 }
+.messageleft a {
+   color: white;
+}
+.messageleft a:hover {
+   text-decoration: none;
+color: #e06500;
+list-style: none;
+}
 
 
 #topic-message-right {
    grid-column: 3;
-   grid-row: 1/4;
-   background-color: #0187ee1a;
+   grid-row: 1/5;
+   background-color: #02345a;
 }
 
 #chat-middle-output {
@@ -85,28 +87,27 @@
    background-color: #0187ee1a;
    height: auto;
    width: auto;
-   overflow: auto;
-   font-size: 12px;
+   overflow:auto;
    display: grid;
 }
 
 #chat-middle-output::-webkit-scrollbar {
    width: 5px;
+   height: 5px;
 }
 
 #chat-middle-output::-webkit-scrollbar-thumb {
-   background-color: #00345c;
+   background-color: #e06500;
 }
+
 
 .sender {
    margin-bottom: 5px;
    border: 1px solid #c9cac9;
-   font-size: 1.35vh;
-   background-color: #00345c;
-   width: 60vh;
+   background-color: #013f6e;
+   width: 40em;
    color: white;
    border-radius: 8px;
-   text-align: center;
    padding-top: 2px;
    padding-bottom: 2px;
    padding-right: 30px;
@@ -114,15 +115,21 @@
 
 .sender strong {
    color: rgb(255, 115, 0);
-   font-size: 14px;
+   font-size: 15px;
    font-weight: bold;
 
 }
 
+.sender p {
+   font-size: 14px;
+   font-weight: bolder;
+}
+
 .date-msg {
-   color: rgba(0, 247, 255, 0.822);
+   color: rgba(250, 250, 250, 0.465);
    font-size: 8px;
    font-style: italic;
+   text-justify: right;
 }
 
 
@@ -137,7 +144,9 @@
    padding-left: 1vh;
    margin-left: 8vh;
 }
-
+.you i {
+   font-size: 0.6rem;
+}
 
 img {
    cursor: pointer;
@@ -177,10 +186,20 @@ ul li {
    text-align: center;
 }
 
+a {
+   list-style: none;
+   text-align: center;
+   color: white;
+   text-decoration: none;
+}
+
+a:hover {
+   color: ;
+   text-decoration: none;
+}
 
 #chat {
-   font-size: 15px;
-   height: 10vh;
+
    width: 100%;
 }
 
@@ -189,7 +208,7 @@ ul li {
 }
 
 #chat::-webkit-scrollbar-thumb {
-   background-color: #00345c;
+   background-color: #e06500;
 }
 
 .button-chat:active {
@@ -204,9 +223,6 @@ ul li {
    color: white;
    cursor: pointer;
    border: 0.5px solid #0b8f94;
-   width: 100%;
-   height: 100px;
-
 }
 
 .button-topic {
@@ -227,9 +243,9 @@ ul li {
    height: 30px;
 }
 
-
 .form-control {
    resize: none;
+
 }
 
 #topic-creating {
@@ -244,42 +260,36 @@ ul li {
    color: #032944b4;
 }
 
+.topicleft  {
+   list-style: none;
+   text-align: center;
+   margin-bottom: 1em;
+}
+
+.topic-title-left {
+   color: rgba(255, 115, 0,3);
+   text-align: center;
+   border-top: 1px solid #e06500;
+   border-bottom: 1px solid #e06500;
+   padding: 0.3em;
+}
+
 #messagebottom {
-   grid-column: 2 / 3;
+   grid-column: 2 / 4;
    grid-row: 4;
-   border: 0.5px solid #032944b4;
+   display: grid;
+   
 }
 
 #messagebottom textarea {
    font-weight: 700;
    background-color: #0187ee1a;
    color: #032944b4;
-   border: 0.5px solid #032944b4;
-
+   position: static;
 }
+.emo{
 
-.contact-list {
-   background-color: #032944ba;
-   list-style: none;
-   color:white;
-   text-align: center;
-   cursor: pointer;
-}
-
-.contact-list {
-   background-color: #032944ba;
-   list-style: none;
-   color:white;
-   text-align: center;
-   cursor: pointer;
-}
-
-.online {
-   margin-top: 20px;
-   padding: 2px;
-   font-size: 16px;
-   text-align: center;
-   list-style: none;
-   background-color: green;
-   color: white;
+   flex-direction: row;
+   display: flex;
+ 
 }

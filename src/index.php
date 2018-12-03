@@ -1,7 +1,6 @@
 <?php 
 require("assets/php/connect2db.php");
 require("assets/php/registerlogin.php");
-	
 ?>
 <!DOCTYPE html>
 <html lang="fr">

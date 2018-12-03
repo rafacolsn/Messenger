@@ -136,4 +136,8 @@
 
 }).call(this);
 
+<<<<<<< HEAD
 //# sourceMappingURL=emoji-picker.js.map
+=======
+//# sourceMappingURL=emoji-picker.js.map
+>>>>>>> origin/Youssef

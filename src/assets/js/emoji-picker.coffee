@@ -99,4 +99,8 @@ class @EmojiPicker
         $img = $.emojiarea.createIcon($.emojiarea.icons[m])
         $img
       else
+<<<<<<< HEAD
 ''
+=======
+        ''
+>>>>>>> origin/Youssef
