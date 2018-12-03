@@ -1,7 +1,5 @@
 <?php
 
-invitation();
-
 
  function allmembers(){
 	require './assets/php/connect2db.php';
@@ -11,7 +9,7 @@ invitation();
 		while ($result = $invitation_sql->fetch())
 			{
             echo "<br />";
-				echo ("<a href='function-invite.php'><li class='contact-list'>" . $result['username'] . "</li> </a>" );
+				echo ("<a href='function-invite.php'> <input type='checkbox' name='invitebox' value='Yes' <li class='contact-list'>" . " - " . $result['username'] . "</li> </a>" );
 
 			}
 		};
@@ -32,7 +30,7 @@ invitation();
 						$created_topic->execute();
 
 						while($topicinvitation222 = $invite_members->fetch() ) {
-							echo '<li class="topicleft" name="topicname">'.$topicinvitation222['topicname'].'</li><br>';
+							echo ' <li class="topicleft" name="topicname">'.$topicinvitation222['topicname'].'</li><br>';
 				 
 					  };
 

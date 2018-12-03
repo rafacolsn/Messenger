@@ -22,6 +22,10 @@
    color: #3888c2;
 }
 
+#contact a {
+   align-items: center;
+   padding-left: 10px;
+}
 
 #leftsettings {
    grid-column: 1;
@@ -78,6 +82,7 @@ list-style: none;
    grid-column: 3;
    grid-row: 1/5;
    background-color: #02345a;
+   text-align: center;
 }
 
 #chat-middle-output {
