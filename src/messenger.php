@@ -58,7 +58,7 @@ $userInfo = $reqUser->fetch();
          
             <?php      
               echo "<h1>". $_SESSION['cv_name'] . "</h1>";
-              echo "<br> <p> Crée par ";
+              echo "<br> <p class='created-by'> Crée par ". $username ." </p> ";
              ?>
         </div>
 

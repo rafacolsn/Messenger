@@ -2,7 +2,7 @@
    height: 100vh;
    display: grid;
    grid-template-columns: 17% 1fr 15%;
-   grid-template-rows: 15% 1fr 20%;
+   grid-template-rows: 10% 1fr 20%;
    border: 3px solid #011320;
    overflow: hidden;
 }
@@ -17,10 +17,21 @@
    padding-top: 10px;
 }
 
+#profil-topleft a {
+   text-decoration: none;
+   color: #e06500;
+}
+
+#profil-topleft a:hover {
+   color: white;
+   cursor: pointer;
+}
+
 
 .connectedornot {
    color: #3888c2;
 }
+
 
 
 
@@ -137,7 +148,7 @@ list-style: none;
 
 
 .you {
-   background-color: #0b8f94;
+   background-color: #6e0069;
    width: 55vh;
    color: white;
    border-radius: 1.5vh;
@@ -166,9 +177,14 @@ img {
 
 .profilchat-you {
    border-radius: 50%;
-   width: 48px;
-   margin-right: 10px;
-   margin-bottom: 10px;
+   width: 64px;
+   border: 2px solid #e06500;
+}
+
+.profilchat-you:hover {
+   border-radius: 50%;
+   border: 2px solid white;
+   cursor: pointer;
 }
 
 .profilchat {
@@ -309,19 +325,29 @@ a:hover {
 }
 
 #topic-output-chat {
-   background-color: #ff7504;
+   background-color: #0b8f94;
    color: white;
-   font-weight: 900;
-   border: none;
+   
+   border: none;  
+   border-bottom: 2px solid #e06500;
 
 }
 
 #topic-output-chat h1 {
    text-align: center;
    padding-top: 1em;
-
+   font-size: 14px;
+   font-weight: 900;
 }
 
 .user-invited-list {
 padding-left: 2.5em;
+}
+
+.created-by {
+color: rgba(255, 255, 255, 0.6);
+float: right;
+padding-right: 1em;
+font-size: 9px;
+font-style: italic;
 }
