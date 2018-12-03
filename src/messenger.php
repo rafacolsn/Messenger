@@ -43,7 +43,7 @@ $userInfo = $reqUser->fetch();
             <img src="./assets/img/avatar.png" alt="avatar" class="profilchat-you">
             <?php endif; ?>
             <a href="myprofile.php">Mon Profil</a>
-            <p class="connectedornot"><br />Connected !</p>
+            <p class="connectedornot"><br /><?php echo $username?> - Connecté </p>
         </div>
 
         <div id="leftsettings">
@@ -55,7 +55,11 @@ $userInfo = $reqUser->fetch();
         </div>
 
         <div id="topic-output-chat">
-            <p>Test</p>
+         
+            <?php      
+              echo "<h1>". $_SESSION['cv_name'] . "</h1>";
+              echo "<br> <p> Crée par ";
+             ?>
         </div>
 
         <div id="chat-middle-output">

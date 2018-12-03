@@ -313,6 +313,13 @@ a:hover {
    color: white;
    font-weight: 900;
    border: none;
+
+}
+
+#topic-output-chat h1 {
+   text-align: center;
+   padding-top: 1em;
+
 }
 
 .user-invited-list {
