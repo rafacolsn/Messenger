@@ -54,7 +54,9 @@ $userInfo = $reqUser->fetch();
         
         
         </div>
-
+<div id="topic-output-chat">
+    <p>Test</p>
+</div>
 
         <div id="chat-middle-output">
 
@@ -71,40 +73,41 @@ $userInfo = $reqUser->fetch();
         </div>
 
         <div id="topic-message-right">
-            <div id="topic-creating">
-
-                <form action="topic.php" method="post">
-
-                    <textarea name="topic" placeholder="Topic name..." class="form-control" id="chat"></textarea>
-                    <div class="send">
 
 
-                    </div>
-                    <input name="create-conv" class="button-topic" type="submit" value="Create Topic" />
+                <div class="contact">
+                    <h2 class=" topic-title-left" > Membres </h2>
 
-                </form>
-
-                <div class="send">
-
-                    <form action="function-invite.php">
-                        <input type="submit" name="invite-conv" class="button-invite" value="Invite Members" />
-                </div>
-
+                    <form action="#" method="post">
                     <?php 
                             require_once 'function-invite.php';
                             allmembers();
-
+                         
+                    
                     ?>
-                </form>
-                <div id="contact">
 
-                </div>
-            </div>
+
+             
+                </form>
+            
+
+              
+              </div>
+              <div id="topic-creating">
+
+<form action="topic.php" method="post">
+
+    <textarea name="topic" placeholder="Topic name..." class="form-control" id="chat"></textarea>
+
+    <input name="create-conv" class="button-topic" type="submit" value="Create Topic" />
+</div>
+</form>
 
         </div>
+        <div class="send">
         <form action="post-message.php" method="post">
         <div id="messagebottom"> 
-                <div class="send">
+               
                     <div class= emo>
                         <textarea data-emojiable="true" name="message"  placeholder="Write your message..." class="form-control" id="chat"></textarea>
                         <input  name="send-message" class="button-chat" type="submit" value="Send" />
