@@ -23,7 +23,10 @@ if (isset($_POST['create-conv']))
 			$result = $connexion->prepare("INSERT INTO T_CONVERSATION (author_id, subject) VALUES (:author,:topic)");
 			$result->bindValue(':author', $author);
 			$result->bindValue(':topic', $topic_creat);
+			
 			$result->execute();
+
+         
 
 if($topic_creat == $result) {
 	var_dump("Dejà créé");

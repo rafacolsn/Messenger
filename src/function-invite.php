@@ -110,12 +110,17 @@ function allmembers(){
 			}
 		}
 
-	function closeTopic()
-		{
-		if (isset($_SESSION['conversation_id']))
-			{
-			unset($_SESSION['conversation_id']);
-			}
+	function closeTopic() {
+	session_start();
+	require "assets/php/connect2db.php";
+	
+	if ($_GET['action'] == 'delete_conv') {
+		 $req_delete = $connexion->prepare("DELETE FROM T_CONVERSATION WHERE id_conversation = :conv_id");
+		 $req_delete->bindValue(':conv_id', $_GET['id']);
+		 $req_delete->execute();
+	};
+	header("Location: messenger.php?cv_id=".intval($convers).'&cv_name='.$_SESSION['cv_name'].'' ); // renvoie à la page de la conversation
+	
 		}
 
 	function IsEmpty()

@@ -14,12 +14,13 @@
    background-color: #00345c;
    justify-items: center;
    display: grid;
-   padding-top: 10px;
+
 }
 
 #profil-topleft a {
    text-decoration: none;
    color: #e06500;
+   font-size: 12px;
 }
 
 #profil-topleft a:hover {
@@ -31,8 +32,6 @@
 .connectedornot {
    color: #3888c2;
 }
-
-
 
 
 #leftsettings {
@@ -53,12 +52,32 @@
    color: rgba(255, 255, 255, 0.767);
    background-color: #02345a;
    width: auto;
-   height: 100%;
+   height: auto;
    font-size: 12px;
-   overflow: auto;
-   justify-items: auto;
+   overflow-y: auto;
+   overflow-x: hidden;
+ 
+   justify-content: center;
+  
    padding-top: 1em;
 }
+.messageleft li {
+
+
+   padding-left: 2em;
+
+}
+.messageleft i {
+   color: #e06500;
+   cursor: pointer;
+}
+
+.messageleft i:hover {
+   color: white;
+   cursor: pointer;
+}
+
+
 
 .messageleft::-webkit-scrollbar {
    width: 0.65em;
@@ -177,7 +196,7 @@ img {
 
 .profilchat-you {
    border-radius: 50%;
-   width: 64px;
+   width: 48px;
    border: 2px solid #e06500;
 }
 
@@ -325,19 +344,22 @@ a:hover {
 }
 
 #topic-output-chat {
-   background-color: #0b8f94;
-   color: white;
+   background-color: #00345c;
+   color: #e06500;
    grid-row: 1;
    border: none;  
-   border-bottom: 2px solid #e06500;
+
+   border: 1px solid #e06500;
+   border-bottom: 5px solid #e06500;
 
 }
 
 #topic-output-chat h1 {
    text-align: center;
    padding-top: 1em;
-   font-size: 14px;
+   font-size: 18px;
    font-weight: 900;
+   text-justify: auto;
 }
 
 .user-invited-list {
@@ -345,9 +367,19 @@ padding-left: 2.5em;
 }
 
 .created-by {
-color: rgba(255, 255, 255, 0.6);
-float: right;
-padding-right: 1em;
-font-size: 10px;
-font-style: italic;
+   color: rgba(255, 255, 255, 0.6);
+   float: right;
+   padding-right: 1em;
+   font-size: 10px;
+   font-style: italic;
+}
+
+.closetopic {
+   position: fixed;
+
+}
+
+.messageleft a {
+   display: inline-block;
+   position: relative;
 }

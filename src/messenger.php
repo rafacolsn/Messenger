@@ -43,21 +43,28 @@ $userInfo = $reqUser->fetch();
                 <img src="./assets/img/avatar.png" alt="avatar" class="profilchat-you">
         <?php endif;?>
             <a href="myprofile.php">Mon Profil</a>
-            <p class="connectedornot"><br /><?php echo $username?> - Connecté </p>
         </div>
 
         <div id="leftsettings">
 
             <?php
                 echo "<h3 class='topic-title-left'>Topic</h3>";
+                if ($_GET['action'] == 'delete_conv') {
+                    require "delete-message.php";
+                }
+
                 require 'leftmessage.php';
             ?>
+
         </div>
 
         <div id="topic-output-chat">
          
             <?php      
+
               echo "<h1>". $_SESSION['cv_name'] . "</h1>";
+
+              
               echo "<br> <p class='created-by'> Crée par ". $username ." </p> ";
              ?>
         </div>
