@@ -17,7 +17,7 @@
 <body>
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <span class="anchor" id="formChangePassword"></span>
             <hr class="mb-5">
                 <div class="card card-outline-secondary">
@@ -41,8 +41,8 @@
                  </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <span class="anchor" id="formChangePassword"></span>
+        <div class="col-md-4">
+            <span class="anchor" id="formChangeDetails"></span>
             <hr class="mb-5">
                 <div class="card card-outline-secondary">
                     <div class="card-header">
@@ -64,6 +64,33 @@
                         </form>
                     </div>
                 </div>
+        </div>
+        <div class="col-md-4">
+            <span class="anchor" id="formChangeAvatar"></span>
+            <hr class="mb-5">
+                <div class="card card-outline-secondary">
+                    <div class="card-header">
+                        <h3 class="mb-0">Change Profile Picture</h3>
+                    </div>
+                    <div class="card-body">
+                        <form class="form" role="form" method="post" enctype="multipart/form-data" autocomplete="off">
+                            <div class="form-group">
+                                <label for="inputAvatar">New Avatar</label>
+                                <input type="file" name="avatar" id="Avatar" required="">
+                            </div>
+                            <div class="form-group">
+                            <button type="submit" name="change-avatar" class="btn btn-success btn-lg float-right">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="backToConv">
+        <div class="text-center mt-5">
+            <form action="" method="post">
+                <button type="submit" name="back" formmethod="post" class="btn btn-danger btn-lg">Retour</button>
+            </form>
         </div>
     </div>
 </div>

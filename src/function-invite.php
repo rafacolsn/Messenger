@@ -1,20 +1,32 @@
 <?php
 
-invitation();
 
+function allmembers(){
+    require './assets/php/connect2db.php';
+        $invitation_sql = $connexion->prepare("SELECT username, id_user,firstname, lastname, connected FROM `T_USERS` ORDER BY `T_USERS`.`id_user` ASC");
 
- function allmembers(){
-	require './assets/php/connect2db.php';
-		$invitation_sql = $connexion->prepare("SELECT username, id_user,firstname, lastname FROM `T_USERS` ORDER BY `T_USERS`.`username` ASC");
-		
-		$invitation_sql->execute();
-		while ($result = $invitation_sql->fetch())
-			{
-            echo "<br />";
-				echo ("<a href='function-invite.php'><li class='contact-list'>" . $result['username'] . "</li> </a>" );
+        $invitation_sql->execute();
+        while ($result = $invitation_sql->fetch())
+            {
 
-			}
-		};
+                echo utf8_encode("<input type='checkbox' name='invitebox[]' value='".$result['id_user']." - ".$result['username']."' <li class='contact-list'>" . " <span>" . $result['username'] . "</span></li>" );
+                echo "<br />";
+            } 
+            echo ' <input type="submit" name="invite-conv" class="button-invite" value="Invite Members" />';
+            if (isset($_POST['invitebox'])) {
+                $invitebox = $_POST['invitebox'];
+                
+                echo "<h3 class='topic-title-left'>Vous avez invité </h3>";
+                foreach($invitebox as $key => $value) {
+                    echo ("<span class='user-invited-list'>$value<br></span>");
+                }
+            }
+            
+            // else { 
+            //  echo ("<h3 class='topic-title-left'>Select someone for your topic </h3>");
+            // }
+
+        };
 
 	function invitation()
 		{
@@ -32,7 +44,7 @@ invitation();
 						$created_topic->execute();
 
 						while($topicinvitation222 = $invite_members->fetch() ) {
-							echo '<li class="topicleft" name="topicname">'.$topicinvitation222['topicname'].'</li><br>';
+							echo ' <li class="topicleft" name="topicname">'.$topicinvitation222['topicname'].'</li><br>';
 				 
 					  };
 
