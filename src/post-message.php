@@ -18,7 +18,6 @@ if(isset($_POST['send-message'])) {
         $stmt->bindValue(':convers', $convers);
         $stmt->bindValue(':content', $text_message);    
         $stmt->execute();
-
        
     }
 
@@ -27,7 +26,5 @@ if(isset($_POST['send-message'])) {
     }
     
 }
-
-require "messenger.php";
-
+require "messenger.php"; // renvoie à la page du chat
 ?>

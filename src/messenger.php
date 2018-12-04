@@ -28,13 +28,19 @@ require "./assets/php/registerlogin.php";
     <div id="allchat">
         <div id="profil-topleft"><img src="https://avatars1.githubusercontent.com/u/42454363?s=400&u=1acfd527896d6fcd3a6f3aa2ab2a1e0be01a162f&v=4"
                 alt="" class="profilchat-you">
-            
                 <a href="myprofile.php">Mon Profil</a>
-            <p class="connectedornot"><br>Connected !</p>
         </div>
 
         <div id="leftsettings">
-            <?php require 'leftmessage.php'; ?>
+            
+            <?php 
+             echo "<h3 class='topic-title-left'>Topic</h3>";
+                require 'leftmessage.php';
+                 
+            ?>
+        
+        
+        
         </div>
 
 
@@ -64,15 +70,18 @@ require "./assets/php/registerlogin.php";
 
                 <div class="send">
 
-                    <form action="invite.php">
+                    <form action="function-invite.php">
                         <input type="submit" name="invite-conv" class="button-invite" value="Invite Members" />
                 </div>
 
+                    <?php 
+                            require_once 'function-invite.php';
+                            allmembers();
 
+                    ?>
                 </form>
                 <div id="contact">
-                    <?php include 'invite.php';
-                    ?>
+
                 </div>
             </div>
 
@@ -84,7 +93,7 @@ require "./assets/php/registerlogin.php";
                         <textarea data-emojiable="true" name="message"  placeholder="Write your message..." class="form-control" id="chat"></textarea>
                         <input  name="send-message" class="button-chat" type="submit" value="Send" />
                     </div>
-                     
+
                 </div>
             </div>
         </form>
