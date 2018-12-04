@@ -2,9 +2,6 @@
 session_start();
 $username = $_SESSION['username'];
 require "assets/php/connect2db.php";
-
-
-require "messages.php";
 require "./assets/php/connect2db.php";
 if(isset($_POST['send-message'])) {
     

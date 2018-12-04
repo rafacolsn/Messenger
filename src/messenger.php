@@ -1,6 +1,7 @@
 <?php
 session_start();
 $username = $_SESSION['username'];
+$id = intval($_SESSION['user_id']);
 require "./assets/php/connect2db.php";
 
 require "./assets/php/registerlogin.php";
