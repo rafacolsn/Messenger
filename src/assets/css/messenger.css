@@ -187,10 +187,6 @@ list-style: none;
    color: #ffffff8e;
 }
 
-img {
-   cursor: pointer;
-}
-
 .you:active {
    color: rgba(255, 196, 0, 0.849);
 }

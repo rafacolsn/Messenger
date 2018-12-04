@@ -98,8 +98,8 @@ $userInfo = $reqUser->fetch();
             <div id="topic-creating">
 
                 <form action="topic.php" method="post">
-                    <textarea name="topic" placeholder="Nom de Topic..." class="form-control" id="chat"></textarea>
-                    <input name="create-conv" class="button-topic" type="submit" value="Crée un topic" />
+                    <textarea name="topic" placeholder="Votre conversation..." class="form-control" id="chat"></textarea>
+                    <input name="create-conv" class="button-topic" type="submit" value="Créer une conversation" />
             </div>
 
             </form>
@@ -110,9 +110,9 @@ $userInfo = $reqUser->fetch();
                 <div id="messagebottom">
 
                     <div class=emo>
-                        <textarea data-emojiable="true" name="message" placeholder="Write your message..." class="form-control"
+                        <textarea data-emojiable="true" name="message" placeholder="Exprimez-vous..." class="form-control"
                             id="chat"></textarea>
-                        <input name="send-message" class="button-chat" type="submit" value="Send" />
+                        <input name="send-message" class="button-chat" type="submit" value="Envoi" />
                     </div>
 
                 </div>

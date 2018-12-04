@@ -14,6 +14,7 @@ if ($_GET['action'] == 'delete_conv') {
 	$req_delete->execute();
 };
 
+require "assets/php/bottom.php";
 header("Location: messenger.php?cv_id=".intval($_SESSION['cv_id'])); // renvoie à la page de la conversation
 
 
