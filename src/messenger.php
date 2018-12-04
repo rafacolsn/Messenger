@@ -37,12 +37,13 @@ $userInfo = $reqUser->fetch();
 <body>
     <div id="allchat">
         <div id="profil-topleft">
-        <?php if(!empty($userInfo['avatar'])):?>
-                <img src="./assets/upload/<?php echo $userInfo['avatar'];?>" alt="" class="profilchat-you">
-        <?php else:?>
-                <img src="./assets/img/avatar.png" alt="avatar" class="profilchat-you">
-        <?php endif;?>
-            <a href="myprofile.php">Mon Profil</a>
+            <?php if(!empty($userInfo['avatar'])):?>
+            <img src="./assets/upload/<?php echo $userInfo['avatar'];?>" alt="" class="profilchat-you">
+            <?php else:?>
+            <img src="./assets/img/avatar.png" alt="avatar" class="profilchat-you">
+            <?php endif;?>
+            <a href="myprofile.php">
+                <?php echo $username ?> - Profil</a>
         </div>
 
         <div id="leftsettings">
@@ -52,19 +53,15 @@ $userInfo = $reqUser->fetch();
                 if ($_GET['action'] == 'delete_conv') {
                     require "delete-message.php";
                 }
-
                 require 'leftmessage.php';
             ?>
 
         </div>
 
         <div id="topic-output-chat">
-         
-            <?php      
 
+            <?php          
               echo "<h1>". $_SESSION['cv_name'] . "</h1>";
-
-              
               echo "<br> <p class='created-by'> Crée par ". $username ." </p> ";
              ?>
         </div>

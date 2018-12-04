@@ -13,41 +13,32 @@ $author = intval($id_user->id_user);
 
 // CREATION DE TOPIC pour CONVERSATION
 
-if (isset($_POST['create-conv']))
+if (isset($_POST['create-conv'])) // Au clique de la souris sur le boutton Create Topic
 	{
-	$topic_creat = $_POST['topic'];
-	
-	if ($topic_creat !== "")
+	$topic_creat = $_POST['topic']; // Stockage du nom du topic encodé dans l'input
+	if (strlen($topic_creat) > 25) // Si topic 
+	{
+	echo ($topic_creat . " " . " Nom de topic trop long, maximum 25 caractères");
+	}
+
+	if ($topic_creat !== "") // Si le titre est différent de vide
 		{
 			$subject = $topic_creat;
 			$result = $connexion->prepare("INSERT INTO T_CONVERSATION (author_id, subject) VALUES (:author,:topic)");
 			$result->bindValue(':author', $author);
 			$result->bindValue(':topic', $topic_creat);
 			
-			$result->execute();
+			$result->execute(); // Insert dans la T_CONVERSATION sujet & author_id
+		} 	else
+			{
+				echo "<p> Topic name is empty </p>";
+			} 
+		}
 
-         
 
-if($topic_creat == $result) {
-	var_dump("Dejà créé");
-}
- 
-		} 
-		
-		else
-		{
-			var_dump("Topic name is empty");
-		} 
-	}
-
-if (strlen($topic_creat) > 50)
-	{
-	var_dump($topic_creat . " " . " Nom de topic trop long, maximum 50 caractères");
-	}
 
 
 include 'messenger.php';
 
-include "chat.php";
 
 ?>

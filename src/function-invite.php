@@ -9,7 +9,7 @@ function allmembers(){
         while ($result = $invitation_sql->fetch())
             {
 
-                echo utf8_encode("<input type='checkbox' name='invitebox[]' value='".$result['id_user']." - ".$result['username']."' <li class='contact-list'>" . " <span>" . $result['username'] . "</span></li>" );
+                echo utf8_encode("<input type='checkbox' name='invitebox[]' id='checkboxinvite' value='".$result['id_user']." - ".$result['username']."' <li class='contact-list'>" . " <span>" . $result['username'] . "</span></li>" );
                 echo "<br />";
             } 
             echo ' <input type="submit" name="invite-conv" class="button-invite" value="Invite Members" />';

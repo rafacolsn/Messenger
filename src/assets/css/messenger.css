@@ -1,8 +1,8 @@
 #allchat {
    height: 100vh;
    display: grid;
-   grid-template-columns: 17% 1fr 15%;
-   grid-template-rows: 10% 1fr 20%;
+   grid-template-columns: 20% 1fr 17%;
+   grid-template-rows: 15% 1fr 20%;
    border: 3px solid #011320;
    overflow: hidden;
 }
@@ -14,7 +14,6 @@
    background-color: #00345c;
    justify-items: center;
    display: grid;
-
 }
 
 #profil-topleft a {
@@ -110,7 +109,12 @@ list-style: none;
    grid-row: 1/5;
    background-color: #02345a;
    color: white;
+
 }
+.checkboxinvite {
+   margin-left: 0.5em;
+}
+
 
 #chat-middle-output {
    border: none;
@@ -138,12 +142,14 @@ list-style: none;
    margin-bottom: 5px;
    border: 1px solid #c9cac9;
    background-color: #013f6e;
-   width: 40em;
+   width: 30em;
    color: white;
-   border-radius: 8px;
-   padding-top: 2px;
-   padding-bottom: 2px;
-   padding-right: 30px;
+   border-radius: 1.5vh;
+   margin-bottom: 2vh;
+   padding-top: 0.8vh;
+   padding-bottom: 0.7vh;
+   padding-left: 1vh;
+   margin-left: 5vh;
 }
 
 .sender strong {
@@ -159,26 +165,27 @@ list-style: none;
 }
 
 .date-msg {
-   color: rgba(250, 250, 250, 0.465);
-   font-size: 8px;
+   color: #ffffff8e;
+   font-size: 9px;
    font-style: italic;
    text-justify: right;
 }
 
 
 .you {
-   background-color: #6e0069;
-   width: 55vh;
+   background-color: rgb(11, 143, 148);
+   width: 30em;
    color: white;
    border-radius: 1.5vh;
    margin-bottom: 2vh;
    padding-top: 0.8vh;
    padding-bottom: 0.7vh;
    padding-left: 1vh;
-   margin-left: 8vh;
+   margin-left: 10vh;
 }
 .you i {
    font-size: 0.6rem;
+   color: #ffffff8e;
 }
 
 img {
