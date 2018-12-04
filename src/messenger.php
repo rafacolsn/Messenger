@@ -98,9 +98,10 @@ $userInfo = $reqUser->fetch();
             <div id="topic-creating">
 
                 <form action="topic.php" method="post">
-                    <textarea name="topic" placeholder="Topic name..." class="form-control" id="chat"></textarea>
-                    <input name="create-conv" class="button-topic" type="submit" value="Create Topic" />
+                    <textarea name="topic" placeholder="Nom de Topic..." class="form-control" id="chat"></textarea>
+                    <input name="create-conv" class="button-topic" type="submit" value="Crée un topic" />
             </div>
+
             </form>
 
         </div>

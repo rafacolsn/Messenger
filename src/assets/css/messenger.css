@@ -137,7 +137,6 @@ list-style: none;
    background-color: #e06500;
 }
 
-
 .sender {
    margin-bottom: 5px;
    border: 1px solid #c9cac9;
@@ -389,4 +388,8 @@ padding-left: 2.5em;
 .messageleft a {
    display: inline-block;
    position: relative;
+}
+
+.contact-list {
+   list-style:none;
 }

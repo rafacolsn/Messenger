@@ -9,7 +9,7 @@ function allmembers(){
         while ($result = $invitation_sql->fetch())
             {
 
-                echo utf8_encode("<input type='checkbox' name='invitebox[]' id='checkboxinvite' value='".$result['id_user']." - ".$result['username']."' <li class='contact-list'>" . " <span>" . $result['username'] . "</span></li>" );
+                echo utf8_encode(" <li class='contact-list'><input type='checkbox' name='invitebox[]' id='checkboxinvite' value='".$result['id_user']." - ".$result['username']."'" . " <span>" . $result['username'] . "</li>" );
                 echo "<br />";
             } 
             echo ' <input type="submit" name="invite-conv" class="button-invite" value="Invite Members" />';
@@ -53,87 +53,87 @@ function allmembers(){
 						// print_r($invite_members);
 		}
 
-	function addMembers($author_id, $subject)
-		{
-		if (invitation() && !IsEmpty())
-			{
-			$listmembers = array_search($author_id, $_SESSION['conversation_id']['author_id']);
-			if ($listmembers !== false)
-				{
-				$_SESSION['conversation_id']['author_id'][$listmembers]+= $countmembers;
-				}
-			  else
-				{
-               array_push($_SESSION['conversation_id']['author_id'], $author_id);
-               array_push($_SESSION['conversation_id']['subject'], $subject);
-               array_push($_SESSION['conversation_id']['countmembers'], $countmembers);
-				}
-			}
-		  else
-			{
-			echo "Membre déjà dans la conversation";
-			}
-		}
+	// function addMembers($author_id, $subject)
+	// 	{
+	// 	if (invitation() && !IsEmpty())
+	// 		{
+	// 		$listmembers = array_search($author_id, $_SESSION['conversation_id']['author_id']);
+	// 		if ($listmembers !== false)
+	// 			{
+	// 			$_SESSION['conversation_id']['author_id'][$listmembers]+= $countmembers;
+	// 			}
+	// 		  else
+	// 			{
+   //             array_push($_SESSION['conversation_id']['author_id'], $author_id);
+   //             array_push($_SESSION['conversation_id']['subject'], $subject);
+   //             array_push($_SESSION['conversation_id']['countmembers'], $countmembers);
+	// 			}
+	// 		}
+	// 	  else
+	// 		{
+	// 		echo "Membre déjà dans la conversation";
+	// 		}
+	// 	}
 
-	function deleteMembers($author_id)
-		{
-		if (addMembers() && IsEmpty())
-			{
-			$backupconversation_id = array();
-			$backupconversation_id['author_id'] = array();
-			$backupconversation_id['subject'] = array();
-			$backupconversation_id['countmembers'] = array();
-			for ($i = 0; $i < count($_SESSION['conversation_id']['author_id']); $i++)
-				{
-				if ($_SESSION['conversation_id']['members'][$i] !== $author_id)
-					{
-					array_push($_SESSION['conversation_id']['author_id'], $_SESSION['conversation_id']['author_id'][$i]);
-					array_push($_SESSION['conversation_id']['subject'], $_SESSION['conversation_id']['subject'][$i]);
-					array_push($_SESSION['conversation_id']['countmembers'], $_SESSION['conversation_id']['countmembers'][$i]);
-					}
-				}
+	// function deleteMembers($author_id)
+	// 	{
+	// 	if (addMembers() && IsEmpty())
+	// 		{
+	// 		$backupconversation_id = array();
+	// 		$backupconversation_id['author_id'] = array();
+	// 		$backupconversation_id['subject'] = array();
+	// 		$backupconversation_id['countmembers'] = array();
+	// 		for ($i = 0; $i < count($_SESSION['conversation_id']['author_id']); $i++)
+	// 			{
+	// 			if ($_SESSION['conversation_id']['members'][$i] !== $author_id)
+	// 				{
+	// 				array_push($_SESSION['conversation_id']['author_id'], $_SESSION['conversation_id']['author_id'][$i]);
+	// 				array_push($_SESSION['conversation_id']['subject'], $_SESSION['conversation_id']['subject'][$i]);
+	// 				array_push($_SESSION['conversation_id']['countmembers'], $_SESSION['conversation_id']['countmembers'][$i]);
+	// 				}
+	// 			}
 
-			$_SESSION['conversation_id'] = $backupconversation_id;
-			unset($backupconversation_id);
-			}
-		  else
-			{
-			echo "Erreur, nous ne pouvons kick ce membre";
-			}
-		}
+	// 		$_SESSION['conversation_id'] = $backupconversation_id;
+	// 		unset($backupconversation_id);
+	// 		}
+	// 	  else
+	// 		{
+	// 		echo "Erreur, nous ne pouvons kick ce membre";
+	// 		}
+	// 	}
 
-	function countMembers()
-		{
-		if (isset($_SESSION['conversation_id']))
-			{
-			return count($_SESSION['conversation_id']['countmembers']);
-			}
-		}
+	// function countMembers()
+	// 	{
+	// 	if (isset($_SESSION['conversation_id']))
+	// 		{
+	// 		return count($_SESSION['conversation_id']['countmembers']);
+	// 		}
+	// 	}
 
-	function closeTopic() {
-	session_start();
-	require "assets/php/connect2db.php";
+	// function closeTopic() {
+	// session_start();
+	// require "assets/php/connect2db.php";
 	
-	if ($_GET['action'] == 'delete_conv') {
-		 $req_delete = $connexion->prepare("DELETE FROM T_CONVERSATION WHERE id_conversation = :conv_id");
-		 $req_delete->bindValue(':conv_id', $_GET['id']);
-		 $req_delete->execute();
-	};
-	header("Location: messenger.php?cv_id=".intval($convers).'&cv_name='.$_SESSION['cv_name'].'' ); // renvoie à la page de la conversation
+	// if ($_GET['action'] == 'delete_conv') {
+	// 	 $req_delete = $connexion->prepare("DELETE FROM T_CONVERSATION WHERE id_conversation = :conv_id");
+	// 	 $req_delete->bindValue(':conv_id', $_GET['id']);
+	// 	 $req_delete->execute();
+	// };
+	// header("Location: messenger.php?cv_id=".intval($convers).'&cv_name='.$_SESSION['cv_name'].'' ); // renvoie à la page de la conversation
 	
-		}
+	// 	}
 
-	function IsEmpty()
-		{
-		if (isset($_SESSION['conversation_id']) && $_SESSION['IsEmpty'])
-			{
-			return true;
-			}
-		  else
-			{
-			return false;
-			}
-		}
+	// function IsEmpty()
+	// 	{
+	// 	if (isset($_SESSION['conversation_id']) && $_SESSION['IsEmpty'])
+	// 		{
+	// 		return true;
+	// 		}
+	// 	  else
+	// 		{
+	// 		return false;
+	// 		}
+	// 	}
 	
 
 // if($countmembers=0) {

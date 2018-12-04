@@ -13,32 +13,42 @@ $author = intval($id_user->id_user);
 
 // CREATION DE TOPIC pour CONVERSATION
 
-if (isset($_POST['create-conv'])) // Au clique de la souris sur le boutton Create Topic
+if (isset($_POST['create-conv']))
 	{
-	$topic_creat = $_POST['topic']; // Stockage du nom du topic encodé dans l'input
-	if (strlen($topic_creat) > 25) // Si topic 
-	{
-	echo ($topic_creat . " " . " Nom de topic trop long, maximum 25 caractères");
-	}
-
-	if ($topic_creat !== "") // Si le titre est différent de vide
+	$topic_creat = $_POST['topic'];
+	
+	if ($topic_creat !== "")
 		{
 			$subject = $topic_creat;
+
+			//Insert du topic dans SQL lorsqu'on presse CReate Topic
 			$result = $connexion->prepare("INSERT INTO T_CONVERSATION (author_id, subject) VALUES (:author,:topic)");
 			$result->bindValue(':author', $author);
 			$result->bindValue(':topic', $topic_creat);
-			
-			$result->execute(); // Insert dans la T_CONVERSATION sujet & author_id
-		} 	else
-			{
-				echo "<p> Topic name is empty </p>";
-			} 
-		}
+			$result->execute();
 
+			// Insert ID et USER dans Participation Conversation aporès création du topic
+			if ($result) {
+				$pushparticipation = $connexion->prepare("INSERT INTO T_PARTICIPATION_CONVERSATION (user_id, conversation_id)  SELECT author_id, id_conversation FROM T_CONVERSATION ON DUPLICATE KEY UPDATE user_id=author_id, conversation_id=id_conversation");
+				$pushparticipation->execute();
+			}
+		} 
+		
+		else
+		{
+			var_dump("Topic name is empty");
+		} 
+	}
 
+if (strlen($topic_creat) > 50)
+	{
+	var_dump($topic_creat . " " . " Nom de topic trop long, maximum 50 caractères");
+	}
 
 
 include 'messenger.php';
 
+include "chat.php";
 
+header("Location: messenger.php?cv_id=".intval($_SESSION['cv_id'])); // renvoie à la page de la conversation
 ?>

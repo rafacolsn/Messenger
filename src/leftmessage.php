@@ -9,7 +9,7 @@
 
     while($datatopic = $get_topics->fetch() ) {
       
-        echo utf8_encode('<br><a href="delete-topic.php?action=delete_conv&id='.$datatopic['id_conversation'].'"><i class="fa fa-close font-size:12px"></i> </a> 
+        echo utf8_encode('<br><a href="delete-message.php?action=delete_conv&id='.$datatopic['id_conversation'].'"><i class="fa fa-close font-size:12px"></i> </a> 
 
     <a href="messenger.php?cv_id='.$datatopic['id_conversation'].'&cv_name='.$datatopic['topicname'].'"><li class="topicleft" name="topicname">'.$datatopic['topicname'].'</li></a>');
     };
