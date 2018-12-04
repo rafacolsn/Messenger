@@ -213,7 +213,7 @@ a {
 }
 
 a:hover {
-   color: ;
+   
    text-decoration: none;
 }
 
@@ -327,7 +327,7 @@ a:hover {
 #topic-output-chat {
    background-color: #0b8f94;
    color: white;
-   
+   grid-row: 1;
    border: none;  
    border-bottom: 2px solid #e06500;
 

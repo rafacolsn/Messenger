@@ -8,11 +8,8 @@
 		$invitation_sql->execute();
 		while ($result = $invitation_sql->fetch())
 			{
-<<<<<<< HEAD
             echo "<br />";
 				echo utf8_encode("<a href='function-invite.php'><li class='contact-list'>" . $result['username'] . "</li> </a>");
-=======
->>>>>>> b1bec130fcc8742e7c0239d6294e9e55d4f5c472
 
 				echo ("<input type='checkbox' name='invitebox[]' value='".$result['id_user']." - ".$result['username']."' <li class='contact-list'>" . " <span>" . $result['username'] . "</span></li>" );
 				echo "<br />";
