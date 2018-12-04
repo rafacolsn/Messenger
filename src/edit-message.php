@@ -19,7 +19,5 @@ if ($_GET['action'] == 'edit') {
     </li>';
 } 
 
-
-
-
+require "assets/php/bottom.php";
 ?>

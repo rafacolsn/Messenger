@@ -49,7 +49,7 @@ $userInfo = $reqUser->fetch();
         <div id="leftsettings">
 
             <?php
-                echo "<h3 class='topic-title-left'>Topic</h3>";
+                echo "<h3 class='topic-title-left'>Conversations</h3>";
                 require 'leftmessage.php';
             ?>
         </div>
@@ -94,8 +94,8 @@ $userInfo = $reqUser->fetch();
             <div id="topic-creating">
 
                 <form action="topic.php" method="post">
-                    <textarea name="topic" placeholder="Topic name..." class="form-control" id="chat"></textarea>
-                    <input name="create-conv" class="button-topic" type="submit" value="Create Topic" />
+                    <textarea name="topic" placeholder="Votre conversation..." class="form-control" id="chat"></textarea>
+                    <input name="create-conv" class="button-topic" type="submit" value="Créer une conversation" />
             </div>
             </form>
 
@@ -105,9 +105,9 @@ $userInfo = $reqUser->fetch();
                 <div id="messagebottom">
 
                     <div class=emo>
-                        <textarea data-emojiable="true" name="message" placeholder="Write your message..." class="form-control"
+                        <textarea data-emojiable="true" name="message" placeholder="Exprimez-vous..." class="form-control"
                             id="chat"></textarea>
-                        <input name="send-message" class="button-chat" type="submit" value="Send" />
+                        <input name="send-message" class="button-chat" type="submit" value="Envoi" />
                     </div>
 
                 </div>
