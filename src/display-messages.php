@@ -24,27 +24,27 @@ while ($donnees = $req->fetch()) {
     
     if ($donnees['conv_id'] == $_SESSION['cv_id']) {
     
-        if ($donnees['author'] == $_SESSION['user_id']) {
+        if ($donnees['author'] == $_SESSION['user_id']) { // si auteur du msg = user connecté class "you" sinon "sender"
             echo '
                 <li class="you">
                     <strong>'.utf8_encode($donnees['pseudo']).'</strong><br />'
                     .nl2br(htmlspecialchars($donnees['contenu']));
 
-                    if($donnees['date_modif'] != $donnees['date_crea']) {
+                    if($donnees['date_modif'] != $donnees['date_crea']) { // ajoute "modifié le" si date modif updatée
                         echo '<br /><span class="date-msg"> modifié le </span>';
                     }
                     else {echo '<br />';}
             echo '
                     <span class="date-msg"> '.$donnees['date_modif'].'</span>
                         
-                    <a href="messenger.php?action=edit&id='.$donnees['msg_id'].'">
-                        <i class="fas fa-pencil-alt"></i>
+                    <a href="messenger.php?action=edit&id='.$donnees['msg_id'].'"> 
+                        <i class="fas fa-pencil-alt"></i> 
                     </a>
                     <a href="delete-message.php?action=delete&id='.$donnees['msg_id'].'">
                         <i class="fas fa-trash-alt"></i>
                     </a>
                     
-                </li>';
+                </li>'; 
         }
         else {
             echo '
@@ -59,6 +59,10 @@ while ($donnees = $req->fetch()) {
             echo '
                     <span class="date-msg"> '.$donnees['date_modif'].'</span>
                 </li>';
+            $cv_id = $_SESSION['cv_id'];
+            $u_id= $_SESSION['user_id'];
+            $req2=$connexion->prepare("UPDATE T_PARTICIPATION_CONVERSATION SET unread_msg=0 WHERE user_id=$u_id AND conversation_id=$cv_id");
+            $req2->execute();
         }
     }; 
 };

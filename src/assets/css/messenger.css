@@ -64,9 +64,12 @@
 }
 .messageleft li {
 
-
+   display: flex;
    padding-left: 2em;
 
+}
+.notifs {
+   padding-left: 1em;
 }
 .messageleft i {
    color: #e06500;
