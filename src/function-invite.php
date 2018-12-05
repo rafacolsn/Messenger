@@ -8,19 +8,19 @@ function allmembers(){
             {
 				
 				if ($result['connected']) {
-					echo utf8_encode('
+					echo '
 						<span class="contact-list">
 							<input type="checkbox" name="invitebox[]" value="'.$result['username'].'">
 							<img src="assets/img/online.png" width="7px"></img>'.$result['username'].'
-						</span>');
+						</span>';
 					echo '<br />';
 				}
 				else {
-					echo utf8_encode('
+					echo '
 						<span class="contact-list">
 							<input type="checkbox" name="invitebox[]" value="'.$result['username'].'">
 							<img src="assets/img/offline.png" width="7px"></img>'.$result['username'].'
-						</span>');
+						</span>';
 					echo '<br />';
 				}
 			}	
