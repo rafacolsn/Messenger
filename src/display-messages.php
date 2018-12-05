@@ -66,5 +66,6 @@ while ($donnees = $req->fetch()) {
         }
     }; 
 };
+
 require "assets/php/bottom.php";
 ?>
