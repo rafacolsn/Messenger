@@ -30,7 +30,7 @@
 
         if (count($errors) == 0) {
             $password = password_hash($user->password, PASSWORD_BCRYPT); //ENCRYPT PASSWORD
-            $sql = "INSERT INTO T_USERS (EMAIL,FIRSTNAME,LASTNAME,USERNAME,PASSWORD, avatar) VALUES (:email,:firstname,:lastname,:username,:password,:avatar)";
+            $sql = "INSERT INTO T_USERS (EMAIL,FIRSTNAME,LASTNAME,USERNAME,PASSWORD, avatar) VALUES (:email,:firstname,:lastname,:username,:password, :avatar)";
             $stmt = $connexion->prepare($sql);
             $stmt->bindValue(':email', $user->email);
             $stmt->bindValue(':firstname', $user->firstname);

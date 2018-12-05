@@ -28,7 +28,7 @@ while ($donnees = $req->fetch()) {
         if ($donnees['author'] == $_SESSION['user_id']) {
             echo '
                 <li class="you">
-                    <strong>'.$donnees['pseudo'].'</strong><br />'
+                    <strong>'.utf8_encode($donnees['pseudo']).'</strong><br />'
                     .nl2br(htmlspecialchars($donnees['contenu']));
 
                     if($donnees['date_modif'] != $donnees['date_crea']) {
@@ -55,7 +55,7 @@ while ($donnees = $req->fetch()) {
         else {
             echo '
                 <li class="sender">
-                    <strong>'.$donnees['pseudo'].'</strong><br />'
+                    <strong>'.utf8_encode($donnees['pseudo']).'</strong><br />'
                     .nl2br(htmlspecialchars($donnees['contenu']));
 
                     if($donnees['date_modif'] != $donnees['date_crea']) {
@@ -68,4 +68,5 @@ while ($donnees = $req->fetch()) {
         }
     }; 
 };
+require "assets/php/bottom.php";
 ?>
