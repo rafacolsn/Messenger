@@ -37,26 +37,30 @@ $userInfo = $reqUser->fetch();
 <body>
     <div id="allchat">
         <div id="profil-topleft">
-        <?php if(!empty($userInfo['avatar'])):?>
-                <img src="./assets/upload/<?php echo $userInfo['avatar'];?>" alt="" class="profilchat-you">
-        <?php else:?>
-                <img src="./assets/img/avatar.png" alt="avatar" class="profilchat-you">
-        <?php endif;?>
-            <a href="myprofile.php">Mon Profil</a>
-            <p class="connectedornot"><br /><?php echo $username?> - Connecté </p>
+            <?php if(!empty($userInfo['avatar'])):?>
+            <a href="myprofile.php"><img src="./assets/upload/<?php echo $userInfo['avatar'];?>" alt="" class="profilchat-you"></a>
+            <?php else:?>
+            <a href="myprofile.php"><img src="./assets/img/avatar.png" alt="avatar" class="profilchat-you"></a>
+            <?php endif;?>
+            <a href="myprofile.php">
+                <?php echo $username ?> - Profil</a>
         </div>
 
         <div id="leftsettings">
 
             <?php
-                echo "<h3 class='topic-title-left'>Conversations</h3>";
+                echo "<h3 class='topic-title-left'>Topic</h3>";
+                if ($_GET['action'] == 'delete_conv') {
+                    require "delete-message.php";
+                }
                 require 'leftmessage.php';
             ?>
+
         </div>
 
         <div id="topic-output-chat">
-         
-            <?php      
+
+            <?php          
               echo "<h1>". $_SESSION['cv_name'] . "</h1>";
               echo "<br> <p class='created-by'> Crée par ". $username ." </p> ";
              ?>
@@ -97,6 +101,7 @@ $userInfo = $reqUser->fetch();
                     <textarea name="topic" placeholder="Votre conversation..." class="form-control" id="chat"></textarea>
                     <input name="create-conv" class="button-topic" type="submit" value="Créer une conversation" />
             </div>
+
             </form>
 
         </div>

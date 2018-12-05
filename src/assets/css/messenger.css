@@ -1,8 +1,8 @@
 #allchat {
    height: 100vh;
    display: grid;
-   grid-template-columns: 17% 1fr 15%;
-   grid-template-rows: 10% 1fr 20%;
+   grid-template-columns: 20% 1fr 17%;
+   grid-template-rows: 15% 1fr 20%;
    border: 3px solid #011320;
    overflow: hidden;
 }
@@ -14,12 +14,12 @@
    background-color: #00345c;
    justify-items: center;
    display: grid;
-   padding-top: 10px;
 }
 
 #profil-topleft a {
    text-decoration: none;
    color: #e06500;
+   font-size: 12px;
 }
 
 #profil-topleft a:hover {
@@ -31,8 +31,6 @@
 .connectedornot {
    color: #3888c2;
 }
-
-
 
 
 #leftsettings {
@@ -53,12 +51,35 @@
    color: rgba(255, 255, 255, 0.767);
    background-color: #02345a;
    width: auto;
-   height: 100%;
+   height: auto;
    font-size: 12px;
-   overflow: auto;
-   justify-items: auto;
+   overflow-y: auto;
+   overflow-x: hidden;
+ 
+   justify-content: center;
+  
    padding-top: 1em;
 }
+.messageleft li {
+
+   display: flex;
+   padding-left: 2em;
+
+}
+.notifs {
+   padding-left: 1em;
+}
+.messageleft i {
+   color: #e06500;
+   cursor: pointer;
+}
+
+.messageleft i:hover {
+   color: white;
+   cursor: pointer;
+}
+
+
 
 .messageleft::-webkit-scrollbar {
    width: 0.65em;
@@ -91,7 +112,12 @@ list-style: none;
    grid-row: 1/5;
    background-color: #02345a;
    color: white;
+
 }
+.checkboxinvite {
+   margin-left: 0.5em;
+}
+
 
 #chat-middle-output {
    border: none;
@@ -114,17 +140,18 @@ list-style: none;
    background-color: #e06500;
 }
 
-
 .sender {
    margin-bottom: 5px;
    border: 1px solid #c9cac9;
    background-color: #013f6e;
-   width: 40em;
+   width: 30em;
    color: white;
-   border-radius: 8px;
-   padding-top: 2px;
-   padding-bottom: 2px;
-   padding-right: 30px;
+   border-radius: 1.5vh;
+   margin-bottom: 2vh;
+   padding-top: 0.8vh;
+   padding-bottom: 0.7vh;
+   padding-left: 1vh;
+   margin-left: 5vh;
 }
 
 .sender strong {
@@ -140,26 +167,27 @@ list-style: none;
 }
 
 .date-msg {
-   color: rgba(250, 250, 250, 0.465);
-   font-size: 8px;
+   color: #ffffff8e;
+   font-size: 9px;
    font-style: italic;
    text-justify: right;
 }
 
 
 .you {
-   background-color: #6e0069;
-   width: 55vh;
+   background-color: rgb(11, 143, 148);
+   width: 30em;
    color: white;
    border-radius: 1.5vh;
    margin-bottom: 2vh;
    padding-top: 0.8vh;
    padding-bottom: 0.7vh;
    padding-left: 1vh;
-   margin-left: 8vh;
+   margin-left: 10vh;
 }
 .you i {
    font-size: 0.6rem;
+   color: #ffffff8e;
 }
 
 .you:active {
@@ -173,7 +201,7 @@ list-style: none;
 
 .profilchat-you {
    border-radius: 50%;
-   width: 64px;
+   width: 48px;
    border: 2px solid #e06500;
 }
 
@@ -321,19 +349,22 @@ a:hover {
 }
 
 #topic-output-chat {
-   background-color: #0b8f94;
-   color: white;
+   background-color: #00345c;
+   color: #e06500;
    grid-row: 1;
    border: none;  
-   border-bottom: 2px solid #e06500;
+
+   border: 1px solid #e06500;
+   border-bottom: 5px solid #e06500;
 
 }
 
 #topic-output-chat h1 {
    text-align: center;
    padding-top: 1em;
-   font-size: 14px;
+   font-size: 18px;
    font-weight: 900;
+   text-justify: auto;
 }
 
 .user-invited-list {
@@ -341,9 +372,23 @@ padding-left: 2.5em;
 }
 
 .created-by {
-color: rgba(255, 255, 255, 0.6);
-float: right;
-padding-right: 1em;
-font-size: 10px;
-font-style: italic;
+   color: rgba(255, 255, 255, 0.6);
+   float: right;
+   padding-right: 1em;
+   font-size: 10px;
+   font-style: italic;
+}
+
+.closetopic {
+   position: fixed;
+
+}
+
+.messageleft a {
+   display: inline-block;
+   position: relative;
+}
+
+.contact-list {
+   list-style:none;
 }
