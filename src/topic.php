@@ -47,8 +47,4 @@ if (strlen($topic_creat) > 50)
 
 
 include 'messenger.php';
-
-
-
-header("Location: messenger.php?cv_id=".intval($_SESSION['cv_id'])); // renvoie à la page de la conversation
 ?>
