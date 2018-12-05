@@ -14,6 +14,7 @@
     <a href="messenger.php?cv_id='.$datatopic['id_conversation'].'&cv_name='.$datatopic['topicname'].'"><li class="topicleft" name="topicname">'.$datatopic['topicname'].'</li></a>');
     };
     $_SESSION['cv_name'] = $_GET['cv_name'];
+
     $get_topics->closeCursor();
 
     ?>

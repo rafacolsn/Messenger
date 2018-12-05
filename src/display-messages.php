@@ -10,7 +10,6 @@ $req = $connexion->prepare(
         DATE_FORMAT(m.date_modif, '%d/%m/%Y %Hh%i') AS date_modif, 
         m.conversation_id AS conv_id, 
         m.author_id AS author, 
-        m.unread AS unread, 
         u.username AS pseudo
         FROM T_MESSAGES m 
         INNER JOIN T_USERS u ON m.author_id = u.id_user 
@@ -63,5 +62,6 @@ while ($donnees = $req->fetch()) {
         }
     }; 
 };
+
 require "assets/php/bottom.php";
 ?>

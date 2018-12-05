@@ -22,14 +22,14 @@ if (isset($_POST['create-conv']))
 			$subject = $topic_creat;
 
 			//Insert du topic dans SQL lorsqu'on presse CReate Topic
-			$result = $connexion->prepare("INSERT INTO T_CONVERSATION (author_id, subject) VALUES (:author,:topic)");
+			$result = $connexion->prepare("INSERT INTO T_CONVERSATION (author_id, subject) VALUES (:author,:topic) ON DUPLICATE KEY UPDATE author_id=author_id, subject=subject");
 			$result->bindValue(':author', $author);
 			$result->bindValue(':topic', $topic_creat);
 			$result->execute();
 
 			// Insert ID et USER dans Participation Conversation aporès création du topic
 			if ($result) {
-				$pushparticipation = $connexion->prepare("INSERT INTO T_PARTICIPATION_CONVERSATION (user_id, conversation_id)  SELECT author_id, id_conversation FROM T_CONVERSATION ON DUPLICATE KEY UPDATE user_id=author_id, conversation_id=id_conversation");
+				$pushparticipation = $connexion->prepare("INSERT INTO T_PARTICIPATION_CONVERSATION (user_id, conversation_id, unread_msg)  SELECT author_id, id_conversation,msg_unread  FROM T_CONVERSATION ON DUPLICATE KEY UPDATE user_id=author_id, conversation_id=id_conversation");
 				$pushparticipation->execute();
 			}
 		} 
@@ -48,7 +48,7 @@ if (strlen($topic_creat) > 50)
 
 include 'messenger.php';
 
-include "chat.php";
+
 
 header("Location: messenger.php?cv_id=".intval($_SESSION['cv_id'])); // renvoie à la page de la conversation
 ?>
