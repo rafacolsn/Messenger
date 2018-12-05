@@ -47,7 +47,4 @@ if (strlen($topic_creat) > 50)
 
 
 include 'messenger.php';
-
-
-
 ?>
