@@ -6,6 +6,7 @@
 
 
      //EDIT AVATAR
+
      if (isset($_FILES['avatar']) && !empty($_FILES['avatar']['name'])) {
         $tailleMax = 2097152;
         $extensionsValides = array('jpg', 'jpeg', 'gif', 'png');
@@ -13,6 +14,9 @@
             $extensionUpload = strtolower(substr(strrchr($_FILES['avatar']['name'],'.'),1));
             if (in_array($extensionUpload,$extensionsValides)) {
                 $chemin = "./assets/upload/".$_SESSION['username'].".".$extensionUpload;
+                if(!is_dir("./assets/upload/")){
+                    mkdir("./assets/upload/");
+                }
                 $resultat = move_uploaded_file($_FILES['avatar']['tmp_name'],$chemin);
                 if ($resultat) {
                     $sql = "UPDATE T_USERS SET avatar = :avatar WHERE id_user = :id_user";

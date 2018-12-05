@@ -41,8 +41,13 @@ while ($donnees = $req->fetch()) {
                     <a href="messenger.php?action=edit&id='.$donnees['msg_id'].'">
                         <i class="fas fa-pencil-alt"></i>
                     </a>
+
+
                     <a href="delete-message.php?action=delete&id='.$donnees['msg_id'].'">
                         <i class="fas fa-trash-alt"></i>
+                    </a>
+                    <a href="react.php?action=click&id='.$donnees['msg_id'].'">
+                        <i class="far fa-thumbs-up"></i>
                     </a>
                     
                 </li>';
