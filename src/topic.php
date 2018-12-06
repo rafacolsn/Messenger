@@ -13,6 +13,7 @@ $author = intval($id_user->id_user);
 
 // CREATION DE TOPIC pour CONVERSATION
 
+
 if (isset($_POST['create-conv'])) // Au clique sur le bouton 'Créer une conversation'
 	{
 	$topic_creat = $_POST['topic']; // Stockage de la valeur de l'input comprenant le text du titre
@@ -34,16 +35,9 @@ if (isset($_POST['create-conv'])) // Au clique sur le bouton 'Créer une convers
 			}
 		} 
 		
-		else // Sinon, affiche que le topic est vide
-		{
-			echo "<h3> Vous devez choisir un titre de conversation </h3>";
-		} 
 	}
 
-if (strlen($topic_creat) >= 25) // Longueur du titre doit être inférieur a 25 caractères
-	{
-	var_dump($topic_creat . " " . " Nom de topic trop long, maximum 25 caractères");
-	}
+
 
 
 include 'messenger.php'; // Rechargement de la page messenger.php lors de la création de topic

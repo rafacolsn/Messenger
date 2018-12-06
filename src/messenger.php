@@ -74,7 +74,6 @@ $userInfo = $reqUser->fetch();
 
         $convcreatedby->execute();
 
-
         while( $createdby = $convcreatedby->fetch() ) { 
 
           if($_GET['cv_name'] == $createdby['subject']) {    
@@ -167,6 +166,16 @@ $userInfo = $reqUser->fetch();
                     <input name="create-conv" class="button-topic" type="submit" value="Créer une conversation" />
             </div>
             </form>
+
+             <?php
+                
+                if (isset($_POST['create-conv']) && $_POST['topic'] == ""){
+                    echo "<br> <h3 class='topic-title-left'> <strong> Vous devez choisir un titre de conversation </strong></h3>";
+                };
+                
+                
+                
+                ?>
 
             <form action="./assets/php/disconnect.php" method="post">
                 <!-- Au clique sur l'input disconnect ci dessous, renvoi vers la page disconnect.php qui detruit la session en cours -->
