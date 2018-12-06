@@ -1,6 +1,7 @@
 <?php
 session_start();
 require "assets/php/connect2db.php";
+require "react.php";
 
 // requête pour afficher les messages avec leurs auteurs et l'id de la conversation
 $req = $connexion->prepare(
@@ -9,11 +10,7 @@ $req = $connexion->prepare(
         DATE_FORMAT(m.date_creation, '%d/%m/%Y %Hh%i') AS date_crea, 
         DATE_FORMAT(m.date_modif, '%d/%m/%Y %Hh%i') AS date_modif, 
         m.conversation_id AS conv_id, 
-<<<<<<< HEAD
-        m.author_id AS author,  
-=======
         m.author_id AS author, 
->>>>>>> f54ddf8d2621a938eeb18880305518ff9df4fc58
         u.username AS pseudo
         FROM T_MESSAGES m 
         INNER JOIN T_USERS u ON m.author_id = u.id_user 
@@ -33,13 +30,13 @@ while ($donnees = $req->fetch()) {
                 <li class="you">
                     <strong>'.utf8_encode($donnees['pseudo']).'</strong><br />'
                     .nl2br(htmlspecialchars($donnees['contenu']));
-
+                
                     if($donnees['date_modif'] != $donnees['date_crea']) { // ajoute "modifié le" si date modif updatée
                         echo '<br /><span class="date-msg"> modifié le </span>';
                     }
                     else {echo '<br />';}
             echo '
-                    <span class="date-msg"> '.$donnees['date_modif'].'</span>
+                    <span class="date-msg"> '.$donnees['date_modif']. '</span>
                         
                     <a href="messenger.php?action=edit&id='.$donnees['msg_id'].'"> 
                         <i class="fas fa-pencil-alt"></i> 
@@ -47,10 +44,8 @@ while ($donnees = $req->fetch()) {
 
 
                     <a href="delete-message.php?action=delete&id='.$donnees['msg_id'].'">
-                        <i class="fas fa-trash-alt"></i>
-                    </a>
-                    <a href="react.php?action=click&id='.$donnees['msg_id'].'">
-                        <i class="far fa-thumbs-up"></i>
+                        
+                    <i class="fas fa-trash-alt"></i>
                     </a>
                     
                 </li>'; 
@@ -60,13 +55,17 @@ while ($donnees = $req->fetch()) {
                 <li class="sender">
                     <strong>'.utf8_encode($donnees['pseudo']).'</strong><br />'
                     .nl2br(htmlspecialchars($donnees['contenu']));
-
+                    
                     if($donnees['date_modif'] != $donnees['date_crea']) {
                         echo '<br /><span class="date-msg"> modifié le </span>';
                     }
                     else {echo '<br />';}
             echo '
                     <span class="date-msg"> '.$donnees['date_modif'].'</span>
+                    
+                    <a href="react.php?action=react&id='.$donnees['msg_id'].'">
+                        <i class="far fa-thumbs-up"></i>
+                    </a>
                 </li>';
             $cv_id = $_SESSION['cv_id'];
             $u_id= $_SESSION['user_id'];
