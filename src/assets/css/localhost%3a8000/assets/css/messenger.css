@@ -386,7 +386,7 @@ a:hover {
 }
 
 #topic-output-chat {
-   background-color: #022b4a;
+   background-color: red;
    color: #e06500;
    grid-row: 1;
    border: none;
@@ -425,11 +425,6 @@ padding-left: 2.5em;
    position: relative;
 }
 
-.contact-list  {
+.contact-list {
    list-style:none;
-}
-
-.contact li {
-   padding-left: 0.5em;
-
 }

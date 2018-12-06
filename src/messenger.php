@@ -92,10 +92,16 @@ $userInfo = $reqUser->fetch();
                 if($_SESSION['cv_id'] == "") { 
                     echo '
                     <li class="sender">
-                        <strong> Big Chat </strong><br/>
-                       <p> Bienvenu sur Big Chat </p>                       
+                        <strong> BigChat </strong><br/>
+                       <p> Bienvenu sur BigChat, humain</p>                       
                     </li>';
 
+                    echo '
+                    <li class="sender">
+                        <strong> BigChat </strong><br/>
+                       <p> Voici un petit guide sur mon utilisation</p>                       
+                    </li>';
+              
                    echo  "
                    <li class='sender'>
                         <strong> Big Chat </strong><br/><br/>
@@ -104,6 +110,14 @@ $userInfo = $reqUser->fetch();
                       <li> Ensuite cliquer sur la conversation crée sur votre gauche </li> <br> 
                       <li> Il ne vous reste plus qu'à inviter vos membres  </li>  
                       <br>   
+                      <li> Vous ne pouvez supprimer que les conversations que vous avez crée </li>
+                      <br>
+                      <li> Pour modifier votre mot de passe et mettre une photo, cliquez sur 'Votre Profil' en haut, a gauche </li>
+                     <br> 
+                     <li> Vous ne pouvez pas inviter sur le topic 'Bienvenu sur Bigchat' </li>
+                     <li> Vous pouvez éditer vos messages envoyer en cliquant sur le petit crayon d'édition</li>
+                     <li> Vous pouvez supprimer vos messages en cliquant sur la petite poubelle </li>
+            
                       <ol/>                  
                     </li>";
                 }
@@ -135,17 +149,19 @@ $userInfo = $reqUser->fetch();
             </form>
             <form action="" method="post">
 
-                <input name="disconnect" class="button-disconnect" type="submit" value="Deconnexion" />
                 </form>
                     <?php
                         if(isset($_POST['disconnect'])) {
-                
+                            $_SESSION = array();
+
                         session_destroy();
                         echo " <br> <h3 class='topic-title-left'>Vous avez été deconnecté</h3>";
                             
                         }
 
                     ?>
+            <input name="disconnect" class="button-disconnect" type="submit" value="Deconnexion" onclick="document.location.href='index.php'"/></a> 
+
         </div>
         
        
