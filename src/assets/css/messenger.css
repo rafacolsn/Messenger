@@ -312,7 +312,7 @@ a:hover {
    height: 30px;
    font-size: 12px;
    margin-top: 10px;
-  
+
 }
 
 .button-invite {
@@ -431,6 +431,11 @@ padding-left: 2.5em;
    position: relative;
 }
 
-.contact-list {
+.contact-list  {
    list-style:none;
+}
+
+.contact li {
+   padding-left: 0.5em;
+
 }

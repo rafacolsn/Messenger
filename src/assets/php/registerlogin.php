@@ -69,7 +69,7 @@
                 $_SESSION['user_id'] = $id_user['id_user'];
                 $_SESSION['logged_in'] = time();
                 $_SESSION['username'] = $username;
-                header('Location: ../messenger.php');
+                header('Location: ../messenger.php?cv_name=Accueil');
                 exit;
             } else {
                 die('Incorrect username / password combination!');
