@@ -59,7 +59,7 @@ $userInfo = $reqUser->fetch();
                 }
                 require 'leftmessage.php'; // Appel du fichier leftmessage comportant l'appel de la liste des conversations
             ?>
-            <form action="messenger.php" method="post">
+            <form action="messenger.php?cv_name=Accueil" method="post">
                 <!-- Redirection vers page d'accueil au clique sur l'input 'backhome' ci dessous-->
                 <input name="backhome" class="button-left" type="submit" value="Accueil" />
             </form>
@@ -70,24 +70,27 @@ $userInfo = $reqUser->fetch();
 
             <?php 
 
-        $convcreatedby = $connexion->prepare("SELECT tu.username, tc.subject FROM T_USERS tu JOIN T_CONVERSATION tc ON tu.id_user = tc.author_id WHERE tu.id_user = tc.author_id");
+if($_GET['cv_name'] == 'Accueil' ) { // Si présent sur aucune conversation, affiche le message ci dessous
+    echo "<h1> Bienvenu sur BigChat</h1>";
+   
+} else {
 
-        $convcreatedby->execute();
+    $convcreatedby = $connexion->prepare("SELECT tu.username, tc.subject FROM T_USERS tu JOIN T_CONVERSATION tc ON tu.id_user = tc.author_id WHERE tu.id_user = tc.author_id");
 
-        while( $createdby = $convcreatedby->fetch() ) { 
+    $convcreatedby->execute();
 
-          if($_GET['cv_name'] == $createdby['subject']) {    
+    while( $createdby = $convcreatedby->fetch() ) { 
 
-            if($_GET['cv_id'] == NULL || $_GET['cv_name'] == NULL ) { // Si présent sur aucune conversation, affiche le message ci dessous
-                echo "<h1> Bienvenu sur BigChat</h1>";
-               
-            } else {
-            
-              echo "<h1>". $_SESSION['cv_name'] . "</h1>";
-              echo "<br> <p class='created-by'> Crée par ". $createdby['username'] ." </p> ";
-            }
-        }
-        }
+      if($_GET['cv_name'] == $createdby['subject']) {    
+
+        echo "<h1>". $_SESSION['cv_name'] . "</h1>";
+        echo "<br> <p class='created-by'> Crée par ". $createdby['username'] ." </p> ";
+    }
+    }
+}
+
+
+
              ?>
         </div>
 
@@ -98,44 +101,13 @@ $userInfo = $reqUser->fetch();
 
 
                 <?php 
-
-
                 if ($_GET['action'] == 'edit') {
                     require "edit-message.php";
                 }
 
                 require "display-messages.php";
                 if($_SESSION['cv_id'] == "") { // Si l'url de la conversation est vide, affichera le message d'accueuil
-                    echo '
-                    <li class="sender">
-                        <strong> BigChat </strong><br/>
-                       <p> Bienvenu sur BigChat, humain</p>                       
-                    </li>';
-
-                    echo '
-                    <li class="sender">
-                        <strong> BigChat </strong><br/>
-                       <p> Voici un petit guide sur mon utilisation</p>                       
-                    </li>';
-              
-                   echo  "
-                   <li class='sender'>
-                        <strong> Big Chat </strong><br/><br/>
-                        <ol>
-                       <li> Vous devez d'abord crée une conversation </li> <br>
-                      <li> Ensuite cliquer sur la conversation crée sur votre gauche </li> <br> 
-                      <li> Il ne vous reste plus qu'à inviter vos membres  </li>  
-                      <br>   
-                      <li> Vous ne pouvez supprimer que les conversations que vous avez crée </li>
-                      <br>
-                      <li> Pour modifier votre mot de passe et mettre une photo, cliquez sur 'Votre Profil' en haut, a gauche </li>
-                     <br> 
-                     <li> Vous ne pouvez pas inviter sur le topic 'Bienvenu sur Bigchat' </li>
-                     <li> Vous pouvez éditer vos messages envoyer en cliquant sur le petit crayon d'édition</li>
-                     <li> Vous pouvez supprimer vos messages en cliquant sur la petite poubelle </li>
-            
-                      <ol/>                  
-                    </li>";
+                    accueil();
                 }
                 ?>
             </ul>

@@ -39,6 +39,5 @@ if (isset($_POST['create-conv'])) // Au clique sur le bouton 'Créer une convers
 
 
 
-
 include 'messenger.php'; // Rechargement de la page messenger.php lors de la création de topic
 ?>
