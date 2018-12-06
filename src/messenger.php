@@ -11,6 +11,8 @@ require "./assets/php/editprofile.php";
 $reqUser = $connexion->prepare("SELECT * FROM T_USERS WHERE id_user = $id");
 $reqUser->execute();
 $userInfo = $reqUser->fetch();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +37,8 @@ $userInfo = $reqUser->fetch();
 
 
 <body>
-    <div id="allchat">  <!-- Grid de toutes la page -->
+    <div id="allchat">
+        <!-- Grid de toutes la page -->
         <div id="profil-topleft">
             <?php if(!empty($userInfo['avatar'])):?>
             <a href="myprofile.php"><img src="./assets/upload/<?php echo $userInfo['avatar'];?>" alt="" class="profilchat-you"></a>
@@ -46,7 +49,8 @@ $userInfo = $reqUser->fetch();
                 <?php echo $username ?><br>Votre profil</a>
         </div>
 
-        <div id="leftsettings"> <!-- Affichage des conversation a gauche de la paage -->
+        <div id="leftsettings">
+            <!-- Affichage des conversation a gauche de la paage -->
 
             <?php
                 echo "<h3 class='topic-title-left'>Conversation</h3>";
@@ -55,31 +59,45 @@ $userInfo = $reqUser->fetch();
                 }
                 require 'leftmessage.php'; // Appel du fichier leftmessage comportant l'appel de la liste des conversations
             ?>
-        <form action="messenger.php" method="post"> <!-- Redirection vers page d'accueil au clique sur l'input 'backhome' ci dessous-->
+            <form action="messenger.php" method="post">
+                <!-- Redirection vers page d'accueil au clique sur l'input 'backhome' ci dessous-->
                 <input name="backhome" class="button-left" type="submit" value="Accueil" />
-                </form>
+            </form>
         </div>
 
-        <div id="topic-output-chat"> <!-- Nom de la conversation ou l'on est, au dessus du chat -->
+        <div id="topic-output-chat">
+            <!-- Nom de la conversation ou l'on est, au dessus du chat -->
 
             <?php 
+
+        $convcreatedby = $connexion->prepare("SELECT tu.username, tc.subject FROM T_USERS tu JOIN T_CONVERSATION tc ON tu.id_user = tc.author_id WHERE tu.id_user = tc.author_id");
+
+        $convcreatedby->execute();
+
+
+        while( $createdby = $convcreatedby->fetch() ) { 
+
+          if($_GET['cv_name'] == $createdby['subject']) {    
 
             if($_GET['cv_id'] == NULL || $_GET['cv_name'] == NULL ) { // Si présent sur aucune conversation, affiche le message ci dessous
                 echo "<h1> Bienvenu sur BigChat</h1>";
                
             } else {
+            
               echo "<h1>". $_SESSION['cv_name'] . "</h1>";
-              echo "<br> <p class='created-by'> Crée par ". $username ." </p> ";
+              echo "<br> <p class='created-by'> Crée par ". $createdby['username'] ." </p> ";
             }
-
+        }
+        }
              ?>
         </div>
 
-        <div id="chat-middle-output"> <!-- DIV qui affiche les messages, au centre du site-->
+        <div id="chat-middle-output">
+            <!-- DIV qui affiche les messages, au centre du site-->
 
             <ul>
 
-            
+
                 <?php 
 
 
@@ -124,10 +142,12 @@ $userInfo = $reqUser->fetch();
             </ul>
         </div>
 
-        <div id="topic-message-right"> <!-- Colone de droite, Membre en ligne, création de topic -->
+        <div id="topic-message-right">
+            <!-- Colone de droite, Membre en ligne, création de topic -->
 
 
-            <div class="contact"> <!-- Liste des membres -->
+            <div class="contact">
+                <!-- Liste des membres -->
                 <h2 class=" topic-title-left"> Membres </h2>
 
                 <form action="#" method="post">
@@ -138,20 +158,23 @@ $userInfo = $reqUser->fetch();
                 </form>
 
             </div>
-            <div id="topic-creating"> <!-- Création de topic -->
+            <div id="topic-creating">
+                <!-- Création de topic -->
 
-                <form action="topic.php" method="post"> <!-- Au clique sur l'input create-conv ci dessous, redirige sur fichier topic.php qui envoi nom de la conversation, et l'user dans la base de donnée -->
+                <form action="topic.php" method="post">
+                    <!-- Au clique sur l'input create-conv ci dessous, redirige sur fichier topic.php qui envoi nom de la conversation, et l'user dans la base de donnée -->
                     <textarea name="topic" placeholder="Votre conversation..." class="form-control" id="chat"></textarea>
                     <input name="create-conv" class="button-topic" type="submit" value="Créer une conversation" />
             </div>
             </form>
 
-            <form action="./assets/php/disconnect.php" method="post"> <!-- Au clique sur l'input disconnect ci dessous, renvoi vers la page disconnect.php qui detruit la session en cours -->
-            <input name="disconnect" class="button-disconnect" type="submit" value="Deconnexion" /></a> 
-</form>
+            <form action="./assets/php/disconnect.php" method="post">
+                <!-- Au clique sur l'input disconnect ci dessous, renvoi vers la page disconnect.php qui detruit la session en cours -->
+                <input name="disconnect" class="button-disconnect" type="submit" value="Deconnexion" /></a>
+            </form>
         </div>
-        
-       
+
+
         <div class="send">
             <form action="post-message.php" method="post">
                 <div id="messagebottom">
@@ -163,10 +186,10 @@ $userInfo = $reqUser->fetch();
                     </div>
 
                 </div>
-      
-        </form>
+
+            </form>
         </div>
-  
+
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
