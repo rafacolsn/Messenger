@@ -147,21 +147,9 @@ $userInfo = $reqUser->fetch();
             </div>
 
             </form>
-            <form action="" method="post">
-
-                </form>
-                    <?php
-                        if(isset($_POST['disconnect'])) {
-                            $_SESSION = array();
-
-                        session_destroy();
-                        echo " <br> <h3 class='topic-title-left'>Vous avez été deconnecté</h3>";
-                            
-                        }
-
-                    ?>
-            <input name="disconnect" class="button-disconnect" type="submit" value="Deconnexion" onclick="document.location.href='index.php'"/></a> 
-
+            <form action="./assets/php/disconnect.php" method="post">
+            <input name="disconnect" class="button-disconnect" type="submit" value="Deconnexion" /></a> 
+</form>
         </div>
         
        
