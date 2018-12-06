@@ -439,3 +439,24 @@ padding-left: 2.5em;
    padding-left: 0.5em;
 
 }
+
+.edited-message-area {
+   outline: none;
+   background-color: #02345a;
+   color: white;
+   border:1px solid #02345a;
+   overflow: auto;
+   resize: none;
+   width: 300px;
+   height: 150px;
+}
+
+
+.edited-message-area::-webkit-scrollbar {
+   width: 8px;
+   height: 7px;
+}
+
+.edited-message-area::-webkit-scrollbar-thumb {
+   background-color: #e06500;
+}

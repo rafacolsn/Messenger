@@ -37,7 +37,8 @@ if (isset($_POST['create-conv'])) // Au clique sur le bouton 'Créer une convers
 		
 	}
 
+	$_SESSION['buttonconv'] = $_POST['create-conv'];
+	$_SESSION['topicempty'] = $subject;
+	header("Location: messenger.php?cv_id=".intval($convers).'&cv_name='.$_SESSION['cv_name'].'' ); // renvoie à la page de la conversation
 
-
-include 'messenger.php'; // Rechargement de la page messenger.php lors de la création de topic
-?>
+	?>

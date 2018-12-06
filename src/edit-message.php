@@ -11,9 +11,9 @@ if ($_GET['action'] == 'edit') {
                 <strong>'.$donnees['pseudo'].'</strong>
                 <form action="update-message.php?id='.$_GET['id'].'&cv_id='.$donnees['conversation_id'].'" method="post">
                     <div class="send">
-                        <textarea name="edited-message">'.nl2br(htmlspecialchars($donnees['content'])).'</textarea>
-                        <input name="update-message" class="button-chat" type="submit" value="Send" />
-                    </div>
+                        <textarea name="edited-message" class="edited-message-area">'.nl2br(htmlspecialchars($donnees['content'])).'</textarea>
+                        <input name="update-message" class="button-chat" type="submit" value="Editer" />
+                    </div> 
                 </form>
         <br />
     </li>';

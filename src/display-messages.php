@@ -1,7 +1,9 @@
 <?php
 session_start();
-require "assets/php/connect2db.php";
 
+
+function displayMessage () {
+require "assets/php/connect2db.php";
 // requête pour afficher les messages avec leurs auteurs et l'id de la conversation
 $req = $connexion->prepare(
         "SELECT m.id_message AS msg_id,
@@ -78,7 +80,7 @@ while ($donnees = $req->fetch()) {
         }
     }; 
 };
-
+}
 function accueil() {
     echo '
                     <li class="sender">
