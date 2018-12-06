@@ -64,7 +64,7 @@ while ($donnees = $req->fetch()) {
                             <span class="pseudo">envoyé par '.utf8_encode($donnees['pseudo']).'</span>';
                                 
                                 if($donnees['date_modif'] != $donnees['date_crea']) { 
-                                    echo '<span class="date-msg modif">modifié le </span>';
+                                    echo '<span class="date-msg modif"> modifié le </span>';
                                 };
                                 
                                 echo '
