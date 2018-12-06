@@ -27,7 +27,7 @@ while ($donnees = $req->fetch()) {
         if ($donnees['author'] == $_SESSION['user_id']) { // si auteur du msg = user connecté class "you" sinon "sender"
             echo '
                 <li class="you">
-                    <strong>'.utf8_encode($donnees['pseudo']).'</strong><br />'
+                    <strong>'.utf8_encode($donnees['pseudo']).'</strong><img class ="profilchat-you display-img" src="assets/upload/'.$donnees['pseudo'].'.jpg"/><br />'
                     .nl2br(htmlspecialchars($donnees['contenu']));
 
                     if($donnees['date_modif'] != $donnees['date_crea']) { // ajoute "modifié le" si date modif updatée
