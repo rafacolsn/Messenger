@@ -60,7 +60,7 @@
 
     //BACK TO MESSENGER AFTER MODIFICATION
     if (isset($_POST['back'])) {
-        header('Location: ../messenger.php');
+        header('Location: ../messenger.php?cv_name=Accueil');
         exit;
     }
 ?>
