@@ -35,7 +35,7 @@ $userInfo = $reqUser->fetch();
 
 
 <body>
-    <div id="allchat">
+    <div id="allchat">  <!-- Grid de toutes la page -->
         <div id="profil-topleft">
             <?php if(!empty($userInfo['avatar'])):?>
             <a href="myprofile.php"><img src="./assets/upload/<?php echo $userInfo['avatar'];?>" alt="" class="profilchat-you"></a>
@@ -46,26 +46,25 @@ $userInfo = $reqUser->fetch();
                 <?php echo $username ?><br>Votre profil</a>
         </div>
 
-        <div id="leftsettings">
+        <div id="leftsettings"> <!-- Affichage des conversation a gauche de la paage -->
 
             <?php
                 echo "<h3 class='topic-title-left'>Conversation</h3>";
-                if ($_GET['action'] == 'delete_conv') {
-                    require "delete-message.php";
+                if ($_GET['action'] == 'delete_conv') { // Si clique sur la croix, suppression de la conversation
+                    require "delete-message.php"; // Appel du fichier delete-message supprimant la conversation dans la base de donnée
                 }
-                require 'leftmessage.php';
+                require 'leftmessage.php'; // Appel du fichier leftmessage comportant l'appel de la liste des conversations
             ?>
-        <form action="messenger.php" method="post">
+        <form action="messenger.php" method="post"> <!-- Redirection vers page d'accueil au clique sur l'input 'backhome' ci dessous-->
                 <input name="backhome" class="button-left" type="submit" value="Accueil" />
                 </form>
         </div>
 
-        <div id="topic-output-chat">
+        <div id="topic-output-chat"> <!-- Nom de la conversation ou l'on est, au dessus du chat -->
 
             <?php 
-                
 
-            if($_GET['cv_id'] == NULL || $_GET['cv_name'] == NULL ) {
+            if($_GET['cv_id'] == NULL || $_GET['cv_name'] == NULL ) { // Si présent sur aucune conversation, affiche le message ci dessous
                 echo "<h1> Bienvenu sur BigChat</h1>";
                
             } else {
@@ -76,7 +75,7 @@ $userInfo = $reqUser->fetch();
              ?>
         </div>
 
-        <div id="chat-middle-output">
+        <div id="chat-middle-output"> <!-- DIV qui affiche les messages, au centre du site-->
 
             <ul>
 
@@ -89,7 +88,7 @@ $userInfo = $reqUser->fetch();
                 }
 
                 require "display-messages.php";
-                if($_SESSION['cv_id'] == "") { 
+                if($_SESSION['cv_id'] == "") { // Si l'url de la conversation est vide, affichera le message d'accueuil
                     echo '
                     <li class="sender">
                         <strong> BigChat </strong><br/>
@@ -125,29 +124,29 @@ $userInfo = $reqUser->fetch();
             </ul>
         </div>
 
-        <div id="topic-message-right">
+        <div id="topic-message-right"> <!-- Colone de droite, Membre en ligne, création de topic -->
 
 
-            <div class="contact">
+            <div class="contact"> <!-- Liste des membres -->
                 <h2 class=" topic-title-left"> Membres </h2>
 
                 <form action="#" method="post">
                     <?php
                         require_once 'function-invite.php';
-                        allmembers();
+                        allmembers(); // Fonction de récuperation de tout les membres, présent dans le fichier function-invite.php
                     ?>
                 </form>
 
             </div>
-            <div id="topic-creating">
+            <div id="topic-creating"> <!-- Création de topic -->
 
-                <form action="topic.php" method="post">
+                <form action="topic.php" method="post"> <!-- Au clique sur l'input create-conv ci dessous, redirige sur fichier topic.php qui envoi nom de la conversation, et l'user dans la base de donnée -->
                     <textarea name="topic" placeholder="Votre conversation..." class="form-control" id="chat"></textarea>
                     <input name="create-conv" class="button-topic" type="submit" value="Créer une conversation" />
             </div>
-
             </form>
-            <form action="./assets/php/disconnect.php" method="post">
+
+            <form action="./assets/php/disconnect.php" method="post"> <!-- Au clique sur l'input disconnect ci dessous, renvoi vers la page disconnect.php qui detruit la session en cours -->
             <input name="disconnect" class="button-disconnect" type="submit" value="Deconnexion" /></a> 
 </form>
         </div>

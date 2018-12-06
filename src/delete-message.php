@@ -8,7 +8,7 @@ if ($_GET['action'] == 'delete') {
     $req_delete->execute();
 };
 
-if ($_GET['action'] == 'delete_conv') {
+if ($_GET['action'] == 'delete_conv') { // Lorsque l'action de l'url = "delete_conv", execute la requete SQL ci dessous
 	$req_delete = $connexion->prepare("DELETE FROM T_CONVERSATION WHERE id_conversation = :conv_id");
 	$req_delete->bindValue(':conv_id', $_GET['id']);
 	$req_delete->execute();
