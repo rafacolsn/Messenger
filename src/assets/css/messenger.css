@@ -141,17 +141,15 @@ list-style: none;
 }
 
 .sender {
-   margin-bottom: 5px;
-   border: 1px solid #c9cac9;
    background-color: #013f6e;
-   width: 30em;
+   width: auto;
+   min-height: 3rem;
+   max-width: 34rem;
    color: white;
-   border-radius: 1.5vh;
-   margin-bottom: 2vh;
-   padding-top: 0.8vh;
-   padding-bottom: 0.7vh;
-   padding-left: 1vh;
-   margin-left: 5vh;
+   border-radius: 0.5rem;
+   margin: 2rem 0 2rem -2rem;
+   text-align: justify;
+   padding: 1rem;
 }
 
 .sender strong {
@@ -166,28 +164,46 @@ list-style: none;
    font-weight: bolder;
 }
 
-.date-msg {
-   color: #ffffff8e;
-   font-size: 9px;
-   font-style: italic;
-   text-justify: right;
+.you-container {
+   margin: 1rem;
+   position: relative;
 }
-
-
+.sender-container {
+   margin: 1rem;
+   position: relative;
+}
+.date-container {
+   float: right;
+   color: #01132069;
+   font-size: 0.7rem;
+   font-style: italic;
+}
+.date-container-sender {
+   color: #01132069;
+   font-size: 0.7rem;
+   font-style: italic;
+   margin: -2rem 0 0rem -1.5rem;
+}
 .you {
    background-color: rgb(11, 143, 148);
-   width: 30em;
+   width: auto;
+   min-height: 3rem;
+   max-width: 34rem;
    color: white;
-   border-radius: 1.5vh;
-   margin-bottom: 2vh;
-   padding-top: 0.8vh;
-   padding-bottom: 0.7vh;
-   padding-left: 1vh;
-   margin-left: 10vh;
+   border-radius: 0.5rem;
+   margin: 2rem 0 0 7rem;
+   text-align: justify;
+   padding: 1rem;
 }
-.you i {
+.you-container i {
    font-size: 0.6rem;
-   color: #ffffff8e;
+   color: #01132069;
+   /* color: inherit; */
+   /* float: right; */
+}
+.pseudo {
+   font-size: 0.7rem;
+   color: #01132069;
 }
 
 .you:active {
@@ -204,9 +220,19 @@ list-style: none;
    width: 48px;
    border: 2px solid #e06500;
 }
-.display-img {
-   float: right;
-   margin: 0.5rem 0.5rem 0 0;
+.profilchat-sender {
+   border-radius: 50%;
+   width: 48px;
+   border: 2px solid #e06500;
+}
+.display-you {
+   position: absolute;
+   right: -4rem;
+}
+
+.display-sender {
+   position: absolute;
+   left: -6rem;
 }
 
 .profilchat-you:hover {
@@ -225,12 +251,7 @@ list-style: none;
 ul {
    list-style: none;
    justify-self: center;
-
-
-}
-
-ul li {
-   text-align: center;
+   /* text-align: center; */
 }
 
 a {
