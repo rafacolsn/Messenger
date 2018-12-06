@@ -43,38 +43,70 @@ $userInfo = $reqUser->fetch();
             <a href="myprofile.php"><img src="./assets/img/avatar.png" alt="avatar" class="profilchat-you"></a>
             <?php endif;?>
             <a href="myprofile.php">
-                <?php echo $username ?> - Profil</a>
+                <?php echo $username ?><br>Votre profil</a>
         </div>
 
         <div id="leftsettings">
 
             <?php
-                echo "<h3 class='topic-title-left'>Topic</h3>";
+                echo "<h3 class='topic-title-left'>Conversation</h3>";
                 if ($_GET['action'] == 'delete_conv') {
                     require "delete-message.php";
                 }
                 require 'leftmessage.php';
             ?>
-
+        <form action="messenger.php" method="post">
+                <input name="backhome" class="button-left" type="submit" value="Accueil" />
+                </form>
         </div>
 
         <div id="topic-output-chat">
 
-            <?php          
+            <?php 
+                
+
+            if($_GET['cv_id'] == NULL || $_GET['cv_name'] == NULL ) {
+                echo "<h1> Bienvenu sur BigChat</h1>";
+               
+            } else {
               echo "<h1>". $_SESSION['cv_name'] . "</h1>";
               echo "<br> <p class='created-by'> Crée par ". $username ." </p> ";
+            }
+
              ?>
         </div>
 
         <div id="chat-middle-output">
 
             <ul>
+
+            
                 <?php 
+
+
                 if ($_GET['action'] == 'edit') {
                     require "edit-message.php";
                 }
 
                 require "display-messages.php";
+                if($_SESSION['cv_id'] == "") { 
+                    echo '
+                    <li class="sender">
+                        <strong> Big Chat </strong><br/>
+                       <p> Bienvenu sur Big Chat </p>                       
+                    </li>';
+
+                   echo  "
+                   <li class='sender'>
+                        <strong> Big Chat </strong><br/><br/>
+                        <ol>
+                       <li> Vous devez d'abord crée une conversation </li> <br>
+                      <li> Ensuite cliquer sur la conversation crée sur votre gauche </li> <br> 
+                      <li> Il ne vous reste plus qu'à inviter vos membres  </li>  
+                      <br>   
+                      <ol/>                  
+                    </li>";
+                }
                 ?>
             </ul>
         </div>
@@ -92,8 +124,6 @@ $userInfo = $reqUser->fetch();
                     ?>
                 </form>
 
-
-
             </div>
             <div id="topic-creating">
 
@@ -103,8 +133,22 @@ $userInfo = $reqUser->fetch();
             </div>
 
             </form>
+            <form action="" method="post">
 
+                <input name="disconnect" class="button-disconnect" type="submit" value="Deconnexion" />
+                </form>
+                    <?php
+                        if(isset($_POST['disconnect'])) {
+                
+                        session_destroy();
+                        echo " <br> <h3 class='topic-title-left'>Vous avez été deconnecté</h3>";
+                            
+                        }
+
+                    ?>
         </div>
+        
+       
         <div class="send">
             <form action="post-message.php" method="post">
                 <div id="messagebottom">
@@ -116,8 +160,10 @@ $userInfo = $reqUser->fetch();
                     </div>
 
                 </div>
-        </div>
+      
         </form>
+        </div>
+  
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

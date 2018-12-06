@@ -16,6 +16,12 @@ if(isset($_POST['send-message'])) {
         $stmt->bindValue(':convers', $convers);
         $stmt->bindValue(':content', $text_message);    
         $stmt->execute();
+        if($stmt){
+            $req2=$connexion->prepare("UPDATE T_PARTICIPATION_CONVERSATION SET unread_msg=unread_msg+1 WHERE user_id!=$author AND conversation_id=$convers");
+            $req2->execute();
+            
+        }
+        
        
     }
 

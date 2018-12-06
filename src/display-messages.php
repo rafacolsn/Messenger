@@ -9,7 +9,11 @@ $req = $connexion->prepare(
         DATE_FORMAT(m.date_creation, '%d/%m/%Y %Hh%i') AS date_crea, 
         DATE_FORMAT(m.date_modif, '%d/%m/%Y %Hh%i') AS date_modif, 
         m.conversation_id AS conv_id, 
+<<<<<<< HEAD
         m.author_id AS author,  
+=======
+        m.author_id AS author, 
+>>>>>>> f54ddf8d2621a938eeb18880305518ff9df4fc58
         u.username AS pseudo
         FROM T_MESSAGES m 
         INNER JOIN T_USERS u ON m.author_id = u.id_user 
@@ -24,21 +28,21 @@ while ($donnees = $req->fetch()) {
     
     if ($donnees['conv_id'] == $_SESSION['cv_id']) {
     
-        if ($donnees['author'] == $_SESSION['user_id']) {
+        if ($donnees['author'] == $_SESSION['user_id']) { // si auteur du msg = user connecté class "you" sinon "sender"
             echo '
                 <li class="you">
                     <strong>'.utf8_encode($donnees['pseudo']).'</strong><br />'
                     .nl2br(htmlspecialchars($donnees['contenu']));
 
-                    if($donnees['date_modif'] != $donnees['date_crea']) {
+                    if($donnees['date_modif'] != $donnees['date_crea']) { // ajoute "modifié le" si date modif updatée
                         echo '<br /><span class="date-msg"> modifié le </span>';
                     }
                     else {echo '<br />';}
             echo '
                     <span class="date-msg"> '.$donnees['date_modif'].'</span>
                         
-                    <a href="messenger.php?action=edit&id='.$donnees['msg_id'].'">
-                        <i class="fas fa-pencil-alt"></i>
+                    <a href="messenger.php?action=edit&id='.$donnees['msg_id'].'"> 
+                        <i class="fas fa-pencil-alt"></i> 
                     </a>
 
 
@@ -49,7 +53,7 @@ while ($donnees = $req->fetch()) {
                         <i class="far fa-thumbs-up"></i>
                     </a>
                     
-                </li>';
+                </li>'; 
         }
         else {
             echo '
@@ -64,8 +68,13 @@ while ($donnees = $req->fetch()) {
             echo '
                     <span class="date-msg"> '.$donnees['date_modif'].'</span>
                 </li>';
+            $cv_id = $_SESSION['cv_id'];
+            $u_id= $_SESSION['user_id'];
+            $req2=$connexion->prepare("UPDATE T_PARTICIPATION_CONVERSATION SET unread_msg=0 WHERE user_id=$u_id AND conversation_id=$cv_id");
+            $req2->execute();
         }
     }; 
 };
+
 require "assets/php/bottom.php";
 ?>
