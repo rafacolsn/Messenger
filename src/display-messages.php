@@ -4,7 +4,8 @@ require "react.php";
 
 function displayMessage () {
 require "assets/php/connect2db.php";
-// requête pour afficher les messages avec leurs auteurs et l'id de la conversation
+
+// prépare la requête pour afficher les messages avec leurs auteurs et l'id de la conversation
 $req = $connexion->prepare(
         "SELECT m.id_message AS msg_id,
         m.content AS contenu, 
@@ -20,27 +21,34 @@ $req = $connexion->prepare(
         
 $req->execute(); 
 
-$_SESSION['cv_id'] = $_GET['cv_id']; //paramètre de l'url dans la boucle leftmessage.php
+
+
+$_SESSION['cv_id'] = $_GET['cv_id']; //stockage du paramètre de l'url dans la variable de session
 
 // on fait une boucle qui génère des balises li
 while ($donnees = $req->fetch()) {  
     
+    // à la condition que l'id de la conversation soit égal à celui de la session
     if ($donnees['conv_id'] == $_SESSION['cv_id']) {
-    
-        if ($donnees['author'] == $_SESSION['user_id']) { // si auteur du msg = user connecté class "you" sinon "sender"
+        
+        // si auteur du msg = user connecté class "you" sinon "sender"
+        // nl2br permet de garde les retours à la ligne du message et htmlspecialchars d'empêcher les injonctions de code
+        if ($donnees['author'] == $_SESSION['user_id']) { 
             echo '
                 <div class="you-container">
-                    <img class ="profilchat-you display-you" src="assets/upload/'.$donnees['avatar'].'"/>
+                
+                    <img class ="profilchat display-you" src="assets/upload/'.$donnees['avatar'].'"/>
                         <li class="you">'
                             .nl2br(htmlspecialchars($donnees['contenu'])).'
                         </li>
                         <div class="date-container">
                             <span class="pseudo">envoyé par '.utf8_encode($donnees['pseudo']).'</span>';
-                                
+                                //utf8 encode permet de conserver les accents
+                                // si la date de modif des messages est pas = à créa on rajoute un "modifié" avant la date
                                 if($donnees['date_modif'] != $donnees['date_crea']) { 
                                     echo '<span class="date-msg modif"> modifié </span>';
                                 };
-                                
+                                // affiche la date du msg et les icônes d'édition et de suppression
                                 echo '
                                     <span class="date-msg">le '
                                         .$donnees['date_modif'].'
@@ -56,10 +64,16 @@ while ($donnees = $req->fetch()) {
                         </div>
                 </div>'; 
         }
+        // affiche les msg des autres users avec la classe sender
         else {
+            $msg_id = $donnees['msg_id'];
+            $req_liked = $connexion->prepare("SELECT liked FROM T_REACTIONS WHERE message_id=$msg_id");
+            $req_liked->execute();
+            $liked = $req_liked->fetchColumn(0);
+            
             echo '
                 <div class="sender-container">
-                    <img class ="profilchat-sender display-sender"src="assets/upload/'.$donnees['avatar'].'"/>
+                    <img class ="profilchat display-sender" src="assets/upload/'.$donnees['avatar'].'"/>
                         <li class="sender">'
                             .nl2br(htmlspecialchars($donnees['contenu'])).'
                         </li>
@@ -69,22 +83,26 @@ while ($donnees = $req->fetch()) {
                                 if($donnees['date_modif'] != $donnees['date_crea']) { 
                                     echo '<span class="date-msg modif"> modifié le </span>';
                                 };
-                                
+                                // ici pas besoin d'icônes d'édition et de suppression mais bien une icône pour liker
                                 echo '
                                     <span class="date-msg">le '.$donnees['date_modif'].'</span>
-                                <a href="react.php?action=react&id='.$donnees['msg_id'].'">
-                                    <i class="far fa-thumbs-up"></i>
+                                <a href="messenger.php?cv_id='.$_SESSION['cv_id'].'&cv_name='.$_SESSION['cv_name'].'&action=react&id='.$donnees['msg_id'].'">
+                                    <i class="far fa-thumbs-up"></i>'.$liked.'
                                 </a>
                         </div>
-                </div>'; 
+                </div>';
+                            
+                // on stocke les l'id de conversation et de l'user pour (re)mettre à jour dans la db la valeur des msg non-lus à 0 puisque l'user est censé avoir tout lu une fois que c'est affiché
             $cv_id = $_SESSION['cv_id'];
             $u_id= $_SESSION['user_id'];
             $req2=$connexion->prepare("UPDATE T_PARTICIPATION_CONVERSATION SET unread_msg=0 WHERE user_id=$u_id AND conversation_id=$cv_id");
             $req2->execute();
+                            
         }
     }; 
 };
 }
+// messages d'accueil pour quand on n'a pas encore cliqué sur une conversation
 function accueil() {
     echo '
                     <li class="sender">
@@ -113,6 +131,5 @@ function accueil() {
                             <ol/>                  
                     </li>";
 }
-
 require "assets/php/bottom.php";
 ?>
