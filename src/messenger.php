@@ -3,16 +3,12 @@ session_start();
 $username = $_SESSION['username'];
 $id = intval($_SESSION['user_id']);
 require "./assets/php/connect2db.php";
-
 require "./assets/php/registerlogin.php";
-
 require "./assets/php/editprofile.php";
 
 $reqUser = $connexion->prepare("SELECT * FROM T_USERS WHERE id_user = $id");
 $reqUser->execute();
 $userInfo = $reqUser->fetch();
-
-
 ?>
 
 <!DOCTYPE html>
@@ -41,16 +37,16 @@ $userInfo = $reqUser->fetch();
         <!-- Grid de toutes la page -->
         <div id="profil-topleft">
             <?php if(!empty($userInfo['avatar'])):?>
-            <a href="myprofile.php"><img src="./assets/upload/<?php echo $userInfo['avatar'];?>" alt="" class="profilchat-you"></a>
+            <a href="myprofile.php"><img src="./assets/upload/<?php echo $userInfo['avatar'];?>" alt="" class="profilchat"></a>
             <?php else:?>
-            <a href="myprofile.php"><img src="./assets/img/avatar.png" alt="avatar" class="profilchat-you"></a>
+            <a href="myprofile.php"><img src="./assets/img/avatar.png" alt="avatar" class="profilchat"></a>
             <?php endif;?>
             <a href="myprofile.php">
                 <?php echo $username ?><br>Votre profil</a>
         </div>
 
         <div id="leftsettings">
-            <!-- Affichage des conversation a gauche de la paage -->
+            <!-- Affichage des conversation à gauche de la page -->
 
             <?php
                 echo "<h3 class='topic-title-left'>Conversation</h3>";
@@ -75,7 +71,9 @@ $userInfo = $reqUser->fetch();
                     } 
                     
                     else {
+                        //sinon affiche le nom de la conversation en titre h1
                         echo "<h1>".$_SESSION['cv_name']."</h1>";
+                        // requête pour afficher le nom du créateur du topic
                         $convcreatedby = $connexion->prepare(
                                                     "SELECT tu.username, 
                                                     tc.subject 
@@ -86,7 +84,7 @@ $userInfo = $reqUser->fetch();
                         $convcreatedby->execute();
 
                         while ($createdby = $convcreatedby->fetch()) {
-                            
+                            // affiche le créateur du topic
                             if($_GET['cv_name'] == $createdby['subject']) {
                                 echo "
                                     <div class='created-by'>
