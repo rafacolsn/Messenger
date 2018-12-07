@@ -21,15 +21,13 @@ if(isset($_POST['send-message'])) {
             $req2->execute();
             
         }
-        
-       
-    }
-
-    else {
+    }else {
         echo "Message is empty or maybe too long!";
     }
 }
 require "assets/php/bottom.php";
 
+
 header("Location: messenger.php?cv_id=".intval($convers).'&cv_name='.$_SESSION['cv_name'].'' ); // renvoie à la page de la conversation
 ?>
+

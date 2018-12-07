@@ -395,6 +395,7 @@ a:hover {
 }
 
 #topic-output-chat {
+   position: relative;
    background-color: #022b4a;
    color: #e06500;
    grid-row: 1;
@@ -411,12 +412,27 @@ a:hover {
    font-weight: 900;
    text-justify: auto;
 }
+.invited {
+   position: absolute;
+   bottom: 0;
+}
+
+.invited-name {
+   font-size: 0.7rem;
+   color: #acafbb;
+   font-style: italic;
+   bottom: 0em;
+   margin: 0 0 0 1em;
+}
 
 .user-invited-list {
 padding-left: 2.5em;
 }
 
 .created-by {
+   position: absolute;
+   right: 0;
+   bottom: -0.8rem;
    color: rgba(255, 255, 255, 0.6);
    float: right;
    padding-right: 1em;
@@ -439,4 +455,25 @@ padding-left: 2.5em;
 .contact li {
    padding-left: 0.5em;
 
+}
+
+.edited-message-area {
+   outline: none;
+   background-color: #02345a;
+   color: white;
+   border:1px solid #02345a;
+   overflow: auto;
+   resize: none;
+   width: 300px;
+   height: 150px;
+}
+
+
+.edited-message-area::-webkit-scrollbar {
+   width: 8px;
+   height: 7px;
+}
+
+.edited-message-area::-webkit-scrollbar-thumb {
+   background-color: #e06500;
 }

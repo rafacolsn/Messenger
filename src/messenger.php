@@ -65,50 +65,58 @@ $userInfo = $reqUser->fetch();
             </form>
         </div>
 
-        <div id="topic-output-chat">
+    <div id="topic-output-chat">
             <!-- Nom de la conversation ou l'on est, au dessus du chat -->
 
             <?php 
+                    if($_GET['cv_name'] == 'Accueil') {
+                    // Si présent sur aucune conversation, affiche le message ci dessous
+                        echo "<h1> Bienvenu sur BigChat</h1>";
+                    } 
+                    
+                    else {
+                        echo "<h1>".$_SESSION['cv_name']."</h1>";
+                        $convcreatedby = $connexion->prepare(
+                                                    "SELECT tu.username, 
+                                                    tc.subject 
+                                                    FROM T_USERS tu 
+                                                    JOIN T_CONVERSATION tc 
+                                                    ON tu.id_user = tc.author_id 
+                                                    WHERE tu.id_user = tc.author_id");
+                        $convcreatedby->execute();
 
-if($_GET['cv_name'] == 'Accueil' ) { // Si présent sur aucune conversation, affiche le message ci dessous
-    echo "<h1> Bienvenu sur BigChat</h1>";
-   
-} else {
-
-    $convcreatedby = $connexion->prepare("SELECT tu.username, tc.subject FROM T_USERS tu JOIN T_CONVERSATION tc ON tu.id_user = tc.author_id WHERE tu.id_user = tc.author_id");
-
-    $convcreatedby->execute();
-
-    while( $createdby = $convcreatedby->fetch() ) { 
-
-      if($_GET['cv_name'] == $createdby['subject']) {    
-
-        echo "<h1>". $_SESSION['cv_name'] . "</h1>";
-        echo "<br> <p class='created-by'> Crée par ". $createdby['username'] ." </p> ";
-    }
-    }
-}
-
-
-
+                        while ($createdby = $convcreatedby->fetch()) {
+                            
+                            if($_GET['cv_name'] == $createdby['subject']) {
+                                echo "
+                                    <div class='created-by'>
+                                        <p>Crée par ". $createdby['username'] ." 
+                                        </p>
+                                    </div> ";
+                            }
+                        }
+                    }
              ?>
+             <div class="invited"><?php require "assets/php/invited-people.php"?></div>
         </div>
 
         <div id="chat-middle-output">
             <!-- DIV qui affiche les messages, au centre du site-->
 
             <ul>
-
-
                 <?php 
-                if ($_GET['action'] == 'edit') {
-                    require "edit-message.php";
-                }
+                    require "display-messages.php";
 
-                require "display-messages.php";
-                if($_SESSION['cv_id'] == "") { // Si l'url de la conversation est vide, affichera le message d'accueuil
-                    accueil();
-                }
+                        if ($_GET['action'] == 'edit') {
+                            require "edit-message.php";
+                        }
+
+            
+                        if($_GET['cv_name'] != "Accueil") { // Si l'url de la conversation est vide, affichera le message d'accueuil
+                            displayMessage(); 
+                        } else {
+                            accueil();
+                        }
                 ?>
             </ul>
         </div>
@@ -140,13 +148,10 @@ if($_GET['cv_name'] == 'Accueil' ) { // Si présent sur aucune conversation, aff
             </form>
 
              <?php
+                    if ($_SESSION['topicempty']  == ""){
                 
-                if (isset($_POST['create-conv']) && $_POST['topic'] == ""){
-                    echo "<br> <h3 class='topic-title-left'> <strong> Vous devez choisir un titre de conversation </strong></h3>";
-                };
-                
-                
-                
+                        echo "<br> <h3 class='topic-title-left'> <strong> Vous devez choisir un titre de conversation </strong></h3>";
+                    } 
                 ?>
 
             <form action="./assets/php/disconnect.php" method="post">
