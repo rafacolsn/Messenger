@@ -1,10 +1,6 @@
 <?php
 session_start();
-<<<<<<< HEAD
-
-=======
 require "react.php";
->>>>>>> 99a76857ebccdee9712d7ad788e947d725064bf9
 
 function displayMessage () {
 require "assets/php/connect2db.php";
@@ -63,7 +59,7 @@ while ($donnees = $req->fetch()) {
         else {
             echo '
                 <div class="sender-container">
-                    <img class ="profilchat-sender display-sender" src="src="assets/upload/'.$donnees['avatar'].'"/>
+                    <img class ="profilchat-sender display-sender"src="assets/upload/'.$donnees['avatar'].'"/>
                         <li class="sender">'
                             .nl2br(htmlspecialchars($donnees['contenu'])).'
                         </li>
