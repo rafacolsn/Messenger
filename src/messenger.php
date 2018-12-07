@@ -178,12 +178,15 @@ $userInfo = $reqUser->fetch();
 
     </div>
 
+    <!-- Src de tout les dossier lié a la librairie EMOJI -->
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="assets/js/config.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/jquery.emojiarea.js"></script>
     <script src="assets/js/emoji-picker.js"></script>
     <script>
+
         window.emojiPicker = new EmojiPicker({
             emojiable_selector: '[data-emojiable=true]',
             assetsPath: 'assets/img',
@@ -191,12 +194,13 @@ $userInfo = $reqUser->fetch();
         });
 
 
-        // Finds all elements with emojiable_selector and converts them to rich emoji input fields
-        // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
-        // It can be called as many times as necessary; previously converted input fields will not be converted again
+    // Finds all elements with emojiable_selector and converts them to rich emoji input fields
+    // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
+    // It can be called as many times as necessary; previously converted input fields will not be converted again
 
 
         window.emojiPicker.discover();
+
     </script>
 </body>
 

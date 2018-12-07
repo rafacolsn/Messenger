@@ -1,6 +1,6 @@
 # Projet BigChat - LIE-Hamilton-1.7 
 
-> **Crée par :** _Andy Kraus - Steve Piron - Raphael Colson - Youssef El Hirech_ \
+> **Crée par :** _Andy Krause - Steve Piron - Raphael Colson - Youssef El Hirech_ \
 > **Language :** _HTML5 - CSS3 - PHP - SQL_ \
 > **Github Repertoire :** _[Ici](https://github.com/rafacolsn/Messenger)_
 > - **Branche utilisée :** _raph - Andy - Steve - Youssef - Developpement_
@@ -40,11 +40,6 @@ ___
 ## ./assets/php/`editprofil.php`
 
 > Page de mise a jour du profil de l'utilisateur - Requête dans la base de donnée
-
-
-## ./assets/php/`emoji.php`
-
-> Emoji
 
 ## ./assets/php/`errors.php`
 
@@ -113,6 +108,8 @@ ___
 ## ./`.gitignore`
 > - `/db/*` - Utilisé uniquement pour le local serveur
 > - `/src/assets/upload` - Pour éviter l'upload des photos test
- 
+
+## ./`Librairie Emoji`
+> Pour toute information lié a la librairie EMOJI voici le lien du git hub utiliser : [(https://github.com/OneSignal/emoji-picker)]
 
 Bon travail !
