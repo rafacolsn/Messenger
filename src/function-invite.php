@@ -4,7 +4,7 @@ function allmembers(){
 		$invitation_sql = $connexion->prepare("SELECT username,id_user,firstname,lastname,connected FROM T_USERS ORDER BY connected DESC");
 		$invitation_sql->execute();
 	
-		if($_GET['cv_id'] != NULL || $_GET['cv_name'] != NULL ) { // Si sur page par defaut (aucun id, aucune conversation)
+		if($_SESSION['cv_name'] != "Accueil" ) { // Si sur page par defaut (aucun id, aucune conversation)
 		
 		while ($result = $invitation_sql->fetch()) // Boucle de la liste des membres
             {
@@ -69,9 +69,7 @@ function allmembers(){
 				}
 			}	
 		}
-		
+
 };
-
-
 require "assets/php/bottom.php";
 ?>	
