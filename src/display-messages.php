@@ -59,7 +59,7 @@ while ($donnees = $req->fetch()) {
         else {
             echo '
                 <div class="sender-container">
-                    <img class ="profilchat-sender display-sender" src="src="assets/upload/'.$donnees['avatar'].'"/>
+                    <img class ="profilchat-sender display-sender" src="assets/upload/'.$donnees['avatar'].'"/>
                         <li class="sender">'
                             .nl2br(htmlspecialchars($donnees['contenu'])).'
                         </li>
