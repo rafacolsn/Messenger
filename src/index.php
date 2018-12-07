@@ -53,7 +53,7 @@ require("assets/php/registerlogin.php");
 											</div>
 										</div>
 									</div>
-									<div class="form-group">
+									<!-- <div class="form-group">
 										<div class="row">
 											<div class="col-lg-12">
 												<div class="text-center">
@@ -61,7 +61,7 @@ require("assets/php/registerlogin.php");
 												</div>
 											</div>
 										</div>
-									</div>
+									</div> -->
 								</form>
 								<form id="register-form"  method="post" role="form" style="display: none;">
 									<?php include('assets/php/errors.php');?>
