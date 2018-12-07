@@ -69,25 +69,35 @@ $userInfo = $reqUser->fetch();
             <!-- Nom de la conversation ou l'on est, au dessus du chat -->
 
             <?php 
-
-                    if($_GET['cv_name'] == 'Accueil' )
-                    { // Si présent sur aucune conversation, affiche le message ci dessous
+                    if($_GET['cv_name'] == 'Accueil') {
+                    // Si présent sur aucune conversation, affiche le message ci dessous
                         echo "<h1> Bienvenu sur BigChat</h1>";
+                    } 
                     
-                    } else 
-                    { echo "<h1>". $_SESSION['cv_name'] . "</h1>";
-                        $convcreatedby = $connexion->prepare("SELECT tu.username, tc.subject FROM T_USERS tu JOIN T_CONVERSATION tc ON tu.id_user = tc.author_id WHERE tu.id_user = tc.author_id");
+                    else {
+                        echo "<h1>".$_SESSION['cv_name']."</h1>";
+                        $convcreatedby = $connexion->prepare(
+                                                    "SELECT tu.username, 
+                                                    tc.subject 
+                                                    FROM T_USERS tu 
+                                                    JOIN T_CONVERSATION tc 
+                                                    ON tu.id_user = tc.author_id 
+                                                    WHERE tu.id_user = tc.author_id");
                         $convcreatedby->execute();
 
-                        while( $createdby = $convcreatedby->fetch() )  {
-                        if($_GET['cv_name'] == $createdby['subject']) 
-                        {    
-                           
-                            echo "<br> <p class='created-by'> Crée par ". $createdby['username'] ." </p> ";
-                        }
+                        while ($createdby = $convcreatedby->fetch()) {
+                            
+                            if($_GET['cv_name'] == $createdby['subject']) {
+                                echo "
+                                    <div class='created-by'>
+                                        <p>Crée par ". $createdby['username'] ." 
+                                        </p>
+                                    </div> ";
+                            }
                         }
                     }
              ?>
+             <div class="invited"><?php require "assets/php/invited-people.php"?></div>
         </div>
 
         <div id="chat-middle-output">

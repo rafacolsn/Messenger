@@ -1,6 +1,10 @@
 <?php
 session_start();
+<<<<<<< HEAD
 
+=======
+require "react.php";
+>>>>>>> 99a76857ebccdee9712d7ad788e947d725064bf9
 
 function displayMessage () {
 require "assets/php/connect2db.php";
@@ -12,7 +16,8 @@ $req = $connexion->prepare(
         DATE_FORMAT(m.date_modif, '%d/%m/%Y %Hh%i') AS date_modif, 
         m.conversation_id AS conv_id, 
         m.author_id AS author, 
-        u.username AS pseudo
+        u.username AS pseudo,
+        u.avatar
         FROM T_MESSAGES m 
         INNER JOIN T_USERS u ON m.author_id = u.id_user 
         ORDER BY msg_id ASC");
@@ -29,7 +34,7 @@ while ($donnees = $req->fetch()) {
         if ($donnees['author'] == $_SESSION['user_id']) { // si auteur du msg = user connecté class "you" sinon "sender"
             echo '
                 <div class="you-container">
-                    <img class ="profilchat-you display-you" src="assets/upload/'.$donnees['pseudo'].'.jpg"/>
+                    <img class ="profilchat-you display-you" src="assets/upload/'.$donnees['avatar'].'"/>
                         <li class="you">'
                             .nl2br(htmlspecialchars($donnees['contenu'])).'
                         </li>
@@ -58,7 +63,7 @@ while ($donnees = $req->fetch()) {
         else {
             echo '
                 <div class="sender-container">
-                    <img class ="profilchat-sender display-sender" src="assets/img/avatar.png"/>
+                    <img class ="profilchat-sender display-sender" src="src="assets/upload/'.$donnees['avatar'].'"/>
                         <li class="sender">'
                             .nl2br(htmlspecialchars($donnees['contenu'])).'
                         </li>
