@@ -5,7 +5,6 @@
    grid-template-rows: 15% 1fr 20%;
    border: 3px solid #011320;
    overflow: hidden;
- 
 }
 
 #profil-topleft {
@@ -70,8 +69,8 @@
    width: 1.3rem;
    height: 1.3rem;
    padding-top: 0.1rem;
-   /* font-size: 1em; */
 }
+
 .messageleft i {
    color: #e06500;
    cursor: pointer;
@@ -84,7 +83,6 @@
 
 .messageleft::-webkit-scrollbar {
    width: 0.65em;
-
 }
 
 .messageleft::-webkit-scrollbar-thumb {
@@ -215,16 +213,13 @@ list-style: none;
    font-size: 11px;
 }
 
-.profilchat-you {
+.profilchat {
    border-radius: 50%;
    width: 48px;
+   height: 48px;
    border: 2px solid #e06500;
 }
-.profilchat-sender {
-   border-radius: 50%;
-   width: 48px;
-   border: 2px solid #e06500;
-}
+
 .display-you {
    position: absolute;
    right: -4rem;
@@ -251,7 +246,6 @@ list-style: none;
 ul {
    list-style: none;
    justify-self: center;
-   /* text-align: center; */
 }
 
 a {
@@ -261,12 +255,10 @@ a {
 }
 
 a:hover {
-   
    text-decoration: none;
 }
 
 #chat  {
-
    width: 100%;
 }
 
@@ -301,7 +293,6 @@ a:hover {
    height: 30px;
    font-size: 12px;
    margin-top: 10px;
-   
 }
 
 .button-left {
@@ -313,7 +304,6 @@ a:hover {
    height: 30px;
    font-size: 12px;
    margin-top: 10px;
-
 }
 
 .button-invite {
@@ -376,7 +366,6 @@ a:hover {
    grid-column: 2 / 4;
    grid-row: 4;
    display: grid;
-   
 }
 
 #messagebottom textarea {
@@ -385,7 +374,8 @@ a:hover {
    color: #032944b4;
    position: static;
 }
-.emo{
+
+.emo {
    flex-direction: row;
    display: flex;
 }

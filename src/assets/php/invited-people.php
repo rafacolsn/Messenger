@@ -18,7 +18,5 @@ $req->execute();
         while($data=$req->fetch()) {
             echo ' '.$data['username'].' |';
         }
-        
-
     ?>
 </span>
