@@ -3,7 +3,7 @@
 > **Language :** _HTML5 - CSS3 - PHP - SQL_ \
 > **Github Repertoire :** _[Ici](https://github.com/rafacolsn/Messenger)_
 > - **Branche utilisée :** _raph - Andy - Steve - Youssef - Developpement_
-> - **Branche Final :** _master_ \
+> - **Branche Final :** _master_ 
  
 # Comment utiliser BigChat ?
 
