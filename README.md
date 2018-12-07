@@ -1,7 +1,12 @@
 # Projet BigChat - LIE-Hamilton-1.7 
 
+<<<<<<< HEAD
 > **Crée par :** _Andy Krause - Steve Piron - Raphael Colson - Youssef El Hirech_ \
 > **Language :** _HTML5 - CSS3 - PHP - SQL_ \
+=======
+> **Crée par :** _Andy Kraus - Steve Piron - Raphaël Colson - Youssef El Hirech_ \
+> **Language :** _HTML5 - CSS3 - PHP - SQL - Javascirpt_ \
+>>>>>>> 9bf6c09aeed1b86a8e5dea4b6611040ad356e26f
 > **Github Repertoire :** _[Ici](https://github.com/rafacolsn/Messenger)_
 > - **Branche utilisée :** _raph - Andy - Steve - Youssef - Developpement_
 > - **Branche Final :** _master_ \
@@ -11,43 +16,51 @@
 # Comment utiliser BigChat ?
 
 > - Arrivé sur _`index.php`_ il suffit de vous créer un compte utilisateur. 
-> - Connecté vous a ce nouveau compte
-> - Arrivé sur _`messenger.php`_ vous pouvez vous rendre en haut a gauche sur "_Mon Profil_" pour ajouter un avatar, ou modifier votre mot de passe
+> - Connectez-vous à ce nouveau compte
+> - Arrivé sur _`messenger.php`_ vous pouvez vous rendre en haut à gauche sur "_Mon Profil_" pour ajouter un avatar, ou modifier votre mot de passe
 > - De retour sur _`messenger.php`_ il vous suffit de créer une conversation sur votre droite
 >   - Cette conversation s'affichera sur votre menu de gauche
->   - Il suffit de cliquer sur la conversation, et d'inviter les membres souhaité
+>   - Il suffit de cliquer sur la conversation, et d'inviter les membres souhaités
 > ___
 > - Vous pouvez réagir aux messages par des _likes_ sur les messages
-> - Vous pouvez supprimer vos messages uniquement, et vos conversations uniquement
+> - Vous pouvez supprimer uniquement vos messages et vos conversations
 
 
 ___
 
-# Liste des fichier généré pour le projet BigChat
+# Liste des fichiers générés pour le projet BigChat
 
 ## ./assets/php/`connect2db.php`
 
-> Page de connexion a la base de donnée online
+> Page de connexion à la base de données online
 
 ## ./assets/php/`disconnect.php`
 
-> Page de déconnexion a la base de donnée et redirection
+> Page de déconnexion à la base de données et redirection
 
 ## ./assets/php/`bottom.php`
 
-> Page de vérification d'utilisateur, update dans la base de donnée d'online / offline
+> Page de vérification des utilisateurs, update dans la base de données d'online / offline
 
 ## ./assets/php/`editprofil.php`
 
+<<<<<<< HEAD
 > Page de mise a jour du profil de l'utilisateur - Requête dans la base de donnée
+=======
+> Page de mise à jour du profil de l'utilisateur - Requête dans la base de données
+
+## ./assets/php/`emoji.php`
+
+> Emoji
+>>>>>>> 9bf6c09aeed1b86a8e5dea4b6611040ad356e26f
 
 ## ./assets/php/`errors.php`
 
-> Affichage d'erreur si login & mdp incorrect
+> Affichage d'erreurs si login & mdp incorrects
 
 ## ./assets/php/`registerlogin.php`
 
-> Page de gestion des enregistrements et des logins, requête a la base de donnée
+> Page de gestion des enregistrements et des logins, requête a la base de données
 
 ## ./assets/php/`user.php`
 
@@ -55,15 +68,15 @@ ___
 
 ## ./`delete-message.php`
 
-> Fichier de gestion de la suppression des messages, requête a la base de donnée
+> Fichier de gestion de la suppression des messages, requête a la base de données
 
 ## ./`display-message.php`
 
-> Requête SQL pour récuperer message de la base de donnée + affichage au chat output
+> Requête SQL pour récuperer les messages de la base de donnée et affichage en focntion des users connectés et de la conversation sélectionnée.
 
 ## ./`display-topic-chat.php`
 
-> Requête SQL pour récuperer nom du topic de la base de donnée + affichage dans le titre de la conversation
+> Requête SQL pour récupérer le nom du topic de la base de données et affichage dans le titre de la conversation
 
 ## ./`edit-message.php`
 
@@ -71,7 +84,7 @@ ___
 
 ## ./`function-invite.php`
 
-> Fichier de requête SQL pour récuperation des membres + invitation des membres et affichage de ceux-ci (Online ou Offline)
+> Fichier de requête SQL pour récupération des membres + invitation des membres et affichage de ceux-ci (Online ou Offline)
 
 ## ./`index.php`
 
@@ -91,25 +104,30 @@ ___
 
 ## ./`post-message.php`
 
-> Fichier de requête SQL pour insertion dans la base du message envoyé au clique sur le bouton "Send"
+> Fichier de requête SQL pour insertion dans la db du message envoyé au clique sur le bouton "Envoi"
 
 ## ./`react.php`
 
-> Fichier de requête SQL pour insertion du 'like' dans la base de donnée
+> Fichier de requête SQL pour insertion du 'like' dans la base de données
 
 ## ./`topic.php`
 
-> Fichier de requête SQL pour insertion de la conversation crée dans la base de donnée 
+> Fichier de requête SQL pour insertion de la conversation créée dans la base de données 
 
 ## ./`update-message.php`
 
-> Fichier de requete lors de l'édition d'un message
+> Fichier de requête lors de l'édition d'un message
 
 ## ./`.gitignore`
 > - `/db/*` - Utilisé uniquement pour le local serveur
+<<<<<<< HEAD
 > - `/src/assets/upload` - Pour éviter l'upload des photos test
 
 ## ./`Librairie Emoji`
 > Pour toute information lié a la librairie EMOJI voici le lien du git hub utiliser : [(https://github.com/OneSignal/emoji-picker)]
+=======
+
+ 
+>>>>>>> 9bf6c09aeed1b86a8e5dea4b6611040ad356e26f
 
 Bon travail !
