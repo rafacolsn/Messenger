@@ -27,6 +27,12 @@ $_SESSION['cv_id'] = $_GET['cv_id']; //stockage du paramètre de l'url dans la v
 
 // on fait une boucle qui génère des balises li
 while ($donnees = $req->fetch()) {  
+
+    $msg_id = $donnees['msg_id'];
+    $req_liked = $connexion->prepare("SELECT liked FROM T_REACTIONS WHERE message_id=$msg_id");
+    $req_liked->execute();
+    $liked = $req_liked->fetchColumn(0);
+    
     
     // à la condition que l'id de la conversation soit égal à celui de la session
     if ($donnees['conv_id'] == $_SESSION['cv_id']) {
@@ -34,6 +40,7 @@ while ($donnees = $req->fetch()) {
         // si auteur du msg = user connecté class "you" sinon "sender"
         // nl2br permet de garde les retours à la ligne du message et htmlspecialchars d'empêcher les injonctions de code
         if ($donnees['author'] == $_SESSION['user_id']) { 
+
             echo '
                 <div class="you-container">
                 
@@ -60,16 +67,14 @@ while ($donnees = $req->fetch()) {
                                         <a href="delete-message.php?action=delete&id='.$donnees['msg_id'].'">
                                             <i class="fas fa-trash-alt"></i>
                                         </a>
+                                        <i  style="color:red" class="far fa-thumbs-up"></i>'.$liked.'
                                     </span>
                         </div>
                 </div>'; 
         }
         // affiche les msg des autres users avec la classe sender
         else {
-            $msg_id = $donnees['msg_id'];
-            $req_liked = $connexion->prepare("SELECT liked FROM T_REACTIONS WHERE message_id=$msg_id");
-            $req_liked->execute();
-            $liked = $req_liked->fetchColumn(0);
+
             
             echo '
                 <div class="sender-container">

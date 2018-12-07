@@ -4,7 +4,7 @@
 > **Language :** _HTML5 - CSS3 - PHP - SQL - Javascirpt_ \
 > **Github Repertoire :** _[Ici](https://github.com/rafacolsn/Messenger)_
 > - **Branche utilisée :** _raph - Andy - Steve - Youssef - Developpement_
-> - **Branche Final :** _master_ \
+> - **Branche Final :** _master_ 
 
 > **Consigne de l'excercice :** [Ici](https://github.com/becodeorg/LIE-Hamilton-1.7/blob/master/02-La-colline/01-php-messenger/README.md)
 > 
