@@ -18,4 +18,5 @@ $id = $_SESSION["user_id"];
             $req->execute();
         }
     }
+require "assets/php/bottom.php";
 ?>

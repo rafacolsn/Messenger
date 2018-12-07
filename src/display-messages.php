@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+require "react.php";
 
 function displayMessage () {
 require "assets/php/connect2db.php";
