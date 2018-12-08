@@ -67,7 +67,7 @@ while ($donnees = $req->fetch()) {
                                         <a href="delete-message.php?action=delete&id='.$donnees['msg_id'].'">
                                             <i class="fas fa-trash-alt"></i>
                                         </a>
-                                        <i  style="color:red" class="far fa-thumbs-up"></i>'.$liked.'
+                                        <i  style="color:rgb(224, 101, 0)" class="far fa-thumbs-up">   '.$liked.'</i>
                                     </span>
                         </div>
                 </div>'; 
