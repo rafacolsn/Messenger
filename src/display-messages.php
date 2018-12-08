@@ -92,7 +92,7 @@ while ($donnees = $req->fetch()) {
                                 echo '
                                     <span class="date-msg">le '.$donnees['date_modif'].'</span>
                                 <a href="messenger.php?cv_id='.$_SESSION['cv_id'].'&cv_name='.$_SESSION['cv_name'].'&action=react&id='.$donnees['msg_id'].'">
-                                    <i class="far fa-thumbs-up"></i>'.$liked.'
+                                    <i class="far fa-thumbs-up">  '.$liked.'</i> 
                                 </a>
                         </div>
                 </div>';
