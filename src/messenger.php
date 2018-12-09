@@ -152,7 +152,7 @@ $userInfo = $reqUser->fetch();
                     } 
                 ?>
 
-            <form action="./assets/php/disconnect.php" method="post">
+            <form action="disconnect.php" method="post">
                 <!-- Au clique sur l'input disconnect ci dessous, renvoi vers la page disconnect.php qui detruit la session en cours -->
                 <input name="disconnect" class="button-disconnect" type="submit" value="Deconnexion" /></a>
             </form>
