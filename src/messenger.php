@@ -36,10 +36,10 @@ $userInfo = $reqUser->fetch();
     <div id="allchat">
         <!-- Grid de toutes la page -->
         <div id="profil-topleft">
-            <?php if(!empty($userInfo['avatar'])):?>
-            <a href="myprofile.php"><img src="./assets/upload/<?php echo $userInfo['avatar'];?>" alt="" class="profilchat"></a>
+            <?php if(!empty($userInfo['avatar'])):?>  <!-- Si la colonne avatar n'est pas vide -->
+            <a href="myprofile.php"><img src="./assets/upload/<?php echo $userInfo['avatar'];?>" alt="" class="profilchat"></a><!-- On affecte l'image de utilisateur -->
             <?php else:?>
-            <a href="myprofile.php"><img src="./assets/img/avatar.png" alt="avatar" class="profilchat"></a>
+            <a href="myprofile.php"><img src="./assets/img/avatar.png" alt="avatar" class="profilchat-you"></a><!-- On affecte une image par défaut -->
             <?php endif;?>
             <a href="myprofile.php">
                 <?php echo $username ?><br>Votre profil</a>
@@ -67,7 +67,7 @@ $userInfo = $reqUser->fetch();
             <?php 
                     if($_GET['cv_name'] == 'Accueil') {
                     // Si présent sur aucune conversation, affiche le message ci dessous
-                        echo "<h1> Bienvenu sur BigChat</h1>";
+                        echo "<h1> Bienvenue sur BigChat</h1>";
                     } 
                     
                     else {
