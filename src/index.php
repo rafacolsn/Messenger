@@ -11,10 +11,14 @@ require("assets/php/registerlogin.php");
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="assets/js/script.js"></script>
-    <link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"> 
     <title>Messenger</title>
 </head>
 <body>
+<div class="title-chat">
+	<h1>Bienvenue sur BigChat</h1>
+</div>
 <div class="container">
     	<div class="row">
             <div class="col-md-3"></div>
