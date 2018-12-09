@@ -13,12 +13,14 @@
    background-color: #022b4a;
    justify-items: center;
    display: grid;
+
 }
 
 #profil-topleft a {
    text-decoration: none;
    color: #e06500;
    font-size: 12px;
+   text-align: center;
 }
 
 #profil-topleft a:hover {
@@ -121,12 +123,13 @@ list-style: none;
    border: none;
    grid-column: 2/3;
    grid-row: 2/4;
-   background-color: #0187ee1a;
+   background-color: #f0f0f0;
    height: auto;
    width: auto;
    overflow:auto;
    display: grid;
    padding-top: 10px;
+   border-radius: 5px;
 }
 
 #chat-middle-output::-webkit-scrollbar {
@@ -201,7 +204,12 @@ list-style: none;
 }
 .pseudo {
    font-size: 0.7rem;
-   color: #01132069;
+   color: #013f6e;
+}
+
+.pseudoyou {
+   font-size: 0.7rem;
+   color: rgb(11, 143, 148);
 }
 
 .you:active {
@@ -218,6 +226,9 @@ list-style: none;
    width: 48px;
    height: 48px;
    border: 2px solid #e06500;
+   justify-items: center;
+   text-align: center;
+   margin-left: 5px;
 }
 
 .display-you {
@@ -228,19 +239,17 @@ list-style: none;
 .display-sender {
    position: absolute;
    left: -6rem;
+   border-radius: 50%;
+   width: 48px;
+
 }
 
-.profilchat-you:hover {
-   border-radius: 50%;
-   border: 2px solid white;
+.display-sender:hover {
    cursor: pointer;
 }
 
 .profilchat {
-   border-radius: 50%;
-   width: 48px;
-   margin-right: 10px;
-   margin-bottom: 10px;
+
 }
 
 ul {
@@ -386,7 +395,7 @@ a:hover {
 
 #topic-output-chat {
    position: relative;
-   background-color: #022b4a;
+   background-color: #01243f;
    color: #e06500;
    grid-row: 1;
    border: none;

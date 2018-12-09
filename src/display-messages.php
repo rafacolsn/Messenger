@@ -49,7 +49,7 @@ while ($donnees = $req->fetch()) {
                             .nl2br(htmlspecialchars($donnees['contenu'])).'
                         </li>
                         <div class="date-container">
-                            <span class="pseudo">envoyé par '.utf8_encode($donnees['pseudo']).'</span>';
+                        envoyé par  <span class="pseudoyou">'.utf8_encode($donnees['pseudo']).'</span>';
                                 //utf8 encode permet de conserver les accents
                                 // si la date de modif des messages est pas = à créa on rajoute un "modifié" avant la date
                                 if($donnees['date_modif'] != $donnees['date_crea']) { 
@@ -83,7 +83,7 @@ while ($donnees = $req->fetch()) {
                             .nl2br(htmlspecialchars($donnees['contenu'])).'
                         </li>
                         <div class="date-container-sender">
-                            <span class="pseudo">envoyé par '.utf8_encode($donnees['pseudo']).'</span>';
+                        envoyé par <span class="pseudo">'.utf8_encode($donnees['pseudo']).'</span>';
                                 
                                 if($donnees['date_modif'] != $donnees['date_crea']) { 
                                     echo '<span class="date-msg modif"> modifié le </span>';

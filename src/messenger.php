@@ -26,6 +26,8 @@ $userInfo = $reqUser->fetch();
         crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/emoji.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
     <title>Maquette - Messenger</title>
@@ -72,7 +74,7 @@ $userInfo = $reqUser->fetch();
                     
                     else {
                         //sinon affiche le nom de la conversation en titre h1
-                        echo "<h1>".$_SESSION['cv_name']."</h1>";
+                        echo "<h1 class='titletopic'>".$_SESSION['cv_name']."</h1>";
                         // requête pour afficher le nom du créateur du topic
                         $convcreatedby = $connexion->prepare(
                                                     "SELECT tu.username, 
@@ -116,6 +118,7 @@ $userInfo = $reqUser->fetch();
                             accueil();
                         }
                 ?>
+
             </ul>
         </div>
 

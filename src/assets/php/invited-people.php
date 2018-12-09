@@ -15,8 +15,20 @@ $req->execute();
 ?>
 <span class="invited-name">
     <?= 'participent à la conversation :'; 
+        $counter_invited = 0;
         while($data=$req->fetch()) {
+
             echo ' '.$data['username'].' |';
-        }
+          $counter_invited =  $counter_invited+1;
+            
+        } 
+
+        if($counter_invited <= 1) {
+        echo "<span> Total : ".$counter_invited." participant</span>";
+    } 
+    
+    else {
+        echo "<span> Total : ".$counter_invited." participants</span>";
+    }
     ?>
 </span>
