@@ -1,0 +1,15 @@
+body{
+    background-image: url("../img/background.jpg");
+}
+.card-outline-secondary{
+    color: #00415d;
+}
+.card-header{
+    background-color: #ffe4b2;
+}
+.title-page{
+    color: #fff;
+    text-align: center;
+    margin-top: 15px;
+    font-family: 'Press Start 2P', cursive;
+}

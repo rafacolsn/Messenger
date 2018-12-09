@@ -12,9 +12,13 @@
     <link rel="stylesheet" href="assets/css/profile.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"> 
     <title>My Profile</title>
 </head>
 <body>
+<div class="title-page">
+    <h1>Edition de profil</h1>
+</div>
 <div class="container">
     <div class="row">
         <div class="col-md-4">
