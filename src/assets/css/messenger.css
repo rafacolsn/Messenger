@@ -244,6 +244,12 @@ list-style: none;
 
 }
 
+.profilchat-you {
+   left: -6rem;
+   border-radius: 50%;
+   width: 48px;
+}
+
 .display-sender:hover {
    cursor: pointer;
 }
