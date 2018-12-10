@@ -9,7 +9,7 @@
 >>>>>>> 9bf6c09aeed1b86a8e5dea4b6611040ad356e26f
 > **Github Repertoire :** _[Ici](https://github.com/rafacolsn/Messenger)_
 > - **Branche utilisée :** _raph - Andy - Steve - Youssef - Developpement_
-> - **Branche Final :** _master_ \
+> - **Branche Final :** _master_ 
 
 > **Consigne de l'excercice :** [Ici](https://github.com/becodeorg/LIE-Hamilton-1.7/blob/master/02-La-colline/01-php-messenger/README.md)
 > 
