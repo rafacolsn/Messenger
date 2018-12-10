@@ -41,9 +41,6 @@ ___
 
 > Page de mise à jour du profil de l'utilisateur - Requête dans la base de données
 
-## ./assets/php/`emoji.php`
-
-> Emoji
 
 ## ./assets/php/`errors.php`
 
