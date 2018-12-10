@@ -1,9 +1,9 @@
 <?php
 date_default_timezone_set("Europe/Brussels");
 
-try { 
+try {
     $timezone = date_default_timezone_get();
-    $connexion = new PDO("mysql:host=mysql;dbname=raphcolson_messenger", "messenger", "messenger");
+    $connexion = new PDO("mysql:host=mysql-raphcolson.alwaysdata.net;dbname=raphcolson_messenger", "172648", "MDP?Msger");
     $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // $connexion->exec("SET time_zone = '{$timezone}'");
 } catch (PDOException $e) {
