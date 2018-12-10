@@ -233,13 +233,14 @@ list-style: none;
 
 .display-you {
    position: absolute;
-   right: 0rem;
+   right: -4rem;
 }
 
 .display-sender {
    position: absolute;
-   left: -8rem;
-
+   left: -6rem;
+   border-radius: 50%;
+   width: 48px;
 
 }
 

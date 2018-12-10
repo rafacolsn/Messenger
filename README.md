@@ -49,10 +49,13 @@ ___
 =======
 > Page de mise à jour du profil de l'utilisateur - Requête dans la base de données
 
+<<<<<<< HEAD
 ## ./assets/php/`emoji.php`
 
 > Emoji
 >>>>>>> 9bf6c09aeed1b86a8e5dea4b6611040ad356e26f
+=======
+>>>>>>> bd7f9e49c33311b1f078d443644a08ef6aa5350d
 
 ## ./assets/php/`errors.php`
 
